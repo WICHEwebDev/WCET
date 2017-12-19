@@ -1,0 +1,80 @@
+////////////////////////
+// Search Styling
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$search-icon-bg: $orange;
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+%search-common {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+}
+
+////////////////////////
+// Styles
+////////////////////////
+.search-block-form {
+    float: left;
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    top: 3px;
+    right: 0;
+    .search-active & {
+        width: 100%;
+    }
+    // Search text field, hides behind search icon when inactive
+    input[type="search"] {
+        @extend %search-common;
+        right: 0;
+        transition: width 0.5s ease;
+        cursor: pointer;
+        border: 2px solid $search-icon-bg;
+        &:focus {
+            outline-color: transparent;
+            outline-style: none;
+            box-shadow: none;
+        }
+        .search-active & {
+            width: 100%;
+            cursor: default;
+        }
+    }
+    // The actual submit button, invisible behind the icon
+    input[type="submit"] {
+        @extend %search-common;
+        border: 0;
+        top: 0;
+        right: 0;
+        background: $search-icon-bg;
+        text-indent: -99999px;
+        overflow: hidden;
+        text-align: left;
+        // Disable the button unless search is active
+        pointer-events: none;
+        .search-active & {
+            pointer-events: auto;
+        }
+    }
+    // Search icon
+    .form-actions {
+        &:before {
+            @extend %search-common;
+            @extend %icon;
+            content: "\e986";
+            color: $white;
+            padding: 9px 0 0 10px;
+            right: 0;
+            z-index: 10;
+            display: block;
+            pointer-events: none;
+        }
+    }
+}

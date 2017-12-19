@@ -1,0 +1,133 @@
+////////////////////////
+// Layout
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$breakpoints: (
+    medium: 750px,
+    large: 970px,
+    xlarge: 1170px
+);
+
+$breakpoint-no-query-fallbaks: true;
+$breakpoint-to-ems: true;
+$mobile-first         : true;
+$include-border-box   : false;
+$include-clearfix     : false;
+
+$medium-footer-height: 183px;
+$large-footer-height: 103px;
+
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+// Mixin for Sticky Footer
+// req. div around main content w/ header, no footer
+@mixin stickyfooter($height:125px) {
+    // html/body height: 100 removed, already applied
+    .layout-container {
+        min-height: 100%;
+        // equal to footer height
+        margin-bottom: -($height);
+        &:after {
+            content: "";
+            display: block;
+        }
+    }
+    footer,
+    .layout-container:after {
+        // the after must be the same height as footer
+        height: $height;
+    }
+}
+
+@include add-grid(12 at map-get($breakpoints, medium));
+
+@include add-gutter(1/3);
+
+////////////////////////
+// Styles
+////////////////////////
+
+html,
+body {
+    height: 100%;
+}
+
+// Sticky Footer implementation
+@include respond-to('medium') {
+    @include stickyfooter($medium-footer-height);
+}
+@include respond-to('large') {
+    @include stickyfooter($large-footer-height);
+}
+
+.region-branding {
+    @include respond-to('medium') {
+        @include grid-span(4, 1);
+    }
+}
+
+.region-header {
+    @include clear;
+    width: 300px;
+    margin: 0 auto 0.5rem;
+    position: relative;
+    @include respond-to('medium') {
+        // @include grid-span(6, 7);
+        margin-top: 10px;
+        width: auto;
+        padding-right: 40px;
+        float: right;
+    }
+    @include respond-to('large') {
+        // @include grid-span(5, 8);
+    }
+}
+
+.region-primary-menu {
+    @include clear;
+    @include respond-to('medium') {
+        @include grid-span(12, 1);
+    }
+}
+
+main {
+    margin-bottom: 2rem;
+    .node--type-home & {
+        margin-bottom: 0;
+    }
+}
+
+main,
+footer,
+.region-highlighted {
+    @include respond-to('medium') {
+        @include grid-span(12,1);
+    }
+}
+
+// Inner Container for Regions
+.region-container {
+    main & {
+        padding: 0 1.5rem;
+    }
+    main &,
+    footer & {
+        margin: 0 auto;
+        @include respond-to('large') {
+            width: map-get($breakpoints, large);
+        }
+        @include respond-to('xlarge') {
+            width: map-get($breakpoints, xlarge);
+        }
+    }
+}
+
+.region-content-bottom {
+    clear: both;
+}

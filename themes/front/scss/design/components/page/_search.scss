@@ -1,0 +1,30 @@
+body.path-search {
+  form {
+    &.search-form {
+      @include clear;
+      .form-item {
+        label {
+          float: left;
+        }
+        input[type="search"] {
+          width: 224px;
+          margin: 0 10px 0 0;
+          float: left;
+          clear: left;
+
+        }
+      }
+      input[type="submit"] {
+        float: left;
+        @extend %btn;
+        @extend %btn-primary;
+        border: none;
+        padding: 4px 10px;
+      }
+      a.search-help-link {
+        float: left;
+        clear: left;
+      }
+    }
+  }
+}

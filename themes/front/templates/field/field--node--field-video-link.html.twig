@@ -1,0 +1,9 @@
+{% extends "themes/front/templates/field/field.html.twig" %}
+
+{% block field_items %}
+<div{{ content_attributes.addClass('field-items') }}>
+  {% for item in items %}
+    <iframe{{ item.attributes.addClass('field-item') }}  src="https://www.youtube.com/embed/{{ item.content['#url'].uri|trim('https://www.youtube.com/watch?v=') }}" frameborder="0" allowfullscreen></iframe>
+  {% endfor %}
+</div>
+{% endblock %}

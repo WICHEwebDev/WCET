@@ -1,0 +1,157 @@
+////////////////////////
+// Issue Content Styling
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$issue-icon-blog: "\e4a0"; //feed 
+$issue-icon-research: "\e901"; //magnifying glass
+$issue-icon-webcast: "\e956"; //display
+$issue-icon-talkingpoint: "\e903";
+$issue-icon-qa: "\e902";
+$issue-icon-addresource: "\e070"; //book2
+$issue-icon-news: "\e07d"; //file
+$issue-icon-publication: "\e91f"; //book
+$issue-icon-videos: "\e042"; //play
+$issue-icon-events: "\f073"; //calendar
+$issue-icon-lessons: "\e900";
+
+$section-title-bg: $dark-blue;
+$section-title-color: $white;
+$icon-bg: $orange;
+$icon-color: $white;
+
+$issue-link-color: $dark-blue2;
+
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+
+h3.section-title {
+    height: 46px;
+    margin: 0;
+    padding: 0.6rem 0 1.4rem 52px;
+    color: $section-title-color;
+    background: $section-title-bg;
+    position: relative;
+    font-weight: 400;
+    &:before {
+        @extend %icon;
+        @include rem(2.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        height: 46px;
+        width: 46px;
+        margin-right: 1rem;
+        color: $icon-color;
+        background: $icon-bg;
+        padding: 12px;
+    }
+    &.blog:before {
+        content: $issue-icon-blog;
+    }
+    &.research:before {
+        content: $issue-icon-research;
+    }
+    &.webcast:before {
+        content: $issue-icon-webcast;
+    }
+    &.publication:before {
+        content: $issue-icon-publication;
+    }
+    &.talkpoint:before {
+        content: $issue-icon-talkingpoint;
+    }
+    &.qa:before {
+        content: $issue-icon-qa;
+    }
+    &.resourc:before,
+    &.add-resourc:before {
+        content: $issue-icon-addresource;
+    }
+    &.news:before {
+        content: $issue-icon-news;
+    }
+    &.video-link:before {
+        content: $issue-icon-videos;
+    }
+    &.vent:before {
+        content: $issue-icon-events;
+    }
+    &.on:before {
+        content: $issue-icon-lessons;
+    }
+}
+
+.node--type-issue {
+    // Affect all the link fields
+    .field-type-link,
+    .view .item-list {
+        ul {
+            padding-left: 4rem;
+            li {
+                margin: 0;
+            }
+        }
+        li {
+            border-bottom: 1px solid $client-border;
+            padding: 1rem 0;
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+        a {
+            color: $issue-link-color;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .field-node--body {
+        @include respond-to('large') {
+            @include grid-span(8, 1);
+        }
+    }
+    .field-node--field-image {
+        @include respond-to('large') {
+            @include grid-span(4, 9);
+        }
+    }
+    .field-node--field-video-link {
+        iframe {
+            width: 100%;
+            height: 220px;
+            @include respond-to('medium') {
+                height: 500px;
+            }
+            @include respond-to('large') {
+                height: 100%;
+            }
+        }
+        @include respond-to('large') {
+            @include grid-span(4, 9);
+        }
+    }
+    // Go two-column for resources when the screen is big enough
+    .internal-resources {
+        @include respond-to('medium') {
+            // using isolation-span syntax to set clear:both rule
+            // (all other grid-span calls are really isolation by default)
+            @include isolation-span(6, 1, 'both');
+        }
+    }
+    .external-resources {
+        @include respond-to('medium') {
+            @include grid-span(6, 7);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{% extends "themes/front/templates/field/field.html.twig" %}
+
+{% block field_items %}
+    {% for item in items %}
+      <span{{ item.attributes.addClass('field-item') }}>
+        <a href="{{ item.content['#url'].uri }}" class="icon-envelop">{{ 'Email'|t }}</a>
+      </span>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+front.small:
+  label: small
+  mediaQuery: ''
+  weight: 2
+  multipliers:
+    - 1x
+front.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 700px)'
+  weight: 1
+  multipliers:
+    - 1x
+front.large:
+  label: large
+  mediaQuery: 'all and (min-width: 960px)'
+  weight: 0
+  multipliers:
+    - 1x

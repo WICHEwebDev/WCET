@@ -1,0 +1,106 @@
+////////////////////////
+// Focus Area Views
+//
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$home-view-bg: $dark-blue;
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+.node--type-home .region-content-bottom {
+    background: $home-view-bg;
+}
+
+#block-home-focus-area-block {
+    padding: 15px 0;
+    @include clear();
+    h2.block-title {
+        color: $white;
+        border-bottom: 0;
+        margin: 0;
+        padding-left: 15px;
+    }
+}
+
+.focus-area--home {
+    padding: 2rem 1rem;
+    @include rem(1.4);
+    @include respond-to('large') {
+        @include clear;
+    }
+    .views-row {
+        background: white;
+        border-radius: 5px;
+        padding: 2rem 1rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        position: relative;
+        @include respond-to('large') {
+            height: 275px;
+            @include float-span(1, $grid: 4, $gutter: 0.1);
+            &:nth-child(4n) {
+                @include float-span(1, 'last', $grid: 4, $gutter: 0.1);
+            }
+        }
+        @include respond-to('xlarge') {
+            height: 255px;
+        }
+        .views-field-view-node {
+            @include respond-to('large') {
+                position: absolute;
+                bottom: 1rem;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+            }
+            a {
+              @extend %btn;
+              @extend %btn-default;
+              text-decoration: none;
+            }
+        }
+    }
+    h3 {
+        @include rem(1.6);
+        text-transform: uppercase;
+        margin: 1rem 0 1.3rem 0;
+        @include respond-to ('large') {
+            height: 35px;
+            overflow: hidden;
+        }
+        a {
+          color: $dark-blue;
+        }
+    }
+}
+
+.focus-area--landing {
+    .views-row {
+        @include clear;
+        border-bottom: 1px solid $client-border;
+        padding: 1rem 0;
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+    img {
+        @include respond-to('medium') {
+            float: left;
+            margin-top: 3.5rem;
+            margin-right: 1rem;
+        }
+    }
+    p {
+        overflow: hidden;
+    }
+}

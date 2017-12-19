@@ -1,0 +1,24 @@
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: {}
+      css/print.css: { media: print }
+
+global-scripts:
+  version: VERSION
+  js:
+    js/doubletaptogo.js: {}
+    js/script.js: {}
+    js/tabby.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+
+slick:
+  js:
+    js/slick.min.js: {}
+    js/slick-control.js: {}
+  dependencies:
+    - core/jquery

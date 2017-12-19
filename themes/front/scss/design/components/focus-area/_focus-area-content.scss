@@ -1,0 +1,96 @@
+////////////////////////
+// Focus Area Content Display
+//
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+.node--type-focus-area {
+    > .node__content {
+        > .field-node--field-image {
+            margin-bottom: 15px;
+            @include respond-to('medium') {
+                @include grid-span(4, 1);
+                text-align: center;
+            }
+            img {
+              width: 100%;
+              height: auto;
+            }
+        }
+        .field-node--body {
+           @include respond-to('medium') {
+              @include grid-span(8, 5);
+           }
+        }
+    }
+}
+
+.field-node--field-icon {
+    img {
+        margin-bottom: 20px;
+    }
+}
+
+.field-node--field-ref-issues {
+    @include respond-to('medium') {
+        @include grid-span(8, 5, $options: 'both');
+
+    }
+    .field-label {
+        @extend %headings;
+        @extend %h2-style;
+        font-weight: 400;
+        border-bottom: 1px solid $light-gray;
+    }
+    > .field-items {
+        text-align: center;
+        > .field-item {
+            @include clear;
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+            border-radius: 2px;
+            padding: 20px 0;
+            &:hover {
+              background: rgba(0,0,0,0.05);
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                li {
+                    list-style-type: none;
+                    list-style-image: none;
+                }
+            }
+
+            @include respond-to('medium') {
+                @include float-span(1, $grid: 5);
+                height: 160px;
+                &:nth-child(5n) {
+                    @include float-span(1, 'last', $grid: 5);
+                }
+            }
+        }
+    }
+    .field-node--field-image img {
+        display: block;
+        margin: 0 auto 10px;
+    }
+    a {
+        display: block;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 1;
+    }
+}

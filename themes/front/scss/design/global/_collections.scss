@@ -1,0 +1,75 @@
+////////////////////////
+// Collections Custom Entity Styling
+//
+// Our custom entities currently do not have templating 
+// or view mode functionality, so we have to rely on CSS
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+
+// Unfortuante workarounds
+.field-collections--uid,
+.field-collections--created {
+    display: none;
+}
+
+.field-collections--title .field-item {
+    @include rem(2.0);
+    font-weight: 700;
+}
+
+// Spotlight
+.field-collections--field-spotlight-image {
+    img {
+        float: left;
+        margin: 1rem;
+    }
+}
+
+// Person
+.field-collections--field-person-photo {
+    float: left;
+    margin-top: -25px;
+    margin-right: 1rem;
+}
+
+.field-collections--field-person-termexpire {
+    .field-label,
+    .field-items,
+    .field-item {
+        display: inline;
+    }
+    .field-label:after {
+        content: ":",
+    }
+}
+
+.field-name-field-ref-person {
+    .field-collections--title .field-item {
+        position: relative;
+        left: 108px;
+    }
+}
+
+.field-node--field-featured-image {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.field-node--body {
+    img {
+        padding: 10px;
+    }
+}

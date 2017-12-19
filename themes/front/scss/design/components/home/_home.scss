@@ -1,0 +1,104 @@
+////////////////////////
+// Home page Styling
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$caption-bg: $dark-blue2;
+$caption-txt: $white;
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+.node--type-home {
+    // Slider
+    .field-node--field-images {
+        text-align: center;
+        max-width: 1200px;
+        margin: 2rem auto 0;
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+        p {
+            width: 100%;
+            padding: 1.5rem;
+            color: $caption-txt;
+            background: $caption-bg;
+            a {
+                color: $white;
+                text-decoration: underline;
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            padding: 0;
+        }
+    }
+    .field-name-body {
+        @include clear;
+        h3 {
+            @include rem(2.4);
+            font-weight: 400;
+            color: $base-text-color;
+            @include grid-span(12, 1);
+            @include respond-to('medium') {
+              @include grid-span(8, 3);
+            }
+        }
+    }
+}
+
+// Spotlight Section
+.field-node--field-ref-spotlight {
+    @include respond-to('large') {
+        @include grid-span(8, 1);
+    }
+    >.field-items {
+        >.field-item {
+            margin: 0 0 3rem 0;
+            @include respond-to('large') {
+                float: left;
+                width: 45%;
+                margin: 0 5% 0 0;
+            }
+        }
+    }
+    .archive-link {
+        @extend %btn-sm;
+        @extend %btn-default;
+        text-decoration: none;
+        margin-bottom: 1rem;
+    }
+}
+
+// Blog Section
+#block-home-blog {
+    h3 a {
+        @include rem(2);
+        color: $base-text-color;
+    }
+    .views-field-timestamp {
+        @include rem(1.4);
+        font-weight: 600;
+    }
+    @include respond-to('large') {
+        @include grid-span(4, 9);
+        padding-bottom: 1rem;
+    }
+    .views-field-link a {
+        @extend %btn-sm;
+        @extend %btn-default;
+        text-decoration: none;
+    }
+}

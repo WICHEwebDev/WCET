@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_home_team
+    - node.type.migrate_example_baseball
+id: node.migrate_example_baseball.field_home_team
+field_name: field_home_team
+entity_type: node
+bundle: migrate_example_baseball
+label: 'Home team'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

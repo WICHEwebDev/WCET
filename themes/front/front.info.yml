@@ -1,0 +1,33 @@
+name: Front
+type: theme
+description: 'Front theme.'
+package: Custom
+core: 8.x
+base theme: classy
+
+libraries:
+  - front/global-styling
+  - front/global-scripts
+stylesheets-remove:
+  # - normalize.css
+  - layout.css
+  - core/modules/system/css/system.theme.css
+
+logo:
+  path: themes/front/images/wcet-logo.png
+favicon:
+  path: ''
+
+regions:
+  branding: Branding
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  help: Help
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content: Content
+  content_bottom: Content Bottom
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: Footer

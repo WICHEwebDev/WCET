@@ -1,0 +1,55 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * this is a core template with addition of twig block for extending.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {# By wrapping the content variables in a block, this template allows child
+   templates to insert markup into this spot without re-writing the entire
+   template. #}
+  {% block title %}
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% endblock %}
+
+  {% if display_submitted %}
+    <footer class="node__meta">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes.addClass('node__content') }}>
+    {% block content %}
+      {{ content|without('links') }}
+    {% endblock %}
+  </div>
+
+  {% if content.links %}
+    <div class="node__links">
+      {{ content.links }}
+    </div>
+  {% endif %}
+
+</article>

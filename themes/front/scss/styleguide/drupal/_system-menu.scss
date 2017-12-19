@@ -1,0 +1,47 @@
+////////////////////////
+// System Menu Stylesheet Replacement
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+
+// Tabs - core override
+ul.primary {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    list-style: none;
+    li {
+        display: inline;
+    }
+    a {
+        display: inline-block;
+        @extend %btn-primary;
+        padding: 5px 15px;
+        text-decoration: none;
+    }
+}
+
+ul.secondary {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+        display: inline;
+    }
+    a {
+        display: inline-block;
+        @extend %btn-primary;
+        @extend %btn-sm;
+        @include rem(1);
+        text-decoration: none;
+    }
+}

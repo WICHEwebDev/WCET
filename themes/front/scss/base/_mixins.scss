@@ -1,0 +1,39 @@
+////////////////////////
+// Mixins Partials
+//
+// Add global mixins to this file.
+////////////////////////
+
+// Clearfix
+@mixin clear() {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+// Rem mixin
+// This mixin will allow for rems but defaults to px.
+@mixin rem($size, $attribute:font-size) {
+    #{$attribute}: ($size * 10) + px;
+    #{$attribute}: $size + rem;
+}
+
+// Icon Text Replacement mixin
+// For when you want the icon but not the text
+@mixin icon-only($icon-size: 30px) {
+    display: inline-block;
+    position: relative;
+    right: 9999px;
+    height: 1px;
+    width: $icon-size;
+    &:before {
+        display: inline-block;
+        position: absolute;
+        right: -9999px;
+        width: $icon-size;
+        height: $icon-size;
+    }
+}

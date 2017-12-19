@@ -1,0 +1,156 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.migrate_example_baseball.field_attendance
+    - field.field.node.migrate_example_baseball.field_duration
+    - field.field.node.migrate_example_baseball.field_home_batters
+    - field.field.node.migrate_example_baseball.field_home_game_number
+    - field.field.node.migrate_example_baseball.field_home_pitcher
+    - field.field.node.migrate_example_baseball.field_home_score
+    - field.field.node.migrate_example_baseball.field_home_team
+    - field.field.node.migrate_example_baseball.field_outs
+    - field.field.node.migrate_example_baseball.field_park
+    - field.field.node.migrate_example_baseball.field_start_date
+    - field.field.node.migrate_example_baseball.field_visiting_batters
+    - field.field.node.migrate_example_baseball.field_visiting_pitcher
+    - field.field.node.migrate_example_baseball.field_visiting_score
+    - field.field.node.migrate_example_baseball.field_visiting_team
+    - node.type.migrate_example_baseball
+  module:
+    - path
+    - text
+id: node.migrate_example_baseball.default
+targetEntityType: node
+bundle: migrate_example_baseball
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  field_attendance:
+    weight: 38
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_duration:
+    weight: 39
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_home_batters:
+    weight: 40
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_home_game_number:
+    weight: 34
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_home_pitcher:
+    weight: 42
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_home_score:
+    weight: 35
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_home_team:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_outs:
+    weight: 37
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_park:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_start_date:
+    weight: 45
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_visiting_batters:
+    weight: 41
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_visiting_pitcher:
+    weight: 43
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_visiting_score:
+    weight: 36
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_visiting_team:
+    weight: 44
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

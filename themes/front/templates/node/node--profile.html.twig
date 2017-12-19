@@ -1,0 +1,18 @@
+{% extends "themes/front/templates/node/node.html.twig" %}
+
+{# Override the title block to hide it and place it elsewhere. #}
+{% block title %}
+    
+{% endblock %}
+
+{# Override the content block to customize display #}
+{% block content %}
+    {{ content.field_profile_cover_photo }}
+    {{ content.field_image }}
+    {% if view_mode != 'full' %}
+        <h2 class="profile--name"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h2>
+    {% else %}
+        <h2 class="profile--name">{{ label }}</h2>
+    {% endif %}
+    {{ content|without('links', 'field_profile_cover_photo', 'field_image') }}
+{% endblock %}

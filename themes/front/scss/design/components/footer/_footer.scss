@@ -1,0 +1,83 @@
+////////////////////////
+// Footer Styling
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$footer-bg: #575d70;
+$footer-txt: #a6abba;
+$footer-link: #dfe1e7;
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+footer {
+    color: $footer-txt;
+    background: url('../images/footer-bg.png') no-repeat top right $footer-bg;
+    border-top: 1px solid $black;
+    text-align: center;
+    padding: 1px;
+    @include rem(1.2);
+    @include respond-to('large') {
+        text-align: left;
+    }
+
+    a,
+    a:hover {
+        color: $footer-txt;
+    }
+    .copyright,
+    .address,
+    .wiche-footer {
+        margin-bottom: 1rem;
+    }
+}
+
+.wiche-logo {
+    width: 120px;
+    display: block;
+    margin: 1rem auto;
+    @include respond-to('large') {
+        display: inline;
+        margin: 0;
+        padding: 3px;
+    }
+}
+
+.menu--footer {
+    margin-top: 1rem;
+    font-weight: 700;
+    ul {
+        padding: 0;
+    }
+    li {
+        list-style: none;
+        @include respond-to('medium') {
+            display: inline;
+            padding: 0 10px;
+            text-align: left;
+        }
+    }
+    ul.menu a,
+    a {
+        &,
+        &:hover {
+            color: $footer-link;
+        }
+    }
+}
+
+@include respond-to('large') {
+    .footer-first {
+        @include grid-span(6, 1);
+        padding-left: 10px;
+    }
+    .footer-second {
+        @include grid-span(6, 6);
+    }
+}

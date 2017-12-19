@@ -1,0 +1,71 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer class="node__meta">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content.body }}
+    {{ content.field_video_link }}
+    {{ content.field_image }}
+    
+    <div class="internal-resources">
+      <h3>{{ 'WCET Resources'|t }}</h3>
+      {% if feeds.blog %}
+        <h3 class="section-title blog">{{ 'Frontiers Blog'|t }}</h3>
+        {{ feeds.blog }}
+      {% endif %}
+      {{ content.field_issue_research }}
+      {{ content.field_issue_webcast }}
+      {{ content.field_issue_publication }}
+      {{ content.field_issue_events }}
+      {{ content.field_issue_video_links }}
+      {{ content.field_issue_talkpoint }}
+      {{ content.field_issue_qa }}
+      {{ content.field_issue_add_resource }}
+      {{ content.field_issue_lessons }}
+    </div>
+
+    <div class="external-resources">
+      <h3>{{ 'External Resources'|t }}</h3>
+      {{ content.field_issue_resources }}
+    </div>
+  </div>
+
+  {% if content.links %}
+    <div class="node__links">
+      {{ content.links }}
+    </div>
+  {% endif %}
+
+</article>

@@ -1,0 +1,31 @@
+////////////////////////
+// Header Styling
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+header {
+    min-height: 55px;
+}
+
+.site-logo {
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+    img {
+        width: 150px;
+    }
+    @include respond-to('medium') {
+        text-align: left;
+    }
+}

@@ -1,0 +1,22 @@
+////////////////////////
+// Base Partials
+//
+// These files will be shared across all three of your output CSS files. Generally included here are only Compass Extension imports and imports for variables, functions, mixins, and extendables.
+//
+////////////////////////
+
+////////////////////////
+// Compass Extensions
+////////////////////////
+@import 'breakpoint-sass/stylesheets/breakpoint';
+@import 'singularity/stylesheets/singularitygs';
+
+////////////////////////
+// Private Imports
+////////////////////////
+@import 'bootstrap-variables';
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+@import 'extends';
+@import 'fonts';

@@ -1,0 +1,92 @@
+////////////////////////
+// In The News page
+//
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$newslink-color: $dark-blue2;
+$newsdate-color: $blue;
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+
+.view-about-news {
+    .view-tabs {
+        margin: 0 4px -1px 4px;
+        padding: 0;
+        li {
+            display: inline;
+            list-style: none;
+            margin-right: 4px;
+        }
+        a {
+            display: inline-block;
+            border-radius: 4px 4px 0 0;
+            border-width: 1px 1px 0 1px;
+            border-color: $client-border;
+            border-style: solid;
+            padding: 10px 15px;
+            background: #eee;
+            font-weight: 600;
+            color: $newslink-color;
+            &:hover {
+                text-decoration: none;
+                background: #ddd;
+            }
+            &.active {
+                background: $white;
+                text-decoration: none;
+                color: $link-color;
+            }
+        }
+    }
+    .view-grouping {
+        padding: 2rem;
+        border: 1px solid $client-border;
+        box-shadow: 3px 3px 4px rgba(167, 167, 167, 0.25);
+        border-radius: 2px;
+    }
+    .views-row {
+        padding: 1rem 0.5rem;
+        border-bottom: 1px solid $client-border;
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+    .views-field-field-link a {
+        color: $newslink-color;
+        font-weight: 600;
+        @include rem(1.8);
+    }
+    .views-field-created-1 {
+        @include rem(1.4);
+        font-weight: 600;
+        color: $newsdate-color;
+    }
+}
+
+.news-wrapper {
+    #block-front-content {
+        @include respond-to('large') {
+            @include grid-span(8, 1);
+        }
+    }
+    #block-twitterembed {
+        margin: 1rem auto;
+        .field-block-content--body {
+            text-align: center;
+            margin: 0 auto;
+        }
+        @include respond-to('large') {
+            @include grid-span(4, 9);
+        }
+    }
+}

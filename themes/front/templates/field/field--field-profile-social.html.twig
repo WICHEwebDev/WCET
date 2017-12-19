@@ -1,0 +1,9 @@
+{% extends "themes/front/templates/field/field.html.twig" %}
+
+{% block field_items %}
+    {% for item in items %}
+      <span{{ item.attributes.addClass('field-item') }}>
+        <a href="{{ item.content['#url_title'] }}" class="icon-{{ item.content['#title']|clean_class }}">{{ item.content['#title'] }}</a>
+      </span>
+    {% endfor %}
+{% endblock %}

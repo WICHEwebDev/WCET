@@ -1,0 +1,41 @@
+////////////////////////
+// Event Views
+//
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+.view-events {
+    .views-row {
+        @include clear;
+        border-bottom: 1px solid $client-border;
+        padding: 1rem 0;
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+}
+
+.view-events--image {
+    @include respond-to('medium') {
+        float: left;
+        margin-right: 1rem;
+    }
+}
+
+.view-events--desc {
+    overflow: hidden;
+    h2 {
+        margin-top: 0;
+    }
+}

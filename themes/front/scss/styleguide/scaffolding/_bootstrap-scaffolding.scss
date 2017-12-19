@@ -1,0 +1,37 @@
+////////////////////////
+// Bootstrap Scaffolding Variables and Mixins
+////////////////////////
+
+////////////////////////
+// Bootstrap Scaffolding Variables
+////////////////////////
+
+// $link-color:            $brand-primary;
+// $link-hover-color:      darken($link-color, 15%);
+// $link-hover-decoration: underline;
+
+////////////////////////
+// Bootstrap Scaffolding Mixins
+////////////////////////
+
+// Bootstrap Resource: mixins/_tab-focus.scss
+
+// WebKit-style focus
+@mixin tab-focus() {
+  // Default
+  outline: thin dotted;
+  // WebKit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Bootstrap Resource: mixins/_images.scss
+
+// Responsive image
+//
+// Keep images from scaling beyond the width of their parents.
+@mixin img-responsive($display: block) {
+  display: $display;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}

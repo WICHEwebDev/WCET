@@ -1,0 +1,57 @@
+////////////////////////
+// Event Node Display
+//
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+.node--type-event {
+    margin-bottom: 2rem;
+    > .node__content {
+        > .field-name-field-image {
+            img {
+              max-width: 100%;
+              height: auto;
+              @include respond-to('medium') {
+                float: right;
+              }
+            }
+        }
+    }
+    .field-type-datetime {
+        float: left;
+        white-space: nowrap;
+        @include rem(1.8);
+    }
+    .field-name-field-end-date {
+        &:before {
+            float: left;
+            content: "-";
+            margin: 0 1rem;
+        }
+    }
+    .field-name-body {
+        clear: both;
+    }
+    .field-name-field-link a {
+        @extend %btn-sm;
+        @extend %btn-default;
+        @extend %btn-action;
+        text-decoration: none;
+        margin-bottom: 1rem;
+    }
+}
+
+.field-name-field-event-location {
+    clear: left;
+}

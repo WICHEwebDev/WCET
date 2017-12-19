@@ -1,0 +1,339 @@
+////////////////////////
+// Text
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+
+$margin-top-heading: 2.8; // rem
+$margin-bottom-heading: 1.3; // rem
+$line-height-heading: 1.1;
+$line-height-list: 1.75;
+
+$text-color-inverted: $white;
+
+// Text Sizes in rems
+$h1-size: 4.1;
+$h2-size: 3.4;
+$h3-size: 2.8;
+$h4-size: 2.0;
+$h5-size: 1.6;
+$h6-size: 1.4;
+$small-font-size: 1.4;
+
+// Font Assignments
+$font-monospace: $courier;
+$form-font-family: $arial;
+$h1-family:$times;
+$h2-family:$times;
+$h3-family:$times;
+$h4-family:$times;
+$h5-family:$times;
+$h6-family:$times;
+
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+// Applies to all h tags
+%headings {
+  color: $htag-color;
+  font-weight: 600;
+  line-height: $line-height-heading;
+}
+
+%h1-style {
+    @include rem($h1-size);
+    @include rem($margin-top-heading, margin-top);
+    @include rem($margin-bottom-heading, margin-bottom);
+}
+
+%h2-style {
+    @include rem($h2-size);
+    @include rem($margin-top-heading, margin-top);
+    @include rem($margin-bottom-heading, margin-bottom);
+}
+
+%h3-style {
+    @include rem($h3-size);
+    @include rem($margin-top-heading, margin-top);
+    @include rem($margin-bottom-heading, margin-bottom);
+}
+
+%h4-style {
+    @include rem($h4-size);
+    @include rem($margin-top-heading, margin-top);
+    @include rem($margin-bottom-heading, margin-bottom);
+}
+
+%h5-style {
+    @include rem($h5-size);
+    @include rem($margin-top-heading, margin-top);
+    @include rem($margin-bottom-heading, margin-bottom);
+}
+
+%h6-style {
+    @include rem($h6-size);
+    @include rem($margin-top-heading, margin-top);
+    @include rem($margin-bottom-heading, margin-bottom);
+}
+
+%p-style {
+    margin-top: 0;
+    @include rem(1.6, margin-bottom);
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+%blockquote {
+  padding: ($line-height-computed / 2) $line-height-computed;
+  margin: 0 0 $line-height-computed;
+  font-size: $blockquote-font-size;
+  border-left: 5px solid $blockquote-border-color;
+  line-height: 1.5;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .small {
+    display: block;
+    font-size: 80%; // back to default font-size
+    line-height: $line-height-base;
+    color: $blockquote-small-color;
+
+    &:before {
+      content: '\2014 \00A0'; // em dash, nbsp
+    }
+  }
+}
+
+%address {
+  margin-bottom: $line-height-computed;
+  font-style: normal;
+  line-height: $line-height-base;
+}
+
+// Intro text
+%lead {
+  margin-bottom: $line-height-computed;
+  font-size: floor(($font-size-base * 1.15));
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+%list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+%small {
+    @include rem($small-font-size);
+    @include rem(1.5, margin-bottom);
+}
+
+// Inline turns list items into inline-block
+%list-inline {
+  @extend %list-unstyled;
+  margin-left: -5px;
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+%mark {
+  background-color: $state-warning-bg;
+  padding: .2em;
+}
+
+%text-muted {
+  color: $text-muted;
+}
+
+%bg-primary {
+  // Invert background/text colors.
+  color: $text-color-inverted;
+}
+
+%initialism {
+  font-size: 90%;
+  text-transform: uppercase;;
+}
+
+////////////////////////
+// Styles
+////////////////////////
+
+h1 {
+  @extend %headings;
+  @extend %h1-style;
+}
+
+h2 {
+  @extend %headings;
+  @extend %h2-style;
+}
+
+h3 {
+  @extend %headings;
+  @extend %h3-style;
+}
+
+h4 {
+  @extend %headings;
+  @extend %h4-style;
+}
+
+h5 {
+  @extend %headings;
+  @extend %h5-style;
+}
+
+h6 {
+  @extend %headings;
+  @extend %h6-style;
+}
+
+p {
+  @extend %p-style;
+}
+
+.lead {
+  @extend %lead;
+}
+
+
+// Emphasis & misc
+// -------------------------
+
+// We are not using defualt bootstrap here. This is a custom variable.
+small,
+.small {
+  @extend %small;
+}
+
+mark,
+.mark {
+  @extend %mark;
+}
+
+// Contextual colors
+.text-muted {
+  @extend %text-muted;
+}
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  @extend %bg-primary;
+}
+
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: ($line-height-computed / 2);
+  li {
+    line-height: (1.75);
+    font-weight: 400;
+  }
+
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+// List options
+
+
+// Inline turns list items into inline-block
+.list-inline {
+  @extend %list-inline;
+}
+
+// Description Lists
+dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom: $line-height-computed;
+}
+dt,
+dd {
+  line-height: $line-height-base;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+.dl-horizontal {
+  dd {
+    @include clear; // Clear the floated `dt` if an empty `dd` is present
+  }
+
+  // @TODO Replace with Breakpoint syntax.
+  @media (min-width: $grid-float-breakpoint) {
+    dt {
+      float: left;
+      width: ($dl-horizontal-offset - 20);
+      clear: left;
+      text-align: right;
+      @include text-overflow;
+    }
+    dd {
+      margin-left: $dl-horizontal-offset;
+    }
+  }
+}
+
+
+// Misc
+// -------------------------
+
+// Abbreviations and acronyms
+abbr[title],
+// Add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted $abbr-border-color;
+}
+
+.initialism {
+  @extend %initialism;
+}
+
+// Blockquotes
+blockquote {
+  @extend %blockquote;
+}
+
+// Addresses
+address {
+  @extend %address;
+}

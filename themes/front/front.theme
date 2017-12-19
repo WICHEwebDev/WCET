@@ -1,0 +1,52 @@
+<?php
+/**
+ * @file
+ * Controls local theme overrides.
+ */
+
+function front_preprocess_page(&$variables) {
+  if ($variables['is_front']) {
+    // load slickjs on frontpage only
+    $variables['#attached']['library'][] = 'front/slick';
+    // hide frontpage title
+    $variables['title'] = '';
+  }
+}
+
+function front_preprocess_html(&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  if ($current_path == '/events') {
+    $variables['head_title']['title'] = 'Events | WCET';
+  }
+}
+
+function front_form_search_block_form_alter(&$form) {
+    // Add placeholder text to search field
+    $form['keys']['#placeholder'] = t('Search');
+}
+
+
+function front_preprocess_node(&$variables) {
+    // Takes entity ref value from issue node, feeds as contextual filter to view
+    if ($variables['node']->getType() === 'issue') {
+        // load node object
+        if (($node = \Drupal::routeMatch()->getParameter('node')) && $node instanceof \Drupal\node\NodeInterface) {
+            // make sure entity ref field is populaed
+            if (!empty($variables['node']->field_ref_feed_news->target_id)) {
+                // adds feeds as a variable to be accessed by twig in node--issue--full.html.twig
+                $variables['feeds']['news'] = drupal_render(views_embed_view('wcet_feed_displays', 'issues_embed', $variables['node']->field_ref_feed_news->target_id));
+            }
+            // same thing for 2nd ref field
+            if (!empty($variables['node']->field_ref_feed_blog->target_id)) {
+                // adds feeds as a variable to be accessed by twig in node--issue--full.html.twig
+                $variables['feeds']['blog'] = drupal_render(views_embed_view('wcet_feed_displays', 'issues_embed', $variables['node']->field_ref_feed_blog->target_id));
+            }
+        }
+    }
+}
+
+function front_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    if ($form_id == 'contact_message_membership_application_form') {
+        $form['actions']['submit']['#value'] = 'Submit Application';
+    }
+}

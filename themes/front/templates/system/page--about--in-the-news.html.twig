@@ -1,0 +1,13 @@
+{% extends "themes/front/templates/system/page.html.twig" %}
+
+{# Override the title block to hide it and place it elsewhere. #}
+{% block pagecontent %}
+    <div class="news-wrapper">
+        {{ page.content }}
+        {{ page.content_bottom }}
+    </div>
+    <!-- <div class="recent-tweets">
+        <a class="twitter-timeline" href="https://twitter.com/wcet_info" data-widget-id="608683201276477440">Tweets by @wcet_info</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div> -->
+{% endblock %}

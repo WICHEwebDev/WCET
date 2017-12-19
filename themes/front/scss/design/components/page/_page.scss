@@ -1,0 +1,39 @@
+@import 'search';
+////////////////////////
+// Basic page Styling
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+.node--type-page {
+    .field-node--field-image {
+        @include respond-to('medium') {
+            float: right;
+            text-align: right;
+            img {
+                margin-left: 2rem;
+            }
+        }
+    }
+}
+
+.field-node--field-ref-person {
+    > .field-items > .field-item {
+        @include clear;
+        border-bottom: 1px solid $client-border;
+        padding: 1rem 0;
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+}

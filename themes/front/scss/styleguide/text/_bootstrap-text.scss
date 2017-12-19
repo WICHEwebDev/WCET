@@ -1,0 +1,45 @@
+////////////////////////
+// Bootstrap Text Variables and Mixins
+////////////////////////
+
+////////////////////////
+// Bootstrap Text Variables
+////////////////////////
+
+// Uncomment and edit as needed.
+
+// $blockquote-small-color:      $gray-light;
+// $blockquote-font-size:        ($font-size-base * 1.25);
+// $blockquote-border-color:     $gray-lighter;
+
+// $text-muted:                  $gray-light;
+
+
+////////////////////////
+// Bootstrap Text Mixins
+////////////////////////
+
+// Bootstrap Resource: mixins/_text-emphasis.scss
+
+// Typography
+
+// [converter] $parent hack
+@mixin text-emphasis-variant($parent, $color) {
+  #{$parent} {
+    color: $color;
+  }
+  a#{$parent}:hover {
+    color: darken($color, 10%);
+  }
+}
+
+// Bootstrap Resource: mixin/_text-overflow.scss
+
+// Text overflow
+// Requires inline-block or block for proper styling
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,104 @@
+////////////////////////
+// Custom Styles for use in textareas
+//
+// 
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$callout-border: #575d70;
+$callout-bg: rgba($callout-border, 0.1);
+
+$testimonial-bg: #f9f9f9;
+$testimonial-border: $gray_80;
+
+$action-bg: #4b63ae;
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+
+// Side callout block
+.side-callout {
+    border: 1px solid $callout-border;
+    background: $callout-bg;
+    padding: 15px;
+    @include respond-to('medium') {
+        float: right;
+        clear: right;
+        width: 315px;
+        margin: 1rem;
+    }
+}
+
+
+// Testimonial Block
+.testimonial {
+    background: $testimonial-bg;
+    border-left: 10px solid $testimonial-border;
+    margin: 0 auto;
+    padding: 8px 10px 20px 10px;
+    @include clear;
+    @include respond-to('large') {
+        float: right;
+        clear: right;
+        margin: 1rem;
+        width: 320px;
+    }
+    h4 {
+        margin: -1rem 1rem 1rem;
+        &:before {
+            color: $testimonial-border;
+            content: open-quote;
+            @include rem(8);
+            margin-right: 0.5rem;
+            display: inline-block;
+            height: 40px;
+            overflow: hidden;
+            vertical-align: super;
+        }
+    }
+    h5 {
+        margin-top: 0;
+    }
+    strong {
+        @include rem(1.4);
+        line-height: 1.3;
+        display: block;
+    }
+    strong + p {
+        @include rem(1.4);
+    }
+    img {
+        margin-right: 1rem;
+        float: left;
+    }
+}
+
+// Action Callout
+.action-callout {
+    background: $action-bg;
+    border-radius: 6px;
+    padding: 20px;
+    color: $white;
+    @include rem(1.8);
+    text-align: center;
+    overflow: hidden;
+    @include respond-to('medium') {
+        padding: 48px 60px;
+    }
+    h1, h2, h3, h4 {
+        color: $white;
+    }
+    .btn-sm {
+        margin: 1rem;
+    }
+    a {
+        color: $white;
+    }
+}

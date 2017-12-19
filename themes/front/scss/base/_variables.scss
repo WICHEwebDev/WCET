@@ -1,0 +1,76 @@
+////////////////////////
+// Global Variables
+//
+// Establish Variables to be used theme-wide here.
+//
+// Keep layout-related variables in layout.
+// Keep text/font-related variables in styleguide/text
+////////////////////////
+
+////////////////////////
+// Base Text
+////////////////////////
+$font-size-base: 1.6; // Overwriting Bootstrap variable to use rems.
+$line-height-base: 1.65; // Overwriting bootstrap variable.
+
+////////////////////////
+// Project Color Pallette
+////////////////////////
+$white: #fff;
+$gray_90: #E5E5E5;
+$gray_80: #CCC;
+$gray_70: #B3B3B3;
+$gray_60: #999;
+$gray_50: #7F7F7F;
+$gray_40: #666;
+$gray_30: #4D4D4D;
+$gray_20: #333;
+$gray_10: #1A1A1A;
+$black: #000;
+//$client-red-1: ;
+//$client-red-2: ;
+//$client-blue-1: ;
+// etc
+
+// $brand-primary:         #8BA4D4;
+// $brand-success:         #848484;
+// $brand-info:            #5bc0de;
+// $brand-warning:         #f0ad4e;
+// $brand-danger:          #d9534f;
+
+
+$green: #B2BB1E;
+$dark-green: #817C00;
+$light-green: #EDED8A;
+
+$blue: #8BA4D4;
+$dark-blue: #4B63AE;
+$light-blue: #CAD9EF;
+
+$dark-blue2: #575D70;
+
+$orange: #F8981D;
+$orange-1: #db7e07;
+$dark-orange: #B2730E;
+$light-orange: #FDBE56;
+
+$dark-gray: #525252;
+$brand-gray: #807F83;
+$light-gray: #C9CACC;
+$lighter-gray: #E9EAEB;
+
+////////////////////////
+// Semantic Color Assignments
+//
+// Using the Color Pallette, create variables with more semantic meaning to be used in styling.
+// An example usage is if you had a border color that is commonly used, you could define it like so:
+// $client-border-color: $client-red-1;
+////////////////////////
+$base-text-color: #3c3c3c;
+$htag-color: $dark-blue;
+$client-border: #c9c9c9;
+
+
+////////////////////////
+// Misc.
+////////////////////////

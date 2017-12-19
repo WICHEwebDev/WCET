@@ -1,0 +1,33 @@
+////////////////////////
+// Spotlight Styling
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+.node--type-spotlight {
+    h2 {
+        margin-top: 0;
+        a {
+            @include rem(2);
+            color: $base-text-color;
+            line-height: 1;
+            &:hover {
+                text-decoration: none;
+            }
+        } 
+    }
+    img  {
+        float: left;
+        margin-right: 1rem;
+    }
+}

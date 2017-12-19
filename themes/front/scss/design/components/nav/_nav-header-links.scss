@@ -1,0 +1,48 @@
+////////////////////////
+// Social Media Menu
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$header-link-color: $dark-gray;
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+.menu--header-links {
+    border-left: 1px solid $client-border;
+    margin-left: 10px;
+    padding: 5px 0 10px 10px;
+    float: left;
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: inline;
+        list-style-type: none;
+        &:nth-child(1),
+        &:nth-child(2) {
+            display: none;
+            @include respond-to('medium') {
+                display: inline;
+            }
+        }
+    }
+    a {
+        @include rem(1.4);
+        color: $dark-gray;
+        font-weight: 600;
+        padding: 4px 10px;
+        &:hover {
+            color: fade-out($header-link-color, 0.65);
+            text-decoration: none;
+        }
+    }
+}

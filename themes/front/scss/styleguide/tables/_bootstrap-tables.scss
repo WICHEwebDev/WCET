@@ -1,0 +1,51 @@
+////////////////////////
+// Bootstrap Tables Variables and Mixins
+////////////////////////
+
+////////////////////////
+// Bootstrap Tables Variables
+////////////////////////
+
+// Uncomment and edit as needed.
+
+// $table-cell-padding:            8px;
+// $table-condensed-cell-padding:  5px;
+// $table-bg:                      transparent;
+// $table-bg-accent:               #f9f9f9;
+// $table-bg-hover:                #f5f5f5;
+// $table-bg-active:               $table-bg-hover;
+// $table-border-color:            #ddd;
+
+
+////////////////////////
+// Bootstrap Tables Mixins
+////////////////////////
+
+// Bootstrap Resource: mixins/_table-row.scss
+
+@mixin table-row-variant($state, $background) {
+  // Exact selectors below required to override `.table-striped` and prevent
+  // inheritance to nested tables.
+  .table > thead > tr,
+  .table > tbody > tr,
+  .table > tfoot > tr {
+    > td.#{$state},
+    > th.#{$state},
+    &.#{$state} > td,
+    &.#{$state} > th {
+      background-color: $background;
+    }
+  }
+
+  // Hover states for `.table-hover`
+  // Note: this is not available for cells or rows within `thead` or `tfoot`.
+  .table-hover > tbody > tr {
+    > td.#{$state}:hover,
+    > th.#{$state}:hover,
+    &.#{$state}:hover > td,
+    &:hover > .#{$state},
+    &.#{$state}:hover > th {
+      background-color: darken($background, 5%);
+    }
+  }
+}

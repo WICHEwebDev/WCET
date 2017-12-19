@@ -1,0 +1,32 @@
+////////////////////////
+// Design
+// 
+// Design is broken into two sections - global and components.
+//
+////////////////////////
+
+////////////////////////
+// Global
+//
+// If its styling that is applied site-wide, but does not fit within
+// styleguide, add it here. e.g. a field reused in various places on the site that is styled the same
+////////////////////////
+@import "global/global";
+
+////////////////////////
+// Components
+// A component would correspond to a high-level feature, e.g. Articles.
+// Anything pertaining to that feature can be grouped with that feature's component partial
+// in the fashion that makes the most sense for the project.
+//
+// An example partial structure for "Articles" could be:
+// -components
+// --/article
+// ---/_article.scss
+// ---/_article-full.scss
+// ---/_article-list.scss
+//
+// The breakdown within a component doesn't need to follow any set convention, just
+// so long as it makes sense for the project, in a way that allows particular styling to be easily located.
+////////////////////////
+@import "components/components";

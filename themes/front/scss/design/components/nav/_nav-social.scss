@@ -1,0 +1,81 @@
+////////////////////////
+// Social Media Menu
+//
+////////////////////////
+
+////////////////////////
+// Variables
+////////////////////////
+$email: $gray;
+$facebook: #3b5998;
+$linkedin: #0077b5;
+$twitter: #55acee;
+$youtube: #cd201f;
+$blog: #F8981D;
+
+////////////////////////
+// Mixins / Extends
+////////////////////////
+
+////////////////////////
+// Styles
+////////////////////////
+.menu--social {
+    padding: 0.5rem 0.5rem 1rem 1rem;
+    float: left;
+    @include clear;
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: inline;
+        list-style-type: none;
+        float: left;
+        width: 30px;
+        margin: 0 5px 0 0;
+        a {
+            display: block;
+            position: relative;
+            right: 9999px;
+            height: 1px;
+            width: 30px;
+            &:before {
+                @include rem(1.6);
+                @extend %icon;
+                display: block;
+                color: white;
+                position: absolute;
+                right: -9999px;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+                padding: 7px 0 0 7px;
+            }
+        }
+    }
+    .email:before {
+        content: "\e0eb";
+        background: $email;
+    }
+    .facebook:before {
+        content: "\e498";
+        background: $facebook;
+    }
+    .linkedin:before {
+        content: "\e4cf";
+        background: $linkedin;
+    }
+    .twitter:before {
+        content: "\e49d";
+        background: $twitter;
+    }
+    .youtube:before {
+        content: "\e4a3";
+        background: $youtube;
+    }
+    .blog:before {
+        content: "\e4a0";
+        background: $blog;
+    }
+}

@@ -722,3 +722,20 @@ $databases['default']['default'] = array(
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'collation' => 'utf8mb4_general_ci',
 );
+
+if(getenv('AMAZEEIO_SITENAME')) {
+  $databases['default']['default'] = array(
+    'driver' => 'mysql',
+    'database' => getenv('AMAZEEIO_SITENAME'),
+    'username' => getenv('AMAZEEIO_DB_USERNAME'),
+    'password' => getenv('AMAZEEIO_DB_PASSWORD'),
+    'host' => getenv('AMAZEEIO_DB_HOST'),
+    'port' => getenv('AMAZEEIO_DB_PORT'),
+    'prefix' => '',
+  );
+}
+
+### amazee.io Base URL
+if (getenv('AMAZEEIO_BASE_URL')) {
+  $base_url = getenv('AMAZEEIO_BASE_URL');
+}

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\metatag\MetatagDefaultsListBuilder.
- */
-
 namespace Drupal\metatag;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
@@ -20,8 +15,15 @@ class MetatagDefaultsListBuilder extends ConfigEntityListBuilder {
    */
   public function load() {
     $entities = parent::load();
-    // Move the Global defaults to the top.
-    return array('global' => $entities['global']) + $entities;
+
+    // Move the Global defaults to the top. Don't assume that the global config
+    // exists, it might have been removed.
+    if (isset($entities['global'])) {
+      return ['global' => $entities['global']] + $entities;
+    }
+    else {
+      return $entities;
+    }
   }
 
   /**
@@ -46,14 +48,25 @@ class MetatagDefaultsListBuilder extends ConfigEntityListBuilder {
   public function getOperations(EntityInterface $entity) {
     $operations = parent::getOperations($entity);
 
+    // Set the defaults that should not be deletable.
+    $protected_defaults = [
+      'global',
+      '403',
+      '404',
+      'node',
+      'front',
+      'taxonomy_term',
+      'user',
+    ];
+
     // Global and entity defaults can be reverted but not deleted.
-    if (strpos($entity->id(), '__') === FALSE) {
+    if (in_array($entity->id(), $protected_defaults)) {
       unset($operations['delete']);
-      $operations['revert'] = array(
+      $operations['revert'] = [
         'title' => t('Revert'),
         'weight' => $operations['edit']['weight'] + 1,
-        'url' => $entity->urlInfo('revert-form'),
-      );
+        'url' => $entity->toUrl('revert-form'),
+      ];
     }
 
     return $operations;
@@ -62,10 +75,10 @@ class MetatagDefaultsListBuilder extends ConfigEntityListBuilder {
   /**
    * Renders the Metatag defaults label plus its configuration.
    *
-   * @param EntityInterface $entity
+   * @param Drupal\Core\Entity\EntityInterface $entity
    *   The Metatag defaults entity.
    *
-   * @return
+   * @return array
    *   Render array for a table cell.
    */
   public function getLabelAndConfig(EntityInterface $entity) {
@@ -83,12 +96,14 @@ class MetatagDefaultsListBuilder extends ConfigEntityListBuilder {
     }
 
     if (!empty($inherits)) {
-      $output .= '<div><p>' . t('Inherits meta tags from: @inherits', array('@inherits' => $inherits)) . '</p></div>';
+      $output .= '<div><p>' . t('Inherits meta tags from: @inherits', [
+        '@inherits' => $inherits,
+      ]) . '</p></div>';
     }
     $tags = $entity->get('tags');
     if (count($tags)) {
       $output .= '<table>
-                    <tbody>';
+<tbody>';
       foreach ($tags as $tag_id => $tag_value) {
         $output .= '<tr><td>' . $tag_id . ':</td><td>' . $tag_value . '</td></tr>';
       }
@@ -97,25 +112,16 @@ class MetatagDefaultsListBuilder extends ConfigEntityListBuilder {
 
     $output .= '</div></div>';
 
-    return array(
-      'data' => array(
+    return [
+      'data' => [
         '#type' => 'details',
         '#prefix' => $prefix,
-        '#title' => $this->getLabel($entity),
-        'config' => array(
+        '#title' => $entity->label(),
+        'config' => [
           '#markup' => $output,
-        ),
-      ),
-    );
+        ],
+      ],
+    ];
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function render() {
-    $build['header'] = array(
-      '#markup' => '<p>' . t("To view a summary of the default meta tags and the inheritance, click on a meta tag type. If you need to set metatags for a specific entity, edit it's bundle and add the Metatag field.") . '</p>',
-    );
-    return $build + parent::render();
-  }
 }

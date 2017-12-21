@@ -1,12 +1,8 @@
 <?php
-/**
- * @file
- * Contains \Drupal\metatag_open_graph\Plugin\metatag\Tag\OgSeeAlso.
- */
 
 namespace Drupal\metatag_open_graph\Plugin\metatag\Tag;
 
-use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
+use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
 
 /**
  * Provides a plugin for the 'og:see_also' meta tag.
@@ -18,7 +14,8 @@ use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
  *   name = "og:see_also",
  *   group = "open_graph",
  *   weight = 16,
- *   image = FALSE,
+ *   type = "uri",
+ *   secure = FALSE,
  *   multiple = FALSE
  * )
  */

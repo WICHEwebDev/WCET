@@ -1,12 +1,8 @@
 <?php
-/**
- * @file
- * Contains \Drupal\metatag_open_graph\Plugin\metatag\Tag\OgImageSecureUrl.
- */
 
 namespace Drupal\metatag_open_graph\Plugin\metatag\Tag;
 
-use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
+use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
 
 /**
  * Provides a plugin for the 'og:image:secure_url' meta tag.
@@ -18,7 +14,8 @@ use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
  *   name = "og:image:secure_url",
  *   group = "open_graph",
  *   weight = 11,
- *   image = FALSE,
+ *   type = "image",
+ *   secure = TRUE,
  *   multiple = FALSE
  * )
  */

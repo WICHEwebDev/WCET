@@ -1,0 +1,39 @@
+uuid: 829246b2-c5cb-47ab-be01-1b1170a0aee1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news_snippet.field_link
+    - field.field.node.news_snippet.field_news_pub
+    - node.type.news_snippet
+  module:
+    - link
+    - user
+id: node.news_snippet.default
+targetEntityType: node
+bundle: news_snippet
+mode: default
+content:
+  field_link:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_news_pub:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

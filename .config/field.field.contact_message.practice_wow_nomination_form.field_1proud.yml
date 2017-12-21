@@ -1,0 +1,19 @@
+uuid: 66936b88-03d9-4e83-b837-55f8192078e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.practice_wow_nomination_form
+    - field.storage.contact_message.field_1proud
+id: contact_message.practice_wow_nomination_form.field_1proud
+field_name: field_1proud
+entity_type: contact_message
+bundle: practice_wow_nomination_form
+label: 1proud
+description: '<p>Relative to the nominated work, what are you most proud of? (300 word limit suggested. The committee is interested in your response however no points are assigned to this item.)</p>'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

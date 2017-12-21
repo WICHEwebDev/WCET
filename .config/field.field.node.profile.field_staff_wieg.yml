@@ -1,0 +1,23 @@
+uuid: e177ff10-17cf-4fdd-8661-97af24de40d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_staff_wieg
+    - node.type.profile
+id: node.profile.field_staff_wieg
+field_name: field_staff_wieg
+entity_type: node
+bundle: profile
+label: 'Staff Weight'
+description: "Staff page is sorted alphabetically, with the option to set a \"weight\" to bring someone to the top of the list. A higher weight value will make the profile appear ahead of other profiles with a lower weight.<br />\r\n<i>e.g.</i>A profile with weight set to 10 will appear before a profile with weight set to 9, all of which would appear before any unweighted profiles."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

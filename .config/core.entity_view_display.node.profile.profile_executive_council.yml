@@ -1,0 +1,103 @@
+uuid: 85f8e11c-3d52-4f56-b000-dd7fd8c186d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.profile_executive_council
+    - field.field.node.profile.body
+    - field.field.node.profile.field_email
+    - field.field.node.profile.field_executive_council_position
+    - field.field.node.profile.field_image
+    - field.field.node.profile.field_meta_tags
+    - field.field.node.profile.field_profile_cover_photo
+    - field.field.node.profile.field_profile_exec_expire
+    - field.field.node.profile.field_profile_exec_weight
+    - field.field.node.profile.field_profile_groups
+    - field.field.node.profile.field_profile_position
+    - field.field.node.profile.field_profile_san
+    - field.field.node.profile.field_profile_san_weight
+    - field.field.node.profile.field_profile_social
+    - field.field.node.profile.field_profile_steering_expire
+    - field.field.node.profile.field_profile_steering_positions
+    - field.field.node.profile.field_profile_steering_weight
+    - field.field.node.profile.field_staff_wieg
+    - image.style.cover_photo
+    - node.type.profile
+  module:
+    - image
+    - link
+    - user
+id: node.profile.profile_executive_council
+targetEntityType: node
+bundle: profile
+mode: profile_executive_council
+content:
+  field_email:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+  field_executive_council_position:
+    weight: 4
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: photo
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_profile_cover_photo:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: cover_photo
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_profile_exec_expire:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_profile_position:
+    weight: 3
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_profile_social:
+    weight: 7
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link_separate
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_meta_tags: true
+  field_profile_exec_weight: true
+  field_profile_groups: true
+  field_profile_san: true
+  field_profile_san_weight: true
+  field_profile_steering_expire: true
+  field_profile_steering_positions: true
+  field_profile_steering_weight: true
+  field_staff_wieg: true

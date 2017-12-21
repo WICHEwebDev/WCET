@@ -1,0 +1,22 @@
+uuid: b5f76c0c-fc37-4279-8f5e-94cddbee5eff
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - front
+id: front_powered
+theme: front
+region: '-1'
+weight: -9
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: -1
+visibility: {  }

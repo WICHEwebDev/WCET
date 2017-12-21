@@ -1,0 +1,26 @@
+uuid: cf3598bf-834b-479c-a807-07651460e600
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - front
+id: front_main_menu
+theme: front
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  cache:
+    max_age: -1
+visibility: {  }

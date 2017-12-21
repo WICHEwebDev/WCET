@@ -1,0 +1,146 @@
+uuid: 5b7e0d56-11c3-448c-9e00-df88b1b29cc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.practice_wow_nomination_form
+    - field.field.contact_message.practice_wow_nomination_form.field_1_goal_nom_2
+    - field.field.contact_message.practice_wow_nomination_form.field_1add_urls
+    - field.field.contact_message.practice_wow_nomination_form.field_1contact_name
+    - field.field.contact_message.practice_wow_nomination_form.field_1creativity
+    - field.field.contact_message.practice_wow_nomination_form.field_1edu_need
+    - field.field.contact_message.practice_wow_nomination_form.field_1email
+    - field.field.contact_message.practice_wow_nomination_form.field_1goal_nom
+    - field.field.contact_message.practice_wow_nomination_form.field_1import_contrib
+    - field.field.contact_message.practice_wow_nomination_form.field_1org
+    - field.field.contact_message.practice_wow_nomination_form.field_1other_comm
+    - field.field.contact_message.practice_wow_nomination_form.field_1phone
+    - field.field.contact_message.practice_wow_nomination_form.field_1pos_impact
+    - field.field.contact_message.practice_wow_nomination_form.field_1prim_goal
+    - field.field.contact_message.practice_wow_nomination_form.field_1proud
+    - field.field.contact_message.practice_wow_nomination_form.field_nom_title1
+    - field.field.contact_message.practice_wow_nomination_form.field_practice1
+    - field.field.contact_message.practice_wow_nomination_form.field_radio_practice
+  module:
+    - options
+id: contact_message.practice_wow_nomination_form.default
+targetEntityType: contact_message
+bundle: practice_wow_nomination_form
+mode: default
+content:
+  field_1_goal_nom_2:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_1add_urls:
+    weight: 15
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_1contact_name:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_1creativity:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_1edu_need:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_1email:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_1goal_nom:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_1import_contrib:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_1org:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_1other_comm:
+    weight: 14
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_1phone:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_1pos_impact:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_1prim_goal:
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_1proud:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_nom_title1:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_practice1:
+    weight: 17
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_radio_practice:
+    weight: 16
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  message:
+    type: string
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

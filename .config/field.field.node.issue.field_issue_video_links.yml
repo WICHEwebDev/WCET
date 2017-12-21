@@ -1,0 +1,23 @@
+uuid: 87411ee4-1d21-4888-9300-aa6e76aaf4b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issue_video_links
+    - node.type.issue
+  module:
+    - link
+id: node.issue.field_issue_video_links
+field_name: field_issue_video_links
+entity_type: node
+bundle: issue
+label: Videos
+description: 'Optionally provide a list of video links'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

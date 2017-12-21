@@ -1,0 +1,19 @@
+uuid: 9f3d0892-87f6-4dd6-aa14-2080953720e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.practice_wow_nomination_form
+    - field.storage.contact_message.field_1goal_nom
+id: contact_message.practice_wow_nomination_form.field_1goal_nom
+field_name: field_1goal_nom
+entity_type: contact_message
+bundle: practice_wow_nomination_form
+label: '1goal nom'
+description: '<p>What is the goal of the nomited work relative to the need or problem addressed in item #1? (250 word limit suggested. 3 points.)</p>'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

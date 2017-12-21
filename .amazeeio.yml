@@ -1,7 +1,9 @@
-sitegroup: wiche_edu
+sitegroup: wcet
 
 deploy_tasks:
   development:
+    before deploy:
+      - composer install
     after_deploy:
       - drush -y updb --cache-clear=0
       - drush -y cc all
@@ -14,3 +16,5 @@ shared:
   production:
     - src: files
       dst: sites/default/files
+      
+      

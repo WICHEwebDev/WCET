@@ -11,7 +11,7 @@
     attach: function (context, settings) {
       $('.node--type-home .field-node--field-images .field-items').slick({
         dots: false,
-        prevArrow: '<button type="button" class="slick-prev"></button>',
+        prevArrow: '<button type="button" class="slick-prev" style="display:block"></button>',
         nextArrow: '<button type="button" class="slick-next"></button>',
         slidesToScroll: 1,
         autoplay: true,

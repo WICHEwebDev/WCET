@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\devel\Form\DevelReinstall.
+ */
+
 namespace Drupal\devel\Form;
 
 use Drupal\Core\Extension\ModuleInstallerInterface;

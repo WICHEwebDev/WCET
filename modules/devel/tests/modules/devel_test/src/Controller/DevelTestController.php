@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\devel_test\Controller\DevelTestController.
+ */
+
 namespace Drupal\devel_test\Controller;
 
 use Drupal\Core\Controller\ControllerBase;

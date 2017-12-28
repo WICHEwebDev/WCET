@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Asset\JsCollectionRendererWrapper.
+ */
+
 namespace Drupal\webprofiler\Asset;
 
 use Drupal\Core\Asset\AssetCollectionRendererInterface;

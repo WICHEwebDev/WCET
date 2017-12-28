@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\contact_storage\MessageEditForm.
+ */
+
 namespace Drupal\contact_storage;
 
 use Drupal\Core\Entity\ContentEntityForm;
@@ -51,17 +56,17 @@ class MessageEditForm extends ContentEntityForm {
     $message = $this->entity;
     $form = parent::form($form, $form_state, $message);
 
-    $form['name'] = [
+    $form['name'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Author name'),
       '#maxlength' => 255,
       '#default_value' => $message->getSenderName(),
-    ];
-    $form['mail'] = [
+    );
+    $form['mail'] = array(
       '#type' => 'email',
       '#title' => $this->t('Sender email address'),
       '#default_value' => $message->getSenderMail(),
-    ];
+    );
 
     return $form;
   }
@@ -71,10 +76,10 @@ class MessageEditForm extends ContentEntityForm {
    */
   public function save(array $form, FormStateInterface $form_state) {
     $this->entity->save();
-    $this->logger('contact')->notice('The contact message %subject has been updated.', [
+    $this->logger('contact')->notice('The contact message %subject has been updated.', array(
       '%subject' => $this->entity->getSubject(),
       'link' => $this->getEntity()->link($this->t('Edit'), 'edit-form'),
-    ]);
+    ));
   }
 
 }

@@ -1,10 +1,15 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\devel_generate\DevelGeneratePluginManager.
+ */
 
 namespace Drupal\devel_generate;
 
 use Drupal\Core\Plugin\DefaultPluginManager;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\Language\LanguageManagerInterface;
 
 /**
  * Plugin type manager for DevelGenerate plugins.

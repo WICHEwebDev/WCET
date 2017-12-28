@@ -1,4 +1,5 @@
 toolbar.icon:
+  version: VERSION
   css:
     theme:
       css/tools.css: {}

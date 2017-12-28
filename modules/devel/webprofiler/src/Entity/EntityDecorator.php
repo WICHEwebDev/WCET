@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Entity\EntityDecorator.
+ */
+
 namespace Drupal\webprofiler\Entity;
 
 use Drupal\webprofiler\Decorator;
@@ -20,5 +25,4 @@ class EntityDecorator extends Decorator {
   public function getEntities() {
     return $this->entities;
   }
-  
 }

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\csv_serialization\EventSubscriber\CsvSubscriber
+ */
+
 namespace Drupal\csv_serialization\EventSubscriber;
 
 use Symfony\Component\HttpKernel\KernelEvents;

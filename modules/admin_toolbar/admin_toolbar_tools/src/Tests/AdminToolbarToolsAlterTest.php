@@ -1,50 +1,58 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\admin_toolbar\Tests\AdminToolbarAlterTest.
+ */
+
 namespace Drupal\admin_toolbar_tools\Tests;
 
 use Drupal\simpletest\WebTestBase;
 
 /**
- * Tests for the existence of Admin Toolbar tools new links.
+ * Test the existence of Admin Toolbar tools new links.
  *
- * @group admin_toolbar
+ * @group admin_toolbar_tools
  */
 class AdminToolbarToolsAlterTest extends WebTestBase {
 
   /**
-   * Modules to enable.
-   *
-   * @var array
-   */
-  public static $modules = ['toolbar', 'admin_toolbar', 'admin_toolbar_tools'];
-
-  /**
-   * A test user with permission to access the administrative toolbar.
+   * A user with permission to access the administrative toolbar.
    *
    * @var \Drupal\user\UserInterface
    */
   protected $adminUser;
 
   /**
-   * {@inheritdoc}
+   * Modules to enable.
+   *
+   * @var array
    */
+  public static $modules = array(
+    'toolbar',
+    'admin_toolbar',
+    'admin_toolbar_tools'
+  );
+
   protected function setUp() {
     parent::setUp();
-    // Create and log in an administrative user.
-    $this->adminUser = $this->drupalCreateUser([
-      'access toolbar',
-      'access administration pages',
-      'administer site configuration',
-    ]);
+
+    // Create an administrative user and log it in.
+    $this->adminUser = $this->drupalCreateUser(array(
+        'access toolbar',
+        'access administration pages'
+      ));
     $this->drupalLogin($this->adminUser);
   }
 
   /**
-   * Tests for the hover of sub menus.
+   * Tests for a the hover of sub menus.
    */
-  public function testAdminToolbarTools() {
-    // Assert that special menu items are present in the HTML.
-    $this->assertRaw('class="toolbar-icon toolbar-icon-admin-toolbar-tools-help"');
+  function testAdminToolbarTools() {
+
+    // Test for admin_toolbar_tools if special menu items are added.
+    $this->assertRaw('id="toolbar-link-admin_toolbar_tools-flush"');
+
   }
 
 }

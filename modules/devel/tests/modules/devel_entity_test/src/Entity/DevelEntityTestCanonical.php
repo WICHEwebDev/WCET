@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\devel_entity_test\Entity\DevelEntityTestCanonical.
+ */
+
 namespace Drupal\devel_entity_test\Entity;
 
 use Drupal\entity_test\Entity\EntityTest;

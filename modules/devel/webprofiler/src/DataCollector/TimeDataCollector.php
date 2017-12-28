@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\DataCollector\TimeDataCollector.
+ */
+
 namespace Drupal\webprofiler\DataCollector;
 
+use Drupal\field\Tests\reEnableModuleFieldTest;
 use Drupal\webprofiler\DrupalDataCollectorInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Symfony\Component\HttpFoundation\Request;

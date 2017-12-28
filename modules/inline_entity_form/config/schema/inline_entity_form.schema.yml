@@ -4,9 +4,6 @@ field.widget.settings.inline_entity_form_simple:
   type: mapping
   label: 'Inline entity reference display format settings'
   mapping:
-    form_mode:
-      type: string
-      label: "Form mode"
     override_labels:
       type: boolean
       label: "Override labels"
@@ -30,9 +27,6 @@ field.widget.settings.inline_entity_form_complex:
   type: mapping
   label: 'Inline entity reference display format settings'
   mapping:
-    form_mode:
-      type: string
-      label: "Form mode"
     override_labels:
       type: boolean
       label: "Override labels"

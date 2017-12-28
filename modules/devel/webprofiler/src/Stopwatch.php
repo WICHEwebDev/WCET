@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Stopwatch.
+ */
+
 namespace Drupal\webprofiler {
 
   /**

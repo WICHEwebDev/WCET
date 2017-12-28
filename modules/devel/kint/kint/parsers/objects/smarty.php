@@ -1,5 +1,4 @@
 <?php
-
 class Kint_Objects_Smarty extends KintObject
 {
 	public function parse( & $variable )
@@ -13,21 +12,19 @@ class Kint_Objects_Smarty extends KintObject
 
 		$assigned = $globalAssigns = array();
 		foreach ( $variable->tpl_vars as $name => $var ) {
-			$assigned[ $name ] = $var->value;
+			$assigned[$name] = $var->value;
 		}
 		foreach ( Smarty::$global_tpl_vars as $name => $var ) {
 			if ( $name === 'SCRIPT_NAME' ) continue;
 
-			$globalAssigns[ $name ] = $var->value;
+			$globalAssigns[$name] = $var->value;
 		}
 
 		return array(
 			'Assigned'          => $assigned,
 			'Assigned globally' => $globalAssigns,
 			'Configuration'     => array(
-				'Compiled files stored in' => isset($variable->compile_dir)
-					? $variable->compile_dir
-					: $variable->getCompileDir(),
+				'Compiled files stored in' => $variable->compile_dir,
 			)
 		);
 

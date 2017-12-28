@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Profiler\DatabaseProfilerStorage.
+ */
+
 namespace Drupal\webprofiler\Profiler;
 
 use Drupal\Core\Database\Connection;

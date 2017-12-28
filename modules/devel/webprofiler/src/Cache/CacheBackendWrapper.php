@@ -1,16 +1,20 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Cache\CacheBackendWrapper.
+ */
+
 namespace Drupal\webprofiler\Cache;
 
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheBackendInterface;
-use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
 use Drupal\webprofiler\DataCollector\CacheDataCollector;
 
 /**
  * Wraps an existing cache backend to track calls to the cache backend.
  */
-class CacheBackendWrapper implements CacheBackendInterface, CacheTagsInvalidatorInterface {
+class CacheBackendWrapper implements CacheBackendInterface {
 
   /**
    * The data collector to register the calls.
@@ -56,7 +60,7 @@ class CacheBackendWrapper implements CacheBackendInterface, CacheTagsInvalidator
     $cache = $this->cacheBackend->get($cid, $allow_invalid);
 
     if ($cache) {
-      $cacheCopy = new \stdClass();
+      $cacheCopy = new \StdClass();
       $cacheCopy->cid = $cache->cid;
       $cacheCopy->expire = $cache->expire;
       $cacheCopy->tags = $cache->tags;
@@ -82,7 +86,7 @@ class CacheBackendWrapper implements CacheBackendInterface, CacheTagsInvalidator
         $this->cacheDataCollector->registerCacheMiss($this->bin, $cid);
       }
       else {
-        $cacheCopy = new \stdClass();
+        $cacheCopy = new \StdClass();
         $cacheCopy->cid = $cache[$cid]->cid;
         $cacheCopy->expire = $cache[$cid]->expire;
         $cacheCopy->tags = $cache[$cid]->tags;
@@ -125,6 +129,13 @@ class CacheBackendWrapper implements CacheBackendInterface, CacheTagsInvalidator
   /**
    * {@inheritdoc}
    */
+  public function deleteTags(array $tags) {
+    return $this->cacheBackend->deleteTags($tags);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function deleteAll() {
     return $this->cacheBackend->deleteAll();
   }
@@ -147,9 +158,7 @@ class CacheBackendWrapper implements CacheBackendInterface, CacheTagsInvalidator
    * {@inheritdoc}
    */
   public function invalidateTags(array $tags) {
-    if ($this->cacheBackend instanceof CacheTagsInvalidatorInterface) {
-      $this->cacheBackend->invalidateTags($tags);
-    }
+    return $this->cacheBackend->invalidateTags($tags);
   }
 
   /**
@@ -172,5 +181,4 @@ class CacheBackendWrapper implements CacheBackendInterface, CacheTagsInvalidator
   public function removeBin() {
     return $this->cacheBackend->removeBin();
   }
-
 }

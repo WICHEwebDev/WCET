@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\devel_generate_example\Plugin\DevelGenerate\ExampleDevelGenerate.
+ */
+
 namespace Drupal\devel_generate_example\Plugin\DevelGenerate;
 
 use Drupal\devel_generate\DevelGenerateBase;

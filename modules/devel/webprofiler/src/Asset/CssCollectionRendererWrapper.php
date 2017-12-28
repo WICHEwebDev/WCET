@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Asset\CssCollectionRendererWrapper.
+ */
+
 namespace Drupal\webprofiler\Asset;
 
 use Drupal\Core\Asset\AssetCollectionRendererInterface;

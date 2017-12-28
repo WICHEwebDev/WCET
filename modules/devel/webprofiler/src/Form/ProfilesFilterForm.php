@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Form\PurgeForm.
+ */
+
 namespace Drupal\webprofiler\Form;
 
 use Drupal\Core\Form\FormBase;

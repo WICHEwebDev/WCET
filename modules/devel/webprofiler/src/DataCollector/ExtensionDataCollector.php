@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\DataCollector\ExtensionDataCollector.
+ */
+
 namespace Drupal\webprofiler\DataCollector;
 
 use Drupal\Core\Extension\ModuleHandlerInterface;

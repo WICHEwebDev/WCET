@@ -1,6 +1,5 @@
 <?php
-
-class Kint_Decorators_Rich
+class Kint_Decorators_Rich extends Kint
 {
 	# make calls to Kint::dump() from different places in source coloured differently.
 	private static $_usedColors = array();
@@ -107,7 +106,7 @@ class Kint_Decorators_Rich
 				. '<var>';
 
 			if ( isset( $step['file'] ) ) {
-				$output .= self::_ideLink( $step['file'], $step['line'] );
+				$output .= Kint::shortenPath( $step['file'], $step['line'] );
 			} else {
 				$output .= 'PHP internal call';
 			}
@@ -137,7 +136,7 @@ class Kint_Decorators_Rich
 				kintParser::reset();
 				$calleeDump = kintParser::factory( $step['object'] );
 
-				$output .= "<li{$firstTab}>Callee object [{$calleeDump->type}]</li>";
+				$output .= "<li{$firstTab}>Callee object [{$calleeDump->subtype}]</li>";
 			}
 
 
@@ -175,9 +174,24 @@ class Kint_Decorators_Rich
 	 *
 	 * @return string
 	 */
-	public static function wrapStart()
+	public static function wrapStart( $callee )
 	{
-		return "<div class=\"kint\">";
+		// colors looping outputs the same (i.e. if same line in code dumps variables multiple time,
+		// we assume it's in a loop)
+
+		$uid = isset( $callee['file'] ) ? crc32( $callee['file'] . $callee['line'] ) : 'no-file';
+
+		if ( isset( self::$_usedColors[$uid] ) ) {
+			$class = self::$_usedColors[$uid];
+		} else {
+			$class                   = sizeof( self::$_usedColors );
+			self::$_usedColors[$uid] = $class;
+		}
+
+		$class = "kint_{$class}";
+
+
+		return self::_css() . "<div class=\"kint {$class}\">";
 	}
 
 
@@ -205,25 +219,21 @@ class Kint_Decorators_Rich
 		if ( isset( $prevCaller['type'] ) ) {
 			$callingFunction .= $prevCaller['type'];
 		}
-		if ( isset( $prevCaller['function'] )
-			&& !in_array( $prevCaller['function'], array( 'include', 'include_once', 'require', 'require_once' ) )
-		) {
+		if ( isset( $prevCaller['function'] ) && !in_array( $prevCaller['function'], Kint::$_statements ) ) {
 			$callingFunction .= $prevCaller['function'] . '()';
 		}
 		$callingFunction and $callingFunction = " [{$callingFunction}]";
 
 
 		if ( isset( $callee['file'] ) ) {
-			$calleeInfo .= 'Called from ' . self::_ideLink( $callee['file'], $callee['line'] );
+			$calleeInfo .= 'Called from ' . self::shortenPath( $callee['file'], $callee['line'], true );
 		}
 
 		if ( !empty( $miniTrace ) ) {
 			$traceDisplay = '<ol>';
 			foreach ( $miniTrace as $step ) {
-				$traceDisplay .= '<li>' . self::_ideLink( $step['file'], $step['line'] ); // closing tag not required
-				if ( isset( $step['function'] )
-					&& !in_array( $step['function'], array( 'include', 'include_once', 'require', 'require_once' ) )
-				) {
+				$traceDisplay .= '<li>' . self::shortenPath( $step['file'], $step['line'], true ); // closing tag not required
+				if ( isset( $step['function'] ) && !in_array( $step['function'], Kint::$_statements ) ) {
 					$classString = ' [';
 					if ( isset( $step['class'] ) ) {
 						$classString .= $step['class'];
@@ -257,7 +267,7 @@ class Kint_Decorators_Rich
 			}
 
 			if ( $kintVar->name !== null && $kintVar->name !== '' ) {
-				$output .= "<dfn>" . kintParser::escape( $kintVar->name ) . "</dfn> ";
+				$output .= "<dfn>" . $kintVar->name . "</dfn> ";
 			}
 
 			if ( $kintVar->operator !== null ) {
@@ -271,6 +281,9 @@ class Kint_Decorators_Rich
 			}
 
 			$output .= $kintVar->type;
+			if ( $kintVar->subtype !== null ) {
+				$output .= " " . $kintVar->subtype;
+			}
 
 			if ( $verbose ) {
 				$output .= "</var>";
@@ -287,16 +300,6 @@ class Kint_Decorators_Rich
 		return $output;
 	}
 
-	private static function _ideLink( $file, $line )
-	{
-		$shortenedPath = Kint::shortenPath( $file );
-		if ( !Kint::$fileLinkFormat ) return $shortenedPath . ':' . $line;
-
-		$ideLink = Kint::getIdeLink( $file, $line );
-		$class   = ( strpos( $ideLink, 'http://' ) === 0 ) ? 'class="kint-ide-link" ' : '';
-		return "<a {$class}href=\"{$ideLink}\">{$shortenedPath}:{$line}</a>";
-	}
-
 
 	/**
 	 * produces css and js required for display. May be called multiple times, will only produce output once per
@@ -304,11 +307,14 @@ class Kint_Decorators_Rich
 	 *
 	 * @return string
 	 */
-	public static function init()
+	private static function _css()
 	{
-		$baseDir = KINT_DIR . 'view/compiled/';
+		if ( !Kint::$_firstRun ) return '';
+		Kint::$_firstRun = false;
 
-		if ( !is_readable( $cssFile = $baseDir . Kint::$theme . '.css' ) ) {
+		$baseDir = KINT_DIR . 'view/compiled/main/';
+
+		if ( !is_readable( $cssFile = $baseDir . self::$theme . '.css' ) ) {
 			$cssFile = $baseDir . 'original.css';
 		}
 

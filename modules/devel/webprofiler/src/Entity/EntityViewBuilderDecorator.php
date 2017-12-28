@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Entity\EntityViewBuilderDecorator.
+ */
+
 namespace Drupal\webprofiler\Entity;
 
 use Drupal\Core\Entity\EntityHandlerInterface;

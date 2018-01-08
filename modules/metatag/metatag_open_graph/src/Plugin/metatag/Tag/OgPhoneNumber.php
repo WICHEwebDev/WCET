@@ -1,8 +1,12 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag_open_graph\Plugin\metatag\Tag\OgPhoneNumber.
+ */
 
 namespace Drupal\metatag_open_graph\Plugin\metatag\Tag;
 
-use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
+use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
 
 /**
  * Provides a plugin for the 'og:phone_number' meta tag.
@@ -14,8 +18,7 @@ use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
  *   name = "og:phone_number",
  *   group = "open_graph",
  *   weight = 24,
- *   type = "string",
- *   secure = FALSE,
+ *   image = FALSE,
  *   multiple = FALSE
  * )
  */

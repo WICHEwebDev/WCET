@@ -1,7 +1,11 @@
 <?php
 
-namespace Drupal\devel_generate;
+/**
+ * @file
+ * Contains \Drupal\devel_generate\DevelGenerateInterface.
+ */
 
+namespace Drupal\devel_generate;
 use Drupal\Component\Plugin\PluginInspectionInterface;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -48,16 +52,6 @@ interface DevelGenerateBaseInterface extends PluginInspectionInterface {
    *   The array of default setting values, keyed by setting names.
    */
   function settingsForm(array $form, FormStateInterface $form_state);
-
-  /**
-   * Form validation handler.
-   *
-   * @param array $form
-   *   An associative array containing the structure of the form.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   The current state of the form.
-   */
-  function settingsFormValidate(array $form, FormStateInterface $form_state);
 
   /**
    * Execute the instructions in common for all DevelGenerate plugin

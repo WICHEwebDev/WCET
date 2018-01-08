@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\Plugin\metatag\Tag\CanonicalUrl.
+ */
 
 namespace Drupal\metatag\Plugin\metatag\Tag;
 
@@ -8,12 +12,11 @@ namespace Drupal\metatag\Plugin\metatag\Tag;
  * @MetatagTag(
  *   id = "canonical_url",
  *   label = @Translation("Canonical URL"),
- *   description = @Translation("A link to the preferred page location or URL of the content of this page, to help eliminate duplicate content penalties from search engines."),
+ *   description = @Translation("Preferred page location or URL to help eliminate duplicate content for search engines."),
  *   name = "canonical",
  *   group = "advanced",
  *   weight = 1,
- *   type = "uri",
- *   secure = FALSE,
+ *   image = FALSE,
  *   multiple = FALSE
  * )
  */

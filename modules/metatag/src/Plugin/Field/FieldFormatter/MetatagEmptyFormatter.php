@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains Drupal\metatag\Plugin\Field\FieldFormatter\MetatagEmptyFormatter.
+ */
+
 namespace Drupal\metatag\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;
@@ -24,7 +29,7 @@ class MetatagEmptyFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     // Does not actually output anything.
-    return [];
+    return array();
   }
 
 }

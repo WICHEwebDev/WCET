@@ -1,17 +1,38 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase.
+ */
+
+/**
+ * This base plugin allows "property"-style meta tags, e.g. Open Graph tags, to
+ * be further customized.
+ */
 
 namespace Drupal\metatag\Plugin\metatag\Tag;
 
-/**
- * This base plugin allows "property"-style meta tags tobe customized.
- *
- * Used with e.g. the Open Graph tags.
- */
 abstract class MetaPropertyBase extends MetaNameBase {
-
   /**
-   * {@inheritdoc}
+   * Display the meta tag.
    */
-  protected $nameAttribute = 'property';
+  public function output() {
+    if (empty($this->value)) {
+      // If there is no value, we don't want a tag output.
+      $element = '';
+    }
+    else {
+      // Parse out the image URL, if needed.
+      $value = $this->parseImageURL();
 
+      $element = array(
+        '#tag' => 'meta',
+        '#attributes' => array(
+          'property' => $this->name,
+          'content' => $value,
+        )
+      );
+    }
+
+    return $element;
+  }
 }

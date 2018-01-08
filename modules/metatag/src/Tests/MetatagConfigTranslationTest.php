@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\Tests\MetatagConfigTranslationTest.
+ */
 
 namespace Drupal\metatag\Tests;
 
@@ -7,19 +11,17 @@ use Drupal\simpletest\WebTestBase;
 /**
  * Ensures that the Metatag config translations work correctly.
  *
- * @group metatag
+ * @group Metatag
  */
 class MetatagConfigTranslationTest extends WebTestBase {
 
   /**
    * Profile to use.
-   *
-   * @var string
    */
   protected $profile = 'testing';
 
   /**
-   * Admin user.
+   * Admin user
    *
    * @var \Drupal\Core\Session\AccountInterface
    */
@@ -64,15 +66,13 @@ class MetatagConfigTranslationTest extends WebTestBase {
     $this->drupalLogin($this->adminUser);
 
     // Enable the French language.
-    $this->drupalGet('admin/config/regional/language/add');
-    $this->assertResponse(200);
-    $edit = [
+    $edit = array(
       'predefined_langcode' => 'fr',
-    ];
-    $this->drupalPostForm(NULL, $edit, t('Add language'));
+    );
+    $this->drupalPostForm('admin/config/regional/language/add', $edit, t('Add language'));
     $this->assertRaw(t(
       'The language %language has been created and can now be used.',
-      ['%language' => t('French')]
+      array('%language' => t('French'))
     ));
   }
 
@@ -121,13 +121,11 @@ class MetatagConfigTranslationTest extends WebTestBase {
    */
   public function testConfigTranslations() {
     // Add something to the Global config.
-    $this->drupalGet('admin/config/search/metatag/global');
-    $this->assertResponse(200);
-    $edit = [
+    $values = array(
       'title' => 'Test title',
       'description' => 'Test description',
-    ];
-    $this->drupalPostForm(NULL, $edit, t('Save'));
+    );
+    $this->drupalPostForm('admin/config/search/metatag/global', $values, t('Save'));
     $this->assertResponse(200);
     $this->assertText(t('Saved the Global Metatag defaults.'));
 
@@ -143,16 +141,16 @@ class MetatagConfigTranslationTest extends WebTestBase {
     // values separately to make it easier to pinpoint where the problem is if
     // one should fail.
     $this->assertFieldByName('translation[config_names][metatag.metatag_defaults.global][tags][title]');
-    $this->assertFieldByName('translation[config_names][metatag.metatag_defaults.global][tags][title]', $edit['title']);
+    $this->assertFieldByName('translation[config_names][metatag.metatag_defaults.global][tags][title]', $values['title']);
     $this->assertFieldByName('translation[config_names][metatag.metatag_defaults.global][tags][description]');
-    $this->assertFieldByName('translation[config_names][metatag.metatag_defaults.global][tags][description]', $edit['description']);
+    $this->assertFieldByName('translation[config_names][metatag.metatag_defaults.global][tags][description]', $values['description']);
 
     // Confirm the form can be saved correctly.
-    $edit = [
+    $values = array(
       'translation[config_names][metatag.metatag_defaults.global][tags][title]' => 'Le title',
       'translation[config_names][metatag.metatag_defaults.global][tags][description]' => 'Le description',
-    ];
-    $this->drupalPostForm(NULL, $edit, t('Save translation'));
+    );
+    $this->drupalPostForm(NULL, $values, t('Save translation'));
     $this->assertResponse(200);
     $this->assertText(t('Successfully saved French translation'));
   }

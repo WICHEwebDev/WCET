@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Config\ConfigFactoryWrapper.
+ */
+
 namespace Drupal\webprofiler\Config;
 
 use Drupal\Core\Config\ConfigFactory;

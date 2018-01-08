@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\metatag\Plugin\Field\FieldType\MetatagFieldItem.
+ */
+
 namespace Drupal\metatag\Plugin\Field\FieldType;
 
 use Drupal\Core\Field\FieldItemBase;
@@ -23,22 +28,22 @@ class MetatagFieldItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function schema(FieldStorageDefinitionInterface $field_definition) {
-    return [
-      'columns' => [
-        'value' => [
+    return array(
+      'columns' => array(
+        'value' => array(
           'type' => 'text',
           'size' => 'big',
           'not null' => FALSE,
-        ],
-      ],
-    ];
+        ),
+      ),
+    );
   }
 
   /**
    * {@inheritdoc}
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    $properties['value'] = DataDefinition::create('metatag')
+    $properties['value'] = DataDefinition::create('string')
       ->setLabel(t('Metatag'))
       ->setRequired(TRUE);
 
@@ -67,8 +72,8 @@ class MetatagFieldItem extends FieldItemBase {
     $current_tags = unserialize($current_value);
 
     // Only include values that differ from the default.
-    // @todo When site defaults are added, account for those.
-    $tags_to_save = [];
+    // @TODO: When site defaults are added, account for those.
+    $tags_to_save = array();
     foreach ($current_tags as $tag_id => $tag_value) {
       if (!isset($default_tags[$tag_id]) || ($tag_value != $default_tags[$tag_id])) {
         $tags_to_save[$tag_id] = $tag_value;

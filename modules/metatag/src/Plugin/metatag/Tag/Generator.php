@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\Plugin\metatag\Tag\Generator.
+ */
 
 namespace Drupal\metatag\Plugin\metatag\Tag;
 
@@ -12,11 +16,10 @@ namespace Drupal\metatag\Plugin\metatag\Tag;
  *   name = "generator",
  *   group = "advanced",
  *   weight = 4,
- *   type = "string",
- *   secure = FALSE,
+ *   image = FALSE,
  *   multiple = FALSE
  * )
  */
-class Generator extends MetaNameBase {
+class Generator extends LinkRelBase {
   // Nothing here yet. Just a placeholder class for a plugin.
 }

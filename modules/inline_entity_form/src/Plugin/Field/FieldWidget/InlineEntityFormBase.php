@@ -1,18 +1,20 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\inline_entity_form\Plugin\Field\FieldWidget\InlineEntityFormBase.
+ */
+
 namespace Drupal\inline_entity_form\Plugin\Field\FieldWidget;
 
-use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
+use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
-use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\inline_entity_form\TranslationHelper;
+use Drupal\Core\Render\Element;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -28,32 +30,18 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
   protected $iefId;
 
   /**
-   * The entity type bundle info.
+   * The entity manager.
    *
-   * @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface
+   * @var \Drupal\Core\Entity\EntityManagerInterface
    */
-  protected $entityTypeBundleInfo;
-
-  /**
-   * The entity type manager.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
+  protected $entityManager;
 
   /**
    * The inline entity from handler.
    *
    * @var \Drupal\inline_entity_form\InlineFormInterface
    */
-  protected $inlineFormHandler;
-
-  /**
-   * The entity display repository.
-   *
-   * @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface
-   */
-  protected $entityDisplayRepository;
+  protected $iefHandler;
 
   /**
    * Constructs an InlineEntityFormBase object.
@@ -68,20 +56,14 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
    *   The widget settings.
    * @param array $third_party_settings
    *   Any third party settings.
-   * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
-   *   The entity type bundle info.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *   The entity type manager.
-   * @param \Drupal\Core\Entity\EntityDisplayRepositoryInterface
-   *   The entity display repository.
+   * @param \Drupal\Core\Entity\EntityManagerInterface $entity_manager
+   *   Entity manager service.
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, array $third_party_settings, EntityTypeBundleInfoInterface $entity_type_bundle_info, EntityTypeManagerInterface $entity_type_manager, EntityDisplayRepositoryInterface $entity_display_repository) {
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, array $third_party_settings, EntityManagerInterface $entity_manager) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $third_party_settings);
+    $this->entityManager = $entity_manager;
 
-    $this->entityTypeBundleInfo = $entity_type_bundle_info;
-    $this->entityTypeManager = $entity_type_manager;
-    $this->entityDisplayRepository = $entity_display_repository;
-    $this->createInlineFormHandler();
+    $this->initializeIefController();
   }
 
   /**
@@ -94,19 +76,17 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
       $configuration['field_definition'],
       $configuration['settings'],
       $configuration['third_party_settings'],
-      $container->get('entity_type.bundle.info'),
-      $container->get('entity_type.manager'),
-      $container->get('entity_display.repository')
+      $container->get('entity.manager')
     );
   }
 
   /**
-   * Creates an instance of the inline form handler for the current entity type.
+   * Initializes IEF form handler.
    */
-  protected function createInlineFormHandler() {
-    if (!isset($this->inlineFormHandler)) {
-      $target_type = $this->getFieldSetting('target_type');
-      $this->inlineFormHandler = $this->entityTypeManager->getHandler($target_type, 'inline_form');
+  protected function initializeIefController() {
+    if (!isset($this->iefHandler)) {
+      $target_type = $this->fieldDefinition->getFieldStorageDefinition()->getSetting('target_type');
+      $this->iefHandler = $this->entityManager->getHandler($target_type, 'inline_form');
     }
   }
 
@@ -114,7 +94,7 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
    * {@inheritdoc}
    */
   public function __sleep() {
-    $keys = array_diff(parent::__sleep(), ['inlineFormHandler']);
+    $keys = array_diff(parent::__sleep(), array('iefHandler'));
     return $keys;
   }
 
@@ -123,7 +103,7 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
    */
   public function __wakeup() {
     parent::__wakeup();
-    $this->createInlineFormHandler();
+    $this->initializeIefController();
   }
 
   /**
@@ -156,33 +136,13 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
     $settings = $this->getFieldSettings();
     if (!empty($settings['handler_settings']['target_bundles'])) {
       $target_bundles = array_values($settings['handler_settings']['target_bundles']);
-      // Filter out target bundles which no longer exist.
-      $existing_bundles = array_keys($this->entityTypeBundleInfo->getBundleInfo($settings['target_type']));
-      $target_bundles = array_intersect($target_bundles, $existing_bundles);
     }
     else {
       // If no target bundles have been specified then all are available.
-      $target_bundles = array_keys($this->entityTypeBundleInfo->getBundleInfo($settings['target_type']));
+      $target_bundles = array_keys($this->entityManager->getBundleInfo($settings['target_type']));
     }
 
     return $target_bundles;
-  }
-
-  /**
-   * Gets the bundles for which the current user has create access.
-   *
-   * @return string[]
-   *   The list of bundles.
-   */
-  protected function getCreateBundles() {
-    $create_bundles = [];
-    foreach ($this->getTargetBundles() as $bundle) {
-      if ($this->getAccessHandler()->createAccess($bundle)) {
-        $create_bundles[] = $bundle;
-      }
-    }
-
-    return $create_bundles;
   }
 
   /**
@@ -190,7 +150,6 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
    */
   public static function defaultSettings() {
     return [
-      'form_mode' => 'default',
       'override_labels' => FALSE,
       'label_singular' => '',
       'label_plural' => '',
@@ -201,16 +160,8 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
-    $entity_type_id = $this->getFieldSetting('target_type');
     $states_prefix = 'fields[' . $this->fieldDefinition->getName() . '][settings_edit_form][settings]';
     $element = [];
-    $element['form_mode'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Form mode'),
-      '#default_value' => $this->getSetting('form_mode'),
-      '#options' => $this->entityDisplayRepository->getFormModeOptions($entity_type_id),
-      '#required' => TRUE,
-    ];
     $element['override_labels'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Override labels'),
@@ -226,16 +177,16 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
         ],
       ],
     ];
-    $element['label_plural'] = [
+    $element['label_plural'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Plural label'),
       '#default_value' => $this->getSetting('label_plural'),
-      '#states' => [
-        'visible' => [
+      '#states' => array(
+        'visible' => array(
           ':input[name="' . $states_prefix . '[override_labels]"]' => ['checked' => TRUE],
-        ],
-      ],
-    ];
+        ),
+      ),
+    );
 
     return $element;
   }
@@ -245,13 +196,6 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
    */
   public function settingsSummary() {
     $summary = [];
-    if ($entity_form_mode = $this->getEntityFormMode()) {
-      $form_mode_label = $entity_form_mode->label();
-    }
-    else {
-      $form_mode_label = $this->t('Default');
-    }
-    $summary[] = t('Form mode: @mode', ['@mode' => $form_mode_label]);
     if ($this->getSetting('override_labels')) {
       $summary[] = $this->t(
         'Overriden labels are used: %singular and %plural',
@@ -266,12 +210,14 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
   }
 
   /**
-   * Gets the entity type managed by this handler.
+   * Returns an array of entity type labels to be included in the UI text.
    *
-   * @return \Drupal\Core\Entity\EntityTypeInterface
-   *   The entity type.
+   * @return array
+   *   Associative array with the following keys:
+   *   - 'singular': The label for singular form.
+   *   - 'plural': The label for plural form.
    */
-  protected function getEntityTypeLabels() {
+  protected function labels() {
     // The admin has specified the exact labels that should be used.
     if ($this->getSetting('override_labels')) {
       return [
@@ -280,8 +226,8 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
       ];
     }
     else {
-      $this->createInlineFormHandler();
-      return $this->inlineFormHandler->getEntityTypeLabels();
+      $this->initializeIefController();
+      return $this->iefHandler->labels();
     }
   }
 
@@ -302,7 +248,7 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
       return FALSE;
     }
 
-    if (!$this->inlineFormHandler) {
+    if (!$this->iefHandler) {
       return FALSE;
     }
 
@@ -310,129 +256,57 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
   }
 
   /**
-   * Prepares the form state for the current widget.
-   *
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   The form state.
-   * @param \Drupal\Core\Field\FieldItemListInterface $items
-   *   The field values.
-   * @param bool $translating
-   *   Whether there's a translation in progress.
-   */
-  protected function prepareFormState(FormStateInterface $form_state, FieldItemListInterface $items, $translating = FALSE) {
-    $widget_state = $form_state->get(['inline_entity_form', $this->iefId]);
-    if (empty($widget_state)) {
-      $widget_state = [
-        'instance' => $this->fieldDefinition,
-        'form' => NULL,
-        'delete' => [],
-        'entities' => [],
-      ];
-      // Store the $items entities in the widget state, for further manipulation.
-      foreach ($items as $delta => $item) {
-        $entity = $item->entity;
-        // The $entity can be NULL if the reference is broken.
-        if ($entity) {
-          // Display the entity in the correct translation.
-          if ($translating) {
-            $entity = TranslationHelper::prepareEntity($entity, $form_state);
-          }
-          $widget_state['entities'][$delta] = [
-            'entity' => $entity,
-            'weight' => $delta,
-            'form' => NULL,
-            'needs_save' => $entity->isNew(),
-          ];
-        }
-      }
-      $form_state->set(['inline_entity_form', $this->iefId], $widget_state);
-    }
-  }
-
-  /**
    * Gets inline entity form element.
    *
-   * @param string $operation
-   *   The operation (i.e. 'add' or 'edit').
-   * @param string $bundle
-   *   Entity bundle.
-   * @param string $langcode
+   * @param $operation
+   *   Operation (i.e. 'add' or 'edit').
+   * @param $language
    *   Entity langcode.
    * @param array $parents
    *   Array of parent element names.
-   * @param \Drupal\Core\Entity\EntityInterface $entity
+   * @param EntityInterface $entity
    *   Optional entity object.
+   * @param bool $save_entity
+   *   IEF will attempt to save entity after attaching all field values if set to
+   *   TRUE. Defaults to FALSE.
    *
    * @return array
    *   IEF form element structure.
    */
-  protected function getInlineEntityForm($operation, $bundle, $langcode, $delta, array $parents, EntityInterface $entity = NULL) {
-    $element = [
+  protected function getInlineEntityForm($operation, $language, $delta, array $parents, $bundle = NULL, EntityInterface $entity = NULL, $save_entity = FALSE) {
+    $ief = [
       '#type' => 'inline_entity_form',
-      '#entity_type' => $this->getFieldSetting('target_type'),
-      '#bundle' => $bundle,
-      '#langcode' => $langcode,
-      '#default_value' => $entity,
       '#op' => $operation,
-      '#form_mode' => $this->getSetting('form_mode'),
-      '#save_entity' => FALSE,
+      '#save_entity' => $save_entity,
       '#ief_row_delta' => $delta,
       // Used by Field API and controller methods to find the relevant
       // values in $form_state.
       '#parents' => $parents,
+      '#entity_type' => $this->getFieldSetting('target_type'),
+      // Pass the langcode of the parent entity,
+      '#language' => $language,
       // Labels could be overridden in field widget settings. We won't have
       // access to those in static callbacks (#process, ...) so let's add
       // them here.
-      '#ief_labels' => $this->getEntityTypeLabels(),
+      '#ief_labels' => $this->labels(),
       // Identifies the IEF widget to which the form belongs.
       '#ief_id' => $this->getIefId(),
+      // Add the pre_render callback that powers the #fieldset form element key,
+      // which moves the element to the specified fieldset without modifying its
+      // position in $form_state->get('values').
+      '#pre_render' => [[get_class($this), 'addFieldsetMarkup']],
     ];
 
-    return $element;
-  }
-
-  /**
-   * Determines whether there's a translation in progress.
-   *
-   * Ensures that at least one target bundle has translations enabled.
-   * Otherwise the widget will skip translation even if it's happening
-   * on the parent form itself.
-   *
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   The form state.
-   *
-   * @return bool
-   *   TRUE if translating is in progress, FALSE otherwise.
-   *
-   * @see \Drupal\inline_entity_form\TranslationHelper::initFormLangcodes().
-   */
-  protected function isTranslating(FormStateInterface $form_state) {
-    if (TranslationHelper::isTranslating($form_state)) {
-      $translation_manager = \Drupal::service('content_translation.manager');
-      $target_type = $this->getFieldSetting('target_type');
-      foreach ($this->getTargetBundles() as $bundle) {
-        if ($translation_manager->isEnabled($target_type, $bundle)) {
-          return TRUE;
-        }
-      }
+    if ($entity) {
+      // Store the entity on the form, later modified in the controller.
+      $ief['#entity'] = $entity;
     }
 
-    return FALSE;
-  }
+    if ($bundle) {
+      $ief['#bundle'] = $bundle;
+    }
 
-  /**
-   * After-build callback for removing the translatability clue from the widget.
-   *
-   * IEF expects the entity reference field to not be translatable, to avoid
-   * different translations having different references.
-   * However, that causes ContentTranslationHandler::addTranslatabilityClue()
-   * to add an "(all languages)" suffix to the widget title. That suffix is
-   * incorrect, since IEF does ensure that specific entity translations are
-   * being edited.
-   */
-  public static function removeTranslatabilityClue(array $element, FormStateInterface $form_state) {
-    $element['#title'] = $element['#field_title'];
-    return $element;
+    return $ief;
   }
 
   /**
@@ -444,6 +318,41 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
   public static function addIefSubmitCallbacks($element) {
     $element['#ief_element_submit'][] = [get_called_class(), 'submitSaveEntity'];
     return $element;
+  }
+
+  /**
+   * Pre-render callback: Move form elements into fieldsets for presentation purposes.
+   *
+   * Inline forms use #tree = TRUE to keep their values in a hierarchy for
+   * easier storage. Moving the form elements into fieldsets during form building
+   * would break up that hierarchy, so it's not an option for Field API fields.
+   * Therefore, we wait until the pre_render stage, where any changes we make
+   * affect presentation only and aren't reflected in $form_state->getValues().
+   */
+  public static function addFieldsetMarkup($form) {
+    $sort = [];
+    foreach (Element::children($form) as $key) {
+      $element = $form[$key];
+      // In our form builder functions, we added an arbitrary #fieldset property
+      // to any element that belongs in a fieldset. If this form element has that
+      // property, move it into its fieldset.
+      if (isset($element['#fieldset']) && isset($form[$element['#fieldset']])) {
+        $form[$element['#fieldset']][$key] = $element;
+        // Remove the original element this duplicates.
+        unset($form[$key]);
+        // Mark the fieldset for sorting.
+        if (!in_array($key, $sort)) {
+          $sort[] = $element['#fieldset'];
+        }
+      }
+    }
+
+    // Sort all fieldsets, so that element #weight stays respected.
+    foreach ($sort as $key) {
+      uasort($form[$key], 'element_sort');
+    }
+
+    return $form;
   }
 
   /**
@@ -470,12 +379,12 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
         $weight = max(array_keys($entities)) + 1;
       }
       // Add the entity to form state, mark it for saving, and close the form.
-      $entities[] = [
+      $entities[] = array(
         'entity' => $entity,
-        'weight' => $weight,
+        '_weight' => $weight,
         'form' => NULL,
         'needs_save' => TRUE,
-      ];
+      );
       $form_state->set(['inline_entity_form', $ief_id, 'entities'], $entities);
     }
     else {
@@ -488,60 +397,39 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
   }
 
   /**
-   * {@inheritdoc}
-   */
-  public function calculateDependencies() {
-    $dependencies = parent::calculateDependencies();
-    if ($entity_form_mode = $this->getEntityFormMode()) {
-      $dependencies['config'][] = $entity_form_mode->getConfigDependencyName();
-    }
-    return $dependencies;
-  }
-
-  /**
-   * Gets the entity form mode instance for this widget.
+   * Checks if current submit is relevant for IEF.
    *
-   * @return \Drupal\Core\Entity\EntityFormModeInterface|null
-   *   The form mode instance, or NULL if the default one is used.
-   */
-  protected function getEntityFormMode() {
-    $form_mode = $this->getSetting('form_mode');
-    if ($form_mode != 'default') {
-      $entity_type_id = $this->getFieldSetting('target_type');
-      return $this->entityTypeManager->getStorage('entity_form_mode')->load($entity_type_id . '.' . $form_mode);
-    }
-    return NULL;
-  }
-
-  /**
-   * Gets the access handler for the target entity type.
+   * We need to save all referenced entities and extract their IDs into field
+   * values.
    *
-   * @return \Drupal\Core\Entity\EntityAccessControlHandlerInterface
-   *   The access handler.
-   */
-  protected function getAccessHandler() {
-    $entity_type_id = $this->getFieldSetting('target_type');
-    return $this->entityTypeManager->getAccessControlHandler($entity_type_id);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function form(FieldItemListInterface $items, array &$form, FormStateInterface $form_state, $get_delta = NULL) {
-    if ($this->canBuildForm($form_state)) {
-      return parent::form($items, $form, $form_state, $get_delta);
-    }
-    return [];
-  }
-
-  /**
-   * Determines if the current user can add any new entities.
+   * @param array $form
+   *   Complete form.
+   * @param FormStateInterface $form_state
+   *   Form state.
    *
    * @return bool
+   *   TRUE if current submit is relevant for this IEF widget and FALSE if not.
    */
-  protected function canAddNew() {
-    $create_bundles = $this->getCreateBundles();
-    return !empty($create_bundles);
+  protected function isSubmitRelevant(array $form, FormStateInterface $form_state) {
+    $field_name = $this->fieldDefinition->getName();
+    $field_parents = array_slice(array_merge($form['#parents'], [$field_name, 'form']), 0, -1);
+
+    $trigger = $form_state->getTriggeringElement();
+    if (isset($trigger['#limit_validation_errors']) && $trigger['#limit_validation_errors'] !== FALSE) {
+      $relevant_sections = array_filter(
+        $trigger['#limit_validation_errors'],
+        function ($item) use ($field_parents) {
+          $union = $field_parents + $item;
+          return $union == max(count($item), count($field_parents));
+        }
+      );
+
+      if (empty($relevant_sections)) {
+        return FALSE;
+      }
+    }
+
+    return TRUE;
   }
 
 }

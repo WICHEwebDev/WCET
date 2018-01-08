@@ -1,38 +1,14 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\Generator\MetatagTagGenerator.
+ */
 
 namespace Drupal\metatag\Generator;
 
-use Drupal\Console\Core\Generator\Generator;
-use Drupal\Console\Extension\Manager;
-use Drupal\Console\Core\Utils\TwigRenderer;
+use Drupal\Console\Generator\Generator;
 
-/**
- * Drupal Console plugin for generating a tag.
- */
 class MetatagTagGenerator extends Generator {
-
-  /**
-   * @var \Drupal\Console\Extension\Manager
-   */
-  protected $extensionManager;
-
-  /**
-   * @var \Drupal\Console\Core\Utils\TwigRenderer
-   */
-  protected $render;
-
-  /**
-   * MetatagTagGenerator constructor.
-   *
-   * @param Drupal\Console\Extension\Manager $extensionManager
-   * @param Drupal\Console\Core\Utils\TwigRenderer $render
-   */
-  public function __construct(Manager $extensionManager, TwigRenderer $render) {
-    $this->extensionManager = $extensionManager;
-
-    $render->addSkeletonDir(__DIR__ . '/../../templates/');
-    $this->setRenderer($render);
-  }
 
   /**
    * Generator plugin.
@@ -46,11 +22,10 @@ class MetatagTagGenerator extends Generator {
    * @param string $class_name
    * @param string $group
    * @param string $weight
-   * @param string $type
-   * @param bool $secure
+   * @param bool $image
    * @param bool $multiple
    */
-  public function generate($base_class, $module, $name, $label, $description, $plugin_id, $class_name, $group, $weight, $type, $secure, $multiple) {
+  public function generate($base_class, $module, $name, $label, $description, $plugin_id, $class_name, $group, $weight, $image, $multiple) {
     $parameters = [
       'base_class' => $base_class,
       'module' => $module,
@@ -61,23 +36,14 @@ class MetatagTagGenerator extends Generator {
       'class_name' => $class_name,
       'group' => $group,
       'weight' => $weight,
-      'type' => $type,
-      'secure' => $secure,
+      'image' => $image,
       'multiple' => $multiple,
-      'prefix' => '<' . '?php',
     ];
 
     $this->renderFile(
       'tag.php.twig',
-      $this->extensionManager->getPluginPath($module, 'metatag/Tag') . '/' . $class_name . '.php',
+      $this->getSite()->getPluginPath($module, 'metatag/Tag') . '/' . $class_name . '.php',
       $parameters
-    );
-
-    $this->renderFile(
-      'metatag_tag.schema.yml.twig',
-      $this->extensionManager->getModule($module)->getPath() . '/config/schema/' . $module . '.metatag_tag.schema.yml',
-      $parameters,
-      FILE_APPEND
     );
   }
 

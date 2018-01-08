@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\csv_serialization\Encoder\CsvEncoder.
+ */
+
 namespace Drupal\csv_serialization\Encoder;
 
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
@@ -100,10 +105,6 @@ class CsvEncoder implements EncoderInterface, DecoderInterface {
         break;
     }
 
-    if (!empty($context['views_style_plugin']->options['csv_settings'])) {
-      $this->setSettings($context['views_style_plugin']->options['csv_settings']);
-    }
-
     try {
       // Instantiate CSV writer with options.
       $csv = Writer::createFromFileObject(new SplTempFileObject());
@@ -140,15 +141,10 @@ class CsvEncoder implements EncoderInterface, DecoderInterface {
    *   An array of CSV headesr.
    */
   protected function extractHeaders($data) {
-    if (!empty($data)) {
-      $first_row = $data[0];
-      $headers = array_keys($first_row);
+    $first_row = $data[0];
+    $headers = array_keys($first_row);
 
-      return $headers;
-    }
-    else {
-      return array();
-    }
+    return $headers;
   }
 
   /**
@@ -217,6 +213,7 @@ class CsvEncoder implements EncoderInterface, DecoderInterface {
     $value = Html::decodeEntities($value);
     $value = strip_tags($value);
     $value = trim($value);
+    $value = utf8_decode($value);
 
     return $value;
   }
@@ -287,18 +284,4 @@ class CsvEncoder implements EncoderInterface, DecoderInterface {
 
     return ceil(($max_indentation - 1) / 2) + 1;
   }
-
-  /**
-   * Set CSV settings from the Views settings array.
-   *
-   * If a tab character ('\t') is used for the delimiter, it will be properly
-   * converted to "\t".
-   */
-  protected function setSettings(array $settings) {
-    // Replace tab character with one that will be properly interpreted.
-    $this->delimiter = str_replace('\t', "\t", $settings['delimiter']);
-    $this->enclosure = $settings['enclosure'];
-    $this->escapeChar = $settings['escape_char'];
-  }
-
 }

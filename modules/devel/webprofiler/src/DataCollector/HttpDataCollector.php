@@ -1,10 +1,17 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\DataCollector\HttpDataCollector.
+ */
+
 namespace Drupal\webprofiler\DataCollector;
 
 use Drupal\webprofiler\Http\HttpClientMiddleware;
 use Drupal\webprofiler\DrupalDataCollectorInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use GuzzleHttp\TransferStats;
+use Psr\Log\LogLevel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
@@ -63,7 +70,7 @@ class HttpDataCollector extends DataCollector implements DrupalDataCollectorInte
           'request_target' => $request->getRequestTarget(),
           'stats' => [
             'transferTime' => $stats->getTransferTime(),
-            'handlerStats' => $stats->getHandlerStats(),
+            'handlerStats' => $stats->getHandlerStats()
           ],
         ],
         'response' => [
@@ -71,7 +78,7 @@ class HttpDataCollector extends DataCollector implements DrupalDataCollectorInte
           'status' => $response->getStatusCode(),
           'headers' => $response->getHeaders(),
           'protocol' => $response->getProtocolVersion(),
-        ],
+        ]
       ];
     }
 
@@ -82,7 +89,7 @@ class HttpDataCollector extends DataCollector implements DrupalDataCollectorInte
       $response = $data['response'];
 
       $uri = $request->getUri();
-      $failureData = [
+      $this->data['failed'][] = [
         'request' => [
           'method' => $request->getMethod(),
           'uri' => [
@@ -97,18 +104,13 @@ class HttpDataCollector extends DataCollector implements DrupalDataCollectorInte
           'protocol' => $request->getProtocolVersion(),
           'request_target' => $request->getRequestTarget(),
         ],
-      ];
-
-      if ($response) {
-        $failureData['response'] = [
+        'response' => [
           'phrase' => $response->getReasonPhrase(),
           'status' => $response->getStatusCode(),
           'headers' => $response->getHeaders(),
           'protocol' => $response->getProtocolVersion(),
-        ];
-      }
-
-      $this->data['failed'][] = $failureData;
+        ]
+      ];
     }
   }
 
@@ -158,12 +160,10 @@ class HttpDataCollector extends DataCollector implements DrupalDataCollectorInte
    * {@inheritdoc}
    */
   public function getPanelSummary() {
-    return $this->t(
-      'Completed @completed, error @error', [
+    return $this->t('Completed @completed, error @error', [
       '@completed' => $this->getCompletedRequestsCount(),
-      '@error' => $this->getFailedRequestsCount(),
-    ]
-    );
+      '@error' => $this->getFailedRequestsCount()
+    ]);
   }
 
   /**

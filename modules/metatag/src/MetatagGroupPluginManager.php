@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains the \Drupal\metatag\MetatagGroupPluginManager class.
+ */
+
 namespace Drupal\metatag;
 
 use Drupal\Core\Cache\CacheBackendInterface;

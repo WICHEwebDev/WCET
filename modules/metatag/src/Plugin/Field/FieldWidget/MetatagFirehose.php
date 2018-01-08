@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\Plugin\Field\FieldWidget\MetatagFirehose.
+ */
 
 namespace Drupal\metatag\Plugin\Field\FieldWidget;
 
@@ -25,8 +29,6 @@ class MetatagFirehose extends WidgetBase implements ContainerFactoryPluginInterf
 
   /**
    * Instance of MetatagManager service.
-   *
-   * @var \Drupal\metatag\MetatagManager
    */
   protected $metatagManager;
 
@@ -60,7 +62,7 @@ class MetatagFirehose extends WidgetBase implements ContainerFactoryPluginInterf
     $default_tags = metatag_get_default_tags();
 
     // Retrieve the values for each metatag from the serialized array.
-    $values = [];
+    $values = array();
     if (!empty($item->value)) {
       $values = unserialize($item->value);
     }
@@ -75,7 +77,7 @@ class MetatagFirehose extends WidgetBase implements ContainerFactoryPluginInterf
     }
 
     // Create the form element.
-    $element = $this->metatagManager->form($values, $element, [$item->getEntity()->getentityTypeId()]);
+    $element = $this->metatagManager->form($values, $element);
 
     // Put the form element into the form's "advanced" group.
     $element['#group'] = 'advanced';
@@ -92,7 +94,7 @@ class MetatagFirehose extends WidgetBase implements ContainerFactoryPluginInterf
     $tag_manager = \Drupal::service('plugin.manager.metatag.tag');
     $tags = $tag_manager->getDefinitions();
     foreach ($values as &$value) {
-      $flattened_value = [];
+      $flattened_value = array();
       foreach ($value as $group) {
         // Exclude the "original delta" value.
         if (is_array($group)) {

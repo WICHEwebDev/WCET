@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\DataCollector\BlocksDataCollector.
+ */
+
 namespace Drupal\webprofiler\DataCollector;
 
 use Drupal\block\Entity\Block;
+use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\webprofiler\DrupalDataCollectorInterface;
 use Drupal\webprofiler\Entity\EntityDecorator;
@@ -25,9 +30,9 @@ class BlocksDataCollector extends DataCollector implements DrupalDataCollectorIn
   private $entityManager;
 
   /**
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityManager
+   * @param \Drupal\Core\Entity\EntityManagerInterface $entityManager
    */
-  public function __construct(EntityTypeManagerInterface $entityManager) {
+  public function __construct(EntityManagerInterface $entityManager) {
     $this->entityManager = $entityManager;
 
     $this->data['blocks']['loaded'] = [];
@@ -40,7 +45,7 @@ class BlocksDataCollector extends DataCollector implements DrupalDataCollectorIn
   public function collect(Request $request, Response $response, \Exception $exception = NULL) {
     $storage = $this->entityManager->getStorage('block');
 
-    $loaded = $this->entityManager->getLoaded('config', 'block');
+    $loaded = $this->entityManager->getLoaded('block');
     $rendered = $this->entityManager->getRendered('block');
 
     if ($loaded) {
@@ -124,11 +129,11 @@ class BlocksDataCollector extends DataCollector implements DrupalDataCollectorIn
     /** @var \Drupal\block\BlockInterface $block */
     foreach ($decorator->getEntities() as $block) {
       /** @var Block $entity */
-      if (null !== $block && $entity = $storage->load($block->get('id'))) {
+      if ($entity = $storage->load($block->get('id'))) {
 
         $route = '';
         if ($entity->hasLinkTemplate('edit-form')) {
-          $route = $entity->toUrl('edit-form')->toString();
+          $route = $entity->urlInfo('edit-form')->toString();
         }
 
         $id = $block->get('id');

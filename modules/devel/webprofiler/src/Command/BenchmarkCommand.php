@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains Drupal\webprofiler\Command\BenchmarkCommand.
+ */
+
 namespace Drupal\webprofiler\Command;
 
 use GuzzleHttp\ClientInterface;
@@ -9,24 +14,15 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Drupal\Console\Core\Command\Shared\ContainerAwareCommandTrait;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Command\ContainerAwareCommand;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Console\Annotations\DrupalCommand;
 
 /**
  * Class BenchmarkCommand
- *
- * @DrupalCommand (
- *     extension="webprofiler",
- *     extensionType="module"
- * )
  */
-class BenchmarkCommand extends Command {
-
-  use ContainerAwareCommandTrait;
+class BenchmarkCommand extends ContainerAwareCommand {
 
   /**
    * {@inheritdoc}
@@ -65,7 +61,7 @@ class BenchmarkCommand extends Command {
     }
 
     /** @var \Drupal\Core\Http\Client $client */
-    $client = $this->container->get('http_client');
+    $client = $this->getContainer()->get('http_client');
 
     $progress = new ProgressBar($output, $runs + $steps);
     $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% %message%');
@@ -161,7 +157,7 @@ class BenchmarkCommand extends Command {
     $token = $response->getHeader('X-Debug-Token');
 
     /** @var \Drupal\webprofiler\Profiler\Profiler $profiler */
-    $profiler = $this->container->get('profiler');
+    $profiler = $this->getContainer()->get('profiler');
 
     /** @var \Symfony\Component\HttpKernel\Profiler\Profile $profile */
     $profile = $profiler->loadProfile($token);

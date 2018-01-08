@@ -1,6 +1,7 @@
 {% extends "generator.php.twig" %}
 
-{% block prefix %}{{ prefix }}
+{% block file_path %}
+\Drupal\{{ module }}\Plugin\metatag\Tag\{{ class_name }}.
 {% endblock %}
 
 {% block namespace_class %}
@@ -8,7 +9,7 @@ namespace Drupal\{{ module }}\Plugin\metatag\Tag;
 {% endblock %}
 
 {% block use_class %}
-use Drupal\metatag\Plugin\metatag\Tag\{{ base_class }};
+use \Drupal\metatag\Plugin\metatag\Tag\{{ base_class }};
 {% endblock %}
 
 {% block class_declaration %}
@@ -22,8 +23,7 @@ use Drupal\metatag\Plugin\metatag\Tag\{{ base_class }};
  *   name = "{{ name }}",
  *   group = "{{ group }}",
  *   weight = {{ weight }},
- *   type = "{{ type }}",
- *   secure = {{ secure }},
+ *   image = {{ image }},
  *   multiple = {{ multiple }}
  * )
  */

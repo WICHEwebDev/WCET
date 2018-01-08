@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\webprofiler\Compiler\StoragePass.
+ */
+
 namespace Drupal\webprofiler\Compiler;
 
 use Symfony\Component\DependencyInjection\Reference;

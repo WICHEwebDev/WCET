@@ -1,8 +1,12 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag_open_graph\Plugin\metatag\Tag\OgSiteName.
+ */
 
 namespace Drupal\metatag_open_graph\Plugin\metatag\Tag;
 
-use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
+use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
 
 /**
  * The Open Graph "Site name" meta tag.
@@ -14,8 +18,7 @@ use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
  *   name = "og:site_name",
  *   group = "open_graph",
  *   weight = 1,
- *   type = "label",
- *   secure = FALSE,
+ *   image = FALSE,
  *   multiple = FALSE
  * )
  */

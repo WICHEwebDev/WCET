@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains Drupal\contact_storage\Plugin\views\field\ContactForm.
+ */
+
 namespace Drupal\contact_storage\Plugin\views\field;
 
 use Drupal\Core\Config\Entity\ConfigEntityStorageInterface;

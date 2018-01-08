@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\devel_generate\Form\DevelGenerateForm.
+ */
+
 namespace Drupal\devel_generate\Form;
 
 use Drupal\Component\Plugin\PluginManagerInterface;
@@ -85,15 +90,6 @@ class DevelGenerateForm extends FormBase {
     );
 
     return $form;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    $plugin_id = $this->getPluginIdFromRequest();
-    $instance = $this->getPluginInstance($plugin_id);
-    $instance->settingsFormValidate($form, $form_state);
   }
 
   /**

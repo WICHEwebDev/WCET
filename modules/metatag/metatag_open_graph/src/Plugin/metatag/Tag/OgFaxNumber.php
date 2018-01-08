@@ -1,8 +1,12 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag_open_graph\Plugin\metatag\Tag\OgFaxNumber.
+ */
 
 namespace Drupal\metatag_open_graph\Plugin\metatag\Tag;
 
-use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
+use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
 
 /**
  * Provides a plugin for the 'og:fax_number' meta tag.
@@ -14,8 +18,7 @@ use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
  *   name = "og:fax_number",
  *   group = "open_graph",
  *   weight = 25,
- *   type = "string",
- *   secure = FALSE,
+ *   image = FALSE,
  *   multiple = FALSE
  * )
  */

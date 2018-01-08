@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\Plugin\metatag\Group\TwitterCards.
+ */
 
 namespace Drupal\metatag\Plugin\metatag\Group;
 

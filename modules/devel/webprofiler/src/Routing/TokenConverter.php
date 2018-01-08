@@ -3,6 +3,7 @@
 namespace Drupal\webprofiler\Routing;
 
 use Drupal\Core\ParamConverter\ParamConverterInterface;
+use Drupal\webprofiler\Profiler\Profiler;
 use Symfony\Component\Routing\Route;
 
 /**
@@ -11,21 +12,28 @@ use Symfony\Component\Routing\Route;
 class TokenConverter implements ParamConverterInterface {
 
   /**
+   * @var \Drupal\webprofiler\Profiler\Profiler
+   */
+  private $profiler;
+
+  /**
+   * Constructs a new WebprofilerController.
+   *
+   * @param \Drupal\webprofiler\Profiler\Profiler $profiler
+   */
+  public function __construct(Profiler $profiler) {
+    $this->profiler = $profiler;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function convert($value, $definition, $name, array $defaults) {
-    // "profiler" service isn't injected to prevent circular reference when
-    // more than one language is active and "Account administration pages" is
-    // enabled on admin/config/regional/language/detection. See #2710787 for
-    // more information.
-    /** @var \Drupal\webprofiler\Profiler\Profiler $profiler */
-    $profiler = \Drupal::service('profiler');
-
-    if (NULL === $profiler) {
+    if (NULL === $this->profiler) {
       return NULL;
     }
 
-    $profile = $profiler->loadProfile($value);
+    $profile = $this->profiler->loadProfile($value);
 
     if (NULL === $profile) {
       return NULL;

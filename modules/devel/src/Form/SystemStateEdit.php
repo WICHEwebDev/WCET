@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\devel\Form\SystemStateEdit.
+ */
+
 namespace Drupal\devel\Form;
 
 use Drupal\Component\Serialization\Exception\InvalidDataTypeException;
@@ -71,7 +76,7 @@ class SystemStateEdit extends FormBase {
     $form['value'] = array(
       '#type' => 'item',
       '#title' => $this->t('Current value for %name', array('%name' => $state_name)),
-      '#markup' => kpr($old_value, TRUE),
+      '#markup' => kprint_r($old_value, TRUE),
     );
 
     $transport = 'plain';

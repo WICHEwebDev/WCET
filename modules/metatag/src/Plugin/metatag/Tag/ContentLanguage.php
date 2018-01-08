@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\Plugin\metatag\Tag\ContentLanguage.
+ */
 
 namespace Drupal\metatag\Plugin\metatag\Tag;
 
@@ -8,12 +12,11 @@ namespace Drupal\metatag\Plugin\metatag\Tag;
  * @MetatagTag(
  *   id = "content_language",
  *   label = @Translation("Content Language"),
- *   description = @Translation("Used to define this page's language code. May be the two letter language code, e.g. ""de"" for German, or the two letter code with a dash and the two letter ISO country code, e.g. ""de-AT"" for German in Austria. Still used by Bing."),
+ *   description = @Translation("A deprecated meta tag for defining this page's two-letter language code(s)."),
  *   name = "content-language",
  *   group = "advanced",
  *   weight = 1,
- *   type = "string",
- *   secure = FALSE,
+ *   image = FALSE,
  *   multiple = FALSE
  * )
  */

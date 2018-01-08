@@ -1,27 +1,34 @@
 <?php
-
-namespace Drupal\metatag\Plugin\metatag\Tag;
+/**
+ * @file
+ * Contains \Drupal\metatag\Plugin\metatag\Tag\LinkRelBase.
+ */
 
 /**
  * This base plugin allows "link rel" tags to be further customized.
  */
-abstract class LinkRelBase extends MetaNameBase {
 
+namespace Drupal\metatag\Plugin\metatag\Tag;
+
+abstract class LinkRelBase extends MetaNameBase {
   /**
-   * {@inheritdoc}
+   * Display the meta tag.
    */
   public function output() {
-    $element = parent::output();
-    if (!empty($element['#attributes']['content'])) {
-      $element['#tag'] = 'link';
-      $element['#attributes'] = [
-        'rel' => $this->name(),
-        'href' => $element['#attributes']['content'],
-      ];
-      unset($element['#attributes']['content']);
+    if (empty($this->value)) {
+      // If there is no value, we don't want a tag output.
+      $element = '';
+    }
+    else {
+      $element = array(
+        '#tag' => 'link',
+        '#attributes' => array(
+          'rel' => $this->name,
+          'href' => $this->value(),
+        )
+      );
     }
 
     return $element;
   }
-
 }

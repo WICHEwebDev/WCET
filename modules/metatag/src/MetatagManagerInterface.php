@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\MetatagManagerInterface.
+ */
 
 namespace Drupal\metatag;
 
@@ -21,32 +25,6 @@ interface MetatagManagerInterface {
    *   Array of metatags.
    */
   public function tagsFromEntity(ContentEntityInterface $entity);
-
-  /**
-   * Extracts all tags of a given entity.
-   *
-   * And combines them with sitewide, per-entity-type, and per-bundle defaults.
-   *
-   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   *   The content entity to extract metatags from.
-   *
-   * @return array
-   *   Array of metatags.
-   */
-  public function tagsFromEntityWithDefaults(ContentEntityInterface $entity);
-
-  /**
-   * Extracts all appropriate default tags for an entity.
-   *
-   * From sitewide, per-entity-type, and per-bundle defaults.
-   *
-   * @param \Drupal\Core\Entity\ContentEntityInterface $entity
-   *   The content entity for which to calculate defaults.
-   *
-   * @return array
-   *   Array of metatags.
-   */
-  public function defaultTagsFromEntity(ContentEntityInterface $entity);
 
   /**
    * Returns an array of group plugin information sorted by weight.
@@ -82,9 +60,7 @@ interface MetatagManagerInterface {
    * @param array $values
    *   Existing values.
    * @param array $element
-   *   Existing element.
-   * @param array $token_types
-   *   Token types to return in the tree.
+   *   Existing element
    * @param array $included_groups
    *   Available group plugins.
    * @param array $included_tags
@@ -93,6 +69,6 @@ interface MetatagManagerInterface {
    * @return array
    *   Render array for metatag form.
    */
-  public function form(array $values, array $element, array $token_types = [], array $included_groups = NULL, array $included_tags = NULL);
+  public function form(array $values, array $element, array $included_groups = NULL, array $included_tags = NULL);
 
 }

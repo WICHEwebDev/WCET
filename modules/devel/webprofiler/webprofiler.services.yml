@@ -47,7 +47,7 @@ services:
 # event subscribers
   webprofiler.profiler_listener:
     class: Symfony\Component\HttpKernel\EventListener\ProfilerListener
-    arguments: ['@profiler', '@request_stack', '@?webprofiler.matcher', '%webprofiler.only_exceptions%', '%webprofiler.only_master_requests%']
+    arguments: ['@profiler', '@?webprofiler.matcher', '%webprofiler.only_exceptions%', '%webprofiler.only_master_requests%', '@request_stack']
     tags:
       - { name: event_subscriber }
 
@@ -73,12 +73,6 @@ services:
     arguments: ['@redirect.destination', '@url_generator']
     tags:
       - { name: data_collector, template: '@webprofiler/Collector/drupal.html.twig', id: 'drupal', title: 'Drupal', priority: 10 }
-
-  webprofiler.devel:
-    class: Drupal\webprofiler\DataCollector\DevelDataCollector
-    arguments: ['@menu.link_tree']
-    tags:
-      - { name: data_collector, template: '@webprofiler/Collector/devel.html.twig', id: 'devel', title: 'Devel', priority: 15 }
 
   webprofiler.php_config:
     class: Drupal\webprofiler\DataCollector\PhpConfigDataCollector
@@ -187,9 +181,13 @@ services:
   stopwatch:
     class: Drupal\webprofiler\Stopwatch
 
+  webprofiler.debug.event_dispatcher.default:
+    class: Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher
+    arguments: ['@service_container']
+
   webprofiler.debug.plugin.manager.mail.default:
     class: Drupal\Core\Mail\MailManager
-    arguments: ['@container.namespaces', '@cache.discovery', '@module_handler', '@config.factory', '@logger.factory', '@string_translation', '@renderer']
+    arguments: ['@container.namespaces', '@cache.discovery', '@module_handler', '@config.factory', '@logger.factory', '@string_translation']
 
   webprofiler.debug.controller_resolver:
     class: Symfony\Component\HttpKernel\Controller\TraceableControllerResolver
@@ -219,13 +217,13 @@ services:
     properties:
       _serviceId: 'asset.js.collection_renderer'
 
-  webprofiler.debug.entity_type.manager:
+  webprofiler.debug.entity.manager:
     class: Drupal\webprofiler\Entity\EntityManagerWrapper
     public: false
-    decorates: entity_type.manager
-    arguments: ['@webprofiler.debug.entity_type.manager.inner']
+    decorates: entity.manager
+    arguments: ['@webprofiler.debug.entity.manager.inner']
     properties:
-      _serviceId: 'entity_type.manager'
+      _serviceId: 'entity.manager'
 
   webprofiler.debug.state:
     class: Drupal\webprofiler\State\StateWrapper
@@ -249,6 +247,7 @@ services:
 # parameter converter service for profile token
   webprofiler.token_converter:
     class: Drupal\webprofiler\Routing\TokenConverter
+    arguments: ['@profiler']
     tags:
       - { name: paramconverter }
 

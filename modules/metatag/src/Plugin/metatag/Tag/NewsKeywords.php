@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\metatag\Plugin\metatag\Tag\NewsKeywords.
+ */
 
 namespace Drupal\metatag\Plugin\metatag\Tag;
 
@@ -12,8 +16,7 @@ namespace Drupal\metatag\Plugin\metatag\Tag;
  *   name = "news_keywords",
  *   group = "advanced",
  *   weight = 2,
- *   type = "label",
- *   secure = FALSE,
+ *   image = FALSE,
  *   multiple = FALSE
  * )
  */

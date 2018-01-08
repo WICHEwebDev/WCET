@@ -2,7 +2,7 @@ sitegroup: wcet_wiche_edu
 
 deploy_tasks:
   development:
-    before deploy:
+    before_deploy:
       - composer install
     after_deploy:
       - drush -y updb --cache-clear=0

@@ -1,11 +1,6 @@
 <?php
-/**
- * @file
- * Contains \Drupal\metatag\Plugin\metatag\Group\DublinCoreBasic.
- */
 
 namespace Drupal\metatag\Plugin\metatag\Group;
-
 
 /**
  * The Dublin Core Basic group.

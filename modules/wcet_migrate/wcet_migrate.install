@@ -1,0 +1,188 @@
+<?php
+
+/**
+ * Import redirects from csv.
+ */
+function wcet_migrate_update_8004(&$sandbox) {
+  if (($handle = fopen("../wcet_migrate/import/redirects.csv", "r")) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+      $redirect = entity_create('redirect');
+      $redirect->setSource($data[0]);
+      $redirect->setRedirect($data[1]);
+      $redirect->setStatusCode(301);
+      $redirect->save();
+    }
+    fclose($handle);
+  }
+}
+
+/**
+ * Import multiple fields for issue node type from csv.
+ */
+function wcet_migrate_update_8005(&$sandbox) {
+
+/*
+
+columns from CSV
+7   external_resource_uri   
+8   external_resource_title
+9   news_feed
+10  blog_feed
+11  talking_points_uri
+12  talking_points_title
+13  qa_uri
+14  qa_title
+15  publications_uri
+16  publications_title
+17  research_uri
+18  research_title
+19  webcasts_uri
+20  webcasts_title
+21  events_uri
+22  events_title
+23  videos_uri
+24  videos_title
+25  internal_resources_uri
+26  internal_resources_title
+
+field mappings
+  'field_issue_resources/uri': external_resources_uri
+  'field_issue_resources/title': external_resources_title
+  'field_issue_talkpoint/uri': talking_points_uri
+  'field_issue_talkpoint/title': talking_points_title
+  'field_issue_qa/uri': qa_uri
+  'field_issue_qa/title': qa_title
+  'field_issue_publication/uri': publications_uri
+  'field_issue_publication/title': publications_title
+  'field_issue_research/uri': research_uri
+  'field_issue_research/title': research_title
+  'field_issue_webcast/uri': webcasts_uri
+  'field_issue_webcast/title': webcasts_title
+  'field_issue_events/uri': events_uri
+  'field_issue_events/title': events_title
+  'field_issue_video_links/uri': videos_uri
+  'field_issue_video_links/title': videos_title
+  'field_issue_add_resource/uri': internal_resources_uri
+  'field_issue_add_resource/title': internal_resources_title
+*/
+
+  if (($handle = fopen("../wcet_migrate/import/node_issue-multi.csv", "r")) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+
+      $query = db_select('node_field_data', 'n');
+      $query->fields('n', array('nid'));
+      $query->condition('type', 'issue');
+      $query->condition('title', $data[1]);
+      $nid = $query->execute()->fetchField();
+
+      if (is_numeric($nid)) {
+
+        $node = node_load($nid);
+
+        $field_issue_resources = get_uris_and_titles($data[7], $data[8]);
+        $field_issue_talkpoint = get_uris_and_titles($data[11], $data[12]);
+        $field_issue_video_links = get_uris_and_titles($data[23], $data[24]);
+        $field_issue_qa = get_uris_and_titles($data[13], $data[14]);
+        $field_issue_publication = get_uris_and_titles($data[15], $data[16]);
+        $field_issue_research = get_uris_and_titles($data[17], $data[18]);
+        $field_issue_webcast = get_uris_and_titles($data[19], $data[20]);
+        $field_issue_events = get_uris_and_titles($data[21], $data[22]);
+        $field_issue_video_links = get_uris_and_titles($data[23], $data[24]);
+        $field_issue_add_resource = get_uris_and_titles($data[25], $data[26]);
+
+        $node->set('field_issue_resources', $field_issue_resources);
+        $node->set('field_issue_talkpoint', $field_issue_talkpoint);
+        $node->set('field_issue_video_links', $field_issue_video_links);
+        $node->set('field_issue_qa', $field_issue_qa);
+        $node->set('field_issue_publication', $field_issue_publication);
+        $node->set('field_issue_research', $field_issue_research);
+        $node->set('field_issue_webcast', $field_issue_webcast);
+        $node->set('field_issue_events', $field_issue_events);
+        $node->set('field_issue_video_links', $field_issue_video_links);
+        $node->set('field_issue_add_resource', $field_issue_add_resource);
+        $node->save();
+      }
+    }
+    fclose($handle);
+  }
+}
+
+function get_uris_and_titles($uris, $titles) {
+  $uris = explode(",", $uris);
+  $titles = explode(",", $titles);
+  foreach($uris as $key => $value) {
+    $data[] = array(
+      'uri' => $uris[$key],
+      'title' => $titles[$key],
+    );        
+  }
+
+  return $data;
+}
+
+function get_profile_value($values) {
+  $values = explode(",", $values);
+  foreach ($values as $key => $value) {
+    $data[] = array(
+      'value' => $value,
+    );
+  }
+
+  return $data;
+}
+
+/**
+ * Import multiple fields for profile node type from csv.
+ */
+function wcet_migrate_update_8006(&$sandbox) {
+
+/*
+
+columns from csv
+  7 social_media_uri  
+  8 social_media_title
+  9 groups
+  10 positions
+  11 steering_committee_positions
+  14 exec_positions
+
+field mappings
+  'field_profile_social/uri': social_media_uri
+  'field_profile_social/title': social_media_title
+  field_profile_groups: groups
+  field_profile_position: positions
+  field_profile_steering_positions: steering_committee_positions
+  field_executive_council_position: exec_positions
+
+*/
+
+  if (($handle = fopen("../wcet_migrate/import/node_profile.csv", "r")) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+
+      $query = db_select('node_field_data', 'n');
+      $query->fields('n', array('nid'));
+      $query->condition('type', 'profile');
+      $query->condition('title', $data[1]);
+      $nid = $query->execute()->fetchField();
+
+      if (is_numeric($nid)) {
+        $node = node_load($nid);
+
+        $field_profile_social = get_uris_and_titles($data[7], $data[8]);
+        $field_profile_groups = get_profile_value($data[9]);
+        $field_profile_position = get_profile_value($data[10]);
+        $field_profile_steering_positions = get_profile_value($data[11]);
+        $field_executive_council_position = get_profile_value($data[14]);
+
+        $node->set('field_profile_social', $field_profile_social);
+        $node->set('field_profile_groups', $field_profile_groups);
+        $node->set('field_profile_position', $field_profile_position);
+        $node->set('field_profile_steering_positions', $field_profile_steering_positions);
+        $node->set('field_executive_council_position', $field_executive_council_position);
+
+        $node->save();
+      }
+    }
+    fclose($handle);
+  }
+}

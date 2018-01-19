@@ -1,0 +1,10 @@
+type: module
+name: WCET CSV Migrate
+description: 'WCET CSV Migration'
+package: Migration
+core: 8.x
+dependencies:
+  - migrate
+  - migrate_plus
+  - migrate_source_csv
+  - migrate_tools

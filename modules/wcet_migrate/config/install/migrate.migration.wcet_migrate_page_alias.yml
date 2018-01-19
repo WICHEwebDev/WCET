@@ -1,0 +1,53 @@
+# migration class machine name
+id: wcet_migrate_page_alias
+# human friendly name
+label: WCET Basic Page
+migration_group: wcet_migrate_alias
+source:
+  # The source data is in CSV files, so we use the 'csv' source plugin.
+  plugin: csv
+  # Where it be
+  path: '/var/www/wcet/current/docroot/modules/wcet_migrate/import/node_page.csv'
+  # CSV Config Options
+  delimiter: ,          # The field separator of the source file.
+  enclosure: '"'        # Character used to enclose values in the source.
+  escape: "\\"          # Escape character within values in the source.
+  header_row_count: 1        # The number of rows at the beginning which are not data.
+
+  # These are the field names from the source file representing the key
+  # uniquely identifying each game - they will be stored in the migration
+  # map table as columns sourceid1, sourceid2, and sourceid3.
+  identifiers:
+    - id
+    - title
+
+  # Map CSV columns to field names
+  column_names:
+    # column index
+    0: 
+      # machine_name: Human name
+      id: id
+    1: 
+      title: title
+    2:
+      path: path
+    3:
+      body: body
+
+  constants:
+    source_prefix: '/node'
+
+process:
+  source:
+    plugin: concat
+    source:
+      - constants/source_prefix
+      - id
+    delimiter: /
+  alias: path
+  langcode:
+    plugin: default_value
+    default_value: en
+
+destination:
+  plugin: url_alias

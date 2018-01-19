@@ -1,0 +1,126 @@
+# migration class machine name
+id: wcet_migrate_issue
+# human friendly name
+label: WCET Issue
+migration_group: wcet_migrate
+source:
+  # The source data is in CSV files, so we use the 'csv' source plugin.
+  plugin: csv
+  # Where it be
+  path: '/var/www/wcet/current/docroot/modules/wcet_migrate/import/node_issue.csv'
+  # CSV Config Options
+  delimiter: ,          # The field separator of the source file.
+  enclosure: '"'        # Character used to enclose values in the source.
+  escape: "\\"          # Escape character within values in the source.
+  header_row_count: 1        # The number of rows at the beginning which are not data.
+
+  # These are the field names from the source file representing the key
+  # uniquely identifying each game - they will be stored in the migration
+  # map table as columns sourceid1, sourceid2, and sourceid3.
+  identifiers:
+    - id
+    # - title
+
+  # Map CSV columns to field names
+  column_names:
+    # column index
+    0: 
+      # machine_name: Human name
+      id: id
+    1: 
+      title: title
+    2:
+      path: path
+    3:
+      body: body
+    4:
+      image: image
+    5:
+      icon: icon
+    6:
+      featured_video: featured_video
+    7:
+      external_resources_uri: external_resources_uri
+    8:
+      external_resources_title: external_resources_title
+    9:
+      news_feed: news_feed
+    10:
+      blog_feed: blog_feed
+    11:
+      talking_points_uri: talking_points_uri
+    12:
+      talking_points_title: talking_points_title
+    13:
+      qa_uri: qa_uri
+    14:
+      qa_title: qa_title
+    15:
+      publications_uri: publications_uri
+    16:
+      publications_title: publications_title
+    17:
+      research_uri: research_uri
+    18:
+      research_title: research_title
+    19:
+      webcasts_uri: webcasts_uri
+    20:
+      webcasts_title: webcasts_title
+    21:
+      events_uri: events_uri
+    22:
+      events_title: events_title
+    23:
+      videos_uri: videos_uri
+    24:
+      videos_title: videos_title
+    25:
+      internal_resources_uri: internal_resources_uri
+    25:
+      internal_resources_title: internal_resources_title
+
+destination:
+  # Here we're saying that each row of data (line from the CSV file) will be
+  # used to create a node entity.
+  plugin: entity:node
+process:
+  # The content (node) type we are creating is 'issue'.
+  type:
+    plugin: default_value
+    default_value: issue
+
+  # Field Mappings
+  uid:
+    plugin: default_value
+    default_value: 1
+  nid: id
+  title: title
+  'body/value': body
+  'body/format':
+    plugin: default_value
+    default_value: 'full_html'
+  # field_images: images
+  # field_icon
+  'field_video_link/uri': featured_video
+  'field_issue_resources/uri': external_resources_uri
+  'field_issue_resources/title': external_resources_title
+  'field_issue_talkpoint/uri': talking_points_uri
+  'field_issue_talkpoint/title': talking_points_title
+  'field_issue_qa/uri': qa_uri
+  'field_issue_qa/title': qa_title
+  'field_issue_publication/uri': publications_uri
+  'field_issue_publication/title': publications_title
+  'field_issue_research/uri': research_uri
+  'field_issue_research/title': research_title
+  'field_issue_webcast/uri': webcasts_uri
+  'field_issue_webcast/title': webcasts_title
+  'field_issue_events/uri': events_uri
+  'field_issue_events/title': events_title
+  'field_issue_video_links/uri': videos_uri
+  'field_issue_video_links/title': videos_title
+  'field_issue_add_resource/uri': internal_resources_uri
+  'field_issue_add_resource/title': internal_resources_title
+migration_dependencies:
+  required:
+    - wcet_migrate_focus_area

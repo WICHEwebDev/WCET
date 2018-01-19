@@ -1,0 +1,61 @@
+# migration class machine name
+id: wcet_migrate_home
+# human friendly name
+label: WCET Homepage
+migration_group: wcet_migrate
+source:
+  # The source data is in CSV files, so we use the 'csv' source plugin.
+  plugin: csv
+  # Where it be
+  path: '/var/www/wcet/current/docroot/modules/wcet_migrate/import/node_home.csv'
+  # CSV Config Options
+  delimiter: ,          # The field separator of the source file.
+  enclosure: '"'        # Character used to enclose values in the source.
+  escape: "\\"          # Escape character within values in the source.
+  header_row_count: 1   # The number of rows at the beginning which are not data.
+
+  # These are the field names from the source file representing the key
+  # uniquely identifying each game - they will be stored in the migration
+  # map table as columns sourceid1, sourceid2, and sourceid3.
+  identifiers:
+    - id
+    - title
+
+  # Map CSV columns to field names
+  column_names:
+    # column index
+    0: 
+      # machine_name: Human name
+      id: id
+    1: 
+      title: title
+    2:
+      path: path
+    3:
+      body: body
+    4:
+      images: images
+    5:
+      'images:title': images_title
+
+destination:
+  # Here we're saying that each row of data (line from the CSV file) will be
+  # used to create a node entity.
+  plugin: entity:node
+process:
+  # The content (node) type we are creating is 'home'.
+  type:
+    plugin: default_value
+    default_value: home
+
+  # Field Mappings
+  uid:
+    plugin: default_value
+    default_value: 1
+  nid: id
+  title: title
+  'body/value': body
+  'body/format':
+    plugin: default_value
+    default_value: 'full_html'
+  # field_images: images

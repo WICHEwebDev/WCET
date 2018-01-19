@@ -1,0 +1,41 @@
+# migration class machine name
+id: wcet_migrate_file
+# human friendly name
+label: WCET Files
+migration_group: wcet_migrate
+source:
+  # The source data is in CSV files, so we use the 'csv' source plugin.
+  plugin: csv
+  # Where it be
+  path: '/var/www/wcet/current/docroot/modules/wcet_migrate/import/file.csv'
+  # CSV Config Options
+  delimiter: ,          # The field separator of the source file.
+  enclosure: '"'        # Character used to enclose values in the source.
+  escape: "\\"          # Escape character within values in the source.
+  header_row_count: 1        # The number of rows at the beginning which are not data.
+
+  # unique identifiers
+  identifiers:
+    - fid
+
+  column_names:
+    # column index
+    0: 
+      # machine_name: Human name
+      fid: fid
+    1:
+      filename: filename
+    2:
+      uri: uri
+
+process:
+  uid:
+      plugin: default_value
+      default_value: 1
+  fid: fid
+  filename: filename
+  uri:
+    source:
+      conf_path: 'modules/wcet_migrate/import/files'
+destination:
+  plugin: entity:file

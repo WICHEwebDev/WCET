@@ -1,0 +1,6 @@
+# The machine name of the group, by which it is referenced in individual
+# migrations.
+id: wcet_migrate
+
+# A human-friendly label of the group, displayed in the UI.
+label: WCET Migrate

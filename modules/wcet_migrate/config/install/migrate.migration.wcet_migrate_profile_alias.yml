@@ -1,0 +1,82 @@
+# migration class machine name
+id: wcet_migrate_profile_alias
+# human friendly name
+label: WCET Profiles Alias
+migration_group: wcet_migrate
+source:
+  # The source data is in CSV files, so we use the 'csv' source plugin.
+  plugin: csv
+  # Where it be
+  path: '/var/www/wcet/current/docroot/modules/wcet_migrate/import/node_profile.csv'
+  # CSV Config Options
+  delimiter: ,          # The field separator of the source file.
+  enclosure: '"'        # Character used to enclose values in the source.
+  escape: "\\"          # Escape character within values in the source.
+  header_row_count: 1   # The number of rows at the beginning which are not data.
+
+  # These are the field names from the source file representing the key
+  # uniquely identifying each game - they will be stored in the migration
+  # map table as columns sourceid1, sourceid2, and sourceid3.
+  identifiers:
+    - id
+
+  # Map CSV columns to field names
+  column_names:
+    # column index
+    0: 
+      # machine_name: Human name
+      id: id
+    1: 
+      name: name
+    2:
+      path: path
+    3:
+      bio: bio
+    4:
+      photo: photo
+    5:
+      cover_photo: cover_photo
+    6:
+      email: email
+    7:
+      social_media_uri: social_media_uri
+    8:
+      social_media_title: social_media_title
+    9:
+      groups: groups
+    10:
+      positions: positions
+    11:
+      steering_committee_positions: steering_committee_positions
+    12:
+      steering_term_expire: steering_term_expire
+    13:
+      steering_weight: steering_weight
+    14:
+      exec_positions: exec_positions
+    15:
+      exec_term_expire: exec_term_expire
+    16:
+      exec_weight: exec_weight
+    17:
+      san_weight: san_weight
+    18:
+      san_grouping: san_grouping
+
+  constants:
+    source_prefix: '/node'
+
+process:
+  source:
+    plugin: concat
+    source:
+      - constants/source_prefix
+      - id
+    delimiter: /
+  alias: path
+  langcode:
+    plugin: default_value
+    default_value: en
+
+destination:
+  plugin: url_alias

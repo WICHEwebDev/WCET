@@ -1,0 +1,19 @@
+{
+  "name": "front",
+  "version": "0.0.1",
+  "description": "front build dependencies",
+  "authors": [
+    "NEWMEDIA!"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "breakpoint-sass": "~2.5.0",
+    "singularity": "~1.6.2"
+  }
+}

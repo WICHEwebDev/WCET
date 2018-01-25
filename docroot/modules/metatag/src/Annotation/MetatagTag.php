@@ -1,13 +1,8 @@
 <?php
-/**
- * @file
- * Contains the \Drupal\metatag\Annotation\MetatagTag annotation plugin.
- */
 
 namespace Drupal\metatag\Annotation;
 
 use Drupal\Component\Annotation\Plugin;
-
 
 /**
  * Defines a MetatagTag annotation object.
@@ -63,16 +58,25 @@ class MetatagTag extends Plugin {
   public $weight;
 
   /**
-   * True if an image URL needs to be parsed out.
+   * Type of the meta tag.
    *
-   * @var boolean
+   * Should be either 'date', 'image', 'integer', 'label', 'string' or 'uri'.
+   *
+   * @var string
    */
-  public $image;
+  public $type;
+
+  /**
+   * True if URL must use HTTPS.
+   *
+   * @var bool
+   */
+  protected $secure;
 
   /**
    * True if more than one is allowed.
    *
-   * @var boolean
+   * @var bool
    */
   public $multiple;
 

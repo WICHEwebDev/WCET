@@ -1,12 +1,8 @@
 <?php
-/**
- * @file
- * Contains \Drupal\metatag_open_graph\Plugin\metatag\Tag\OgUrl.
- */
 
 namespace Drupal\metatag_open_graph\Plugin\metatag\Tag;
 
-use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
+use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
 
 /**
  * The Open Graph "URL" meta tag.
@@ -18,7 +14,8 @@ use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
  *   name = "og:url",
  *   group = "open_graph",
  *   weight = 3,
- *   image = FALSE,
+ *   type = "uri",
+ *   secure = FALSE,
  *   multiple = FALSE
  * )
  */

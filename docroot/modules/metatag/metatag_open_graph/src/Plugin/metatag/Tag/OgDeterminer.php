@@ -1,12 +1,8 @@
 <?php
-/**
- * @file
- * Contains \Drupal\metatag_open_graph\Plugin\metatag\Tag\OgDeterminer.
- */
 
 namespace Drupal\metatag_open_graph\Plugin\metatag\Tag;
 
-use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
+use Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
 
 /**
  * Provides a plugin for the 'og:determiner' meta tag.
@@ -18,7 +14,8 @@ use \Drupal\metatag\Plugin\metatag\Tag\MetaPropertyBase;
  *   name = "og:determiner",
  *   group = "open_graph",
  *   weight = 0,
- *   image = FALSE,
+ *   type = "label",
+ *   secure = FALSE,
  *   multiple = FALSE
  * )
  */

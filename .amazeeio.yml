@@ -15,6 +15,6 @@ deploy_tasks:
 shared:
   production:
     - src: files
-      dst: sites/default/files
+      dst: docroot/sites/default/files
       
       

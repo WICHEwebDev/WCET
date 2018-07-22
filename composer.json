@@ -1,0 +1,68 @@
+{
+  "name": "e3/wcet",
+  "type": "project",
+  "license": "proprietary",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "composer/installers": "^1.0.24",
+    "drupal-composer/drupal-scaffold": "^2.2",
+    "cweagans/composer-patches": "~1.0",
+    "wikimedia/composer-merge-plugin": "^1.4",
+    "drupal/core": "^8.4",
+    "drush/drush": "~8.1",
+    "drupal/console": "^1.0"
+  },
+  "conflict": {
+    "drupal/drupal": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "preferred-install": "dist",
+    "autoloader-suffix": "Drupal8"
+  },
+  "extra": {
+    "installer-paths": {
+      "docroot/core": ["type:drupal-core"],
+      "docroot/modules/contrib/{$name}": ["type:drupal-module"],
+      "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
+      "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
+      "drush/contrib/{$name}": ["type:drupal-drush"],
+      "docroot/modules/custom/{$name}": ["type:drupal-custom-module"],
+      "docroot/themes/custom/{$name}": ["type:drupal-custom-theme"]
+    },
+    "merge-plugin": {
+      "include": [
+        "docroot/modules/custom/*/composer.json"
+      ]
+    },
+    "enable-patching": true,
+    "patches": {}
+  },
+  "scripts": {
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+    "pre-install-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+    ],
+    "pre-update-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+    ],
+    "post-install-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+      "DrupalProject\\composer\\ParagonScriptHandler::removeGitSubmodules",
+      "DrupalProject\\composer\\ParagonScriptHandler::createPrivateTempDirectories",
+      "DrupalProject\\composer\\ParagonScriptHandler::makeRobotsHidden"
+    ],
+    "post-update-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+      "DrupalProject\\composer\\ParagonScriptHandler::removeGitSubmodules",
+      "DrupalProject\\composer\\ParagonScriptHandler::createPrivateTempDirectories",
+      "DrupalProject\\composer\\ParagonScriptHandler::makeRobotsHidden"
+    ]
+  }
+}

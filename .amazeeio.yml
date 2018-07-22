@@ -3,13 +3,11 @@ sitegroup: wcet_wiche_edu
 deploy_tasks:
   development:
     before_deploy:
-      - cd docroot; composer install
     after_deploy:
       - cd docroot; drush -y updb --cache-clear=0
       - cd docroot; drush -y cr all
   production:
     before_deploy:
-      - cd docroot; composer install
     after_deploy:
       - cd docroot; drush -y updb --cache-clear=0
       - cd docroot; drush -y cr all

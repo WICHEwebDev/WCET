@@ -15,13 +15,29 @@
     "wikimedia/composer-merge-plugin": "^1.4",
     "drupal/core": "^8.4",
     "drush/drush": "~8.1",
-    "drupal/console": "^1.0"
+    "drupal/console": "^1.0",
+    "drupal/admin_toolbar": "^1.24",
+    "drupal/contact_storage": "1.0-beta9",
+    "drupal/csv_serialization": "^1.2",
+    "drupal/devel": "^1.2",
+    "drupal/inline_entity_form": "1.0-beta1",
+    "drupal/metatag": "^1.4",
+    "drupal/migrate_plus": "1.0-beta1+4-dev",
+    "drupal/migrate_source_csv": "1.x-dev",
+    "drupal/migrate_tools": "1.0-beta1",
+    "drupal/redirect": "^1.2"
   },
   "conflict": {
     "drupal/drupal": "*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "autoload": {
+    "classmap": [
+      "scripts/composer/ScriptHandler.php",
+      "scripts/composer/ParagonScriptHandler.php"
+    ]
+  },
   "config": {
     "preferred-install": "dist",
     "autoloader-suffix": "Drupal8"
@@ -64,5 +80,12 @@
       "DrupalProject\\composer\\ParagonScriptHandler::createPrivateTempDirectories",
       "DrupalProject\\composer\\ParagonScriptHandler::makeRobotsHidden"
     ]
+  },
+  "require-dev": {
+    "drupal/drupal-extension": "^3.2",
+    "jcalderonzumba/gastonjs": "^1.2",
+    "jcalderonzumba/mink-phantomjs-driver": "^0.3.3",
+    "mikey179/vfsStream": "^1.6",
+    "phpunit/phpunit": "^7.2"
   }
 }

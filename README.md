@@ -10,6 +10,21 @@ This repo is managed using the [Git Flow methodology](https://nvie.com/posts/a-s
 * Dev URL: http://wcet.wiche.edu.develop.us2.compact.amazee.io/
 * Prod URL: https://wcet.wiche.edu/
 
+## Local Environment
+Amazee's preferred local environment is [Pygmy](https://docs.amazee.io/local_docker_development/pygmy.html), which is a Docker-based local development environment for Linux and OS X. To install Pygmy follow these steps:
+
+1. Download and install the Docker app, as described in [Docker's documentation](https://docs.docker.com/docker-for-mac/install/).
+2. Confirm that your system had Ruby installed. Mac OS X is packaged with a system version of Ruby, but it is best practice to install and manage Ruby versions using [RVM](https://rvm.io/).
+3. Install the Pygmy Ruby gem: `gem install pygmy`
+
+Now that you have Pygmy installed, follow these steps to run your site:
+
+1. Ensure that the Docker for Mac app is running. Start as you would start any other application by double-clicking from your applications directory.
+2. Open a Terminal window and navigate to your project directory, where `docker-composer.yml` is located.
+3. Run `pygmy up` to start Pygmy.
+4. Run `docker-compose up -d` to built the Docker container for your site and run the local environment. Once this is complete, the URL of your local environment will be displayed in your Terminal window.
+5. To SSH in to your environment run `docker-compose exec --user drupal drupal bash` from inside your project root directory.
+
 ## Configuration Management
 
 This project uses CMI for all configuration changes. All configuration is stored in the `config/default` directory. This is configured in `docroot/sites/default/all.settings.php`, but should not be changed.

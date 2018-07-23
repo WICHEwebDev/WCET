@@ -1,4 +1,4 @@
-# WCET Drupal 8 App Repo #
+# WCET Drupal Website #
 
 ## Git workflow
 
@@ -22,7 +22,7 @@ Now that you have Pygmy installed, follow these steps to run your site:
 1. Ensure that the Docker for Mac app is running. Start as you would start any other application by double-clicking from your applications directory.
 2. Open a Terminal window and navigate to your project directory, where `docker-composer.yml` is located.
 3. Run `pygmy up` to start Pygmy.
-4. Run `docker-compose up -d` to built the Docker container for your site and run the local environment. Once this is complete, the URL of your local environment will be displayed in your Terminal window.
+4. Run `docker-compose up -d` to build the Docker container for your site and run the local environment. Once this is complete, the URL of your local environment will be displayed in your Terminal window.
 5. To SSH in to your environment run `docker-compose exec --user drupal drupal bash` from inside your project root directory.
 
 ## Configuration Management

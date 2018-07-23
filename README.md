@@ -4,6 +4,21 @@
 
 This repo is managed using the [Git Flow methodology](https://nvie.com/posts/a-successful-git-branching-model/). The develop branch is deployed to the development environment and the master branch is deployed to the production environment. Deployment happens when either of these branches receive a push.
 
+[Git Flow Cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/) is a great way to take the guesswork out of managing a repo with Git Flow. It can be installed with Homebrew, per the instructions on the site linked earlier in this paragraph.
+
+### Git Flow Setup
+If you've never used Git Flow in this repo on your local machine, run `git flow init -d` to get started.
+
+### Features
+New features should be built using feature branches. A new feature is started using git flow by running `git flow feature start feature_name`. When work is complete, the feature can be finished by running `git flow feature finish feature_name`. At this point the feature has been merged into the `develop` branch and can be released using a release.
+
+### Releases
+To release a completed feature to `master`, use a release: `git flow release start 1.0`. Any final changes can be made to the release branch while it is open. When the release is ready to go to production, run `git flow release finish 1.0` and the branch will be merged into `master` and `develop` and tagged according to what is specified in the Git flow command (1.0 in this example).
+
+### Hotfixes
+Hotfixes are used for changes that need to go to production immediately. A hotfix is branched from `master` and then immediately merged back into `master` and `develop` when the hotfix is completed. Hotfixes are most frequently used for security updates. To start a hotfix run: `git flow hotfix start 1.1.1`. This will create a hotifx branch you can use to make all the necessary updates. When all updates are complete, run `git flow hotfix finish 1.1.1` to merge your hotfix branch into `master` and `develop`.
+
+
 ## Hosting
 
 * Platform: Amazee.io

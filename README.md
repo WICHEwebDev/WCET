@@ -60,7 +60,7 @@ This workflow allows you to work remotely on a feature while pulling in other co
 
 At multiple points during this process you will be prompted to review changes about to be made with config export and import. You should always actually review these. This is essentially as important as reading the message telling you which way you are syncing when you sql-sync. In a production environment, the possibility of losing data exists. You can check if there are upstream client changes by either 1) reviewing the confirmation message on `drush @alias.env cim` or running a `drush cex` with the current version of code and DB locally to see if there are any changes (remember of course to export and commit your config first on your feature_branch).
 
-### D8 CMI - With Upstream Client Changes
+### D8 CMI - With Upstream Changes
 
 The following workflow assumes there are upstream config changes that should be incorporated into code and not overwritten. A common example of this would be maintaining contact forms. Creating a new contact form, adjusting field settings on an existing one, or changing form settings like the notification recipient, is all stored in configuration. It wouldn’t be uncommon that a client wants to update some of this content or even create new forms.
 
@@ -117,3 +117,56 @@ drush @alias.env cim vcs
 ## Composer
 
 All packages in this project are managed using Composer - see composer.json for detailed information about each package. This project is built serverside, so none of the vendor directories are commited. Be sure to run `composer install` when you first download the site and `composer update` when you are pulling updates.
+
+### Require
+`composer require` is what you use to add a completely new dependency to project (adding a new Drupal module, for instance). Composer packages are named `vendor_name/package_name`. All Drupal packages are under the `drupal` namespace, i.e. `drupal/core` or `drupal/paragraphs`. When you require a new package you can also define the version or version range to include.
+
+Add new dependency to project:
+
+```bash
+composer require “drupal/paragraphs:^1.x”
+```
+
+This adds the package to the `require` key in the `composer.json` file, downloads the appropriate version, and updates the `composer.lock` file to reflect this.
+
+Note that if a Drupal package is a dependency, it will meet the requirement the requiring package has set for the version. If you want that package to always be up to date regardless of the requiring package's settings, you should add that module as a project dependency as well.
+
+### Update
+`composer update` allows you to update a package version. Running the command as is will attempt to update every package at the same time. For the most part, you probably won’t do this with a Drupal project unless you really know what you’re doing and this is what you want. But for a project in production, it can be potentially difficult to update everything at the same time and test everything for functionality. So, you can specify the package you want to update.
+
+```bash
+composer update drupal/paragraphs --with-dependencies
+```
+
+This will use the version rules that have been defined for the `drupal/paragraphs` package and get the most recent one that is valid, download it, and update the `composer.lock` file. Running an `update` command won’t alter the `composer.json` file.
+
+It is best to run `update` with the `--with-dependencies` flag to ensure related packages are appropriately updated. This means that when `update` runs more than just the module could be updated, so make sure you're paying attention to what other packages are changed and you test appropriately.
+
+Always remember to check for DB updates after updating a module or core! Occasionally, database updates will also create new config - you can run `drush cim` to check.
+
+### Remove
+`composer remove` allows you to remove a package from the dependencies.
+
+### Patches
+
+Composer can handle applying patches to packages. Add a patch to the `patches` key in the `composer.json` file with a description of the patch and the location of the patch as follows:
+
+```json
+{
+  "patches": {
+    "drupal/drupal": {
+      "Fix issue with translation of blocks in core": "https://www.drupal.org/files/issues/some-patch-1543858-30.patch",
+      "Fix core ajax bug": "https://www.drupal.org/files/issues/some-patch-1543858-30.patch"
+    },
+    "drupal/paragraphs": {
+      "Some local bug fix": "./patches/some_patch_file.patch"
+    }
+  }
+}
+```
+
+If you are adding a local patch and it is failing to apply, make sure the patch is formatted correctly. It is applied within the context of that project, not your global project. So double check the format is correct by comparing to another working patch.
+
+You can add patches like above from a link in a ticket in an issue queue. You can also add your own local patches.
+
+After you update the `composer.json` file with the patch, run `composer install` to apply the patch.

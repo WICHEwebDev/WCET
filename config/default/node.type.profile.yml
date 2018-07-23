@@ -1,0 +1,17 @@
+uuid: 18acbe82-aa27-4aed-af00-cf8b14016492
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Profile
+type: profile
+description: 'Add a Profile for a Person to show on the site.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

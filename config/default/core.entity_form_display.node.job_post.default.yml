@@ -1,0 +1,128 @@
+uuid: 8a9a7f5a-10f6-4c80-8700-cdb76684290f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.job_post.field_body_job_page
+    - field.field.node.job_post.field_date_posted
+    - field.field.node.job_post.field_description_job_post
+    - field.field.node.job_post.field_expiration_date
+    - field.field.node.job_post.field_job_institution
+    - field.field.node.job_post.field_job_minimum_qualifications
+    - field.field.node.job_post.field_link_external_job_post
+    - field.field.node.job_post.field_new_application_deadline
+    - node.type.job_post
+  module:
+    - datetime
+    - link
+    - path
+    - text
+id: node.job_post.default
+targetEntityType: node
+bundle: job_post
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_date_posted:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_description_job_post:
+    weight: 2
+    settings:
+      rows: 10
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_expiration_date:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_job_institution:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_job_minimum_qualifications:
+    weight: 3
+    settings:
+      rows: 10
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_link_external_job_post:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_new_application_deadline:
+    weight: 29
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  path:
+    type: path
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 13
+    third_party_settings: {  }
+    region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 14
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_body_job_page: true

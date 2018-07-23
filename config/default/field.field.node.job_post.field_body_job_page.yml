@@ -1,0 +1,22 @@
+uuid: 54e8df94-e333-4c63-9008-0842991a77ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body_job_page
+    - node.type.job_post
+  module:
+    - text
+id: node.job_post.field_body_job_page
+field_name: field_body_job_page
+entity_type: node
+bundle: job_post
+label: 'Body job page'
+description: 'Description at the top of the page'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

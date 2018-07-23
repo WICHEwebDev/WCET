@@ -1,0 +1,21 @@
+uuid: fe3fa75c-155f-440e-9000-b59814b123c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.welcome_to_the_state_authorizati
+    - field.storage.contact_message.field_coord_1_info
+id: contact_message.welcome_to_the_state_authorizati.field_coord_1_info
+field_name: field_coord_1_info
+entity_type: contact_message
+bundle: welcome_to_the_state_authorizati
+label: 'Coord 1 info'
+description: 'In the space above, please provide information about the first coordinator associated with this membership.'
+required: false
+translatable: false
+default_value:
+  -
+    value: "Name:\r\nJob Title:\r\nOrganization:\r\nFull address:\r\nEmail address:\r\nPhone Number:"
+default_value_callback: ''
+settings: {  }
+field_type: string_long

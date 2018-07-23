@@ -1,0 +1,21 @@
+uuid: 67744ff7-b54a-4f86-bb01-1c11067c4481
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.membership_application
+    - field.storage.contact_message.field_welcome_to_your_cooperativ
+id: contact_message.membership_application.field_welcome_to_your_cooperativ
+field_name: field_welcome_to_your_cooperativ
+entity_type: contact_message
+bundle: membership_application
+label: 'Welcome to Your Cooperative'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

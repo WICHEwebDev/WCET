@@ -1,0 +1,19 @@
+uuid: c90a71b5-53a1-4cdd-ae39-57e6bcf676fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.practice_wow_nomination_form
+    - field.storage.contact_message.field_1add_urls
+id: contact_message.practice_wow_nomination_form.field_1add_urls
+field_name: field_1add_urls
+entity_type: contact_message
+bundle: practice_wow_nomination_form
+label: '1add urls'
+description: '<p>If applicable, please provide all websites related to your nominated work.</p>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

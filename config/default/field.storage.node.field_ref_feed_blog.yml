@@ -1,0 +1,20 @@
+uuid: 1692f4f5-3c46-4976-b100-d3f545e130e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - aggregator
+    - node
+id: node.field_ref_feed_blog
+field_name: field_ref_feed_blog
+entity_type: node
+type: entity_reference
+settings:
+  target_type: aggregator_feed
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

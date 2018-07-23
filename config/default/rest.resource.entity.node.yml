@@ -1,0 +1,19 @@
+uuid: 9f24dbbf-dc9b-41cb-a18d-7b472684d4bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: entity.node
+plugin_id: 'entity:node'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+    - PATCH
+    - DELETE
+  formats:
+    - hal_json
+  authentication:
+    - basic_auth

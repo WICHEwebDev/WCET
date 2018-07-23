@@ -1,0 +1,33 @@
+uuid: e406451d-8f16-4fc6-bed2-10e40510897c
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_practice1
+field_name: field_practice1
+entity_type: contact_message
+type: list_float
+settings:
+  allowed_values:
+    -
+      value: !!float 0
+      label: One
+    -
+      value: !!float 1
+      label: Two
+    -
+      value: !!float 2
+      label: Three
+    -
+      value: !!float 3
+      label: Four
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

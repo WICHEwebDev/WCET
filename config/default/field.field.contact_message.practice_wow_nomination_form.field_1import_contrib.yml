@@ -1,0 +1,19 @@
+uuid: ddc03b8c-4ab3-4314-ba00-f7b729aed812
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.practice_wow_nomination_form
+    - field.storage.contact_message.field_1import_contrib
+id: contact_message.practice_wow_nomination_form.field_1import_contrib
+field_name: field_1import_contrib
+entity_type: contact_message
+bundle: practice_wow_nomination_form
+label: '1import contrib'
+description: '<p>Why is this work an important contribution to the field of technology-enhanced teaching and learning in higher education? Is it a model or approach that others could use in addressing a similar need or problem? (300 word limit suggested. 5 points.)</p>'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

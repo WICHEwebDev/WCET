@@ -1,0 +1,19 @@
+uuid: 4f08e15c-c49b-4121-ad06-6d9d6b84aef0
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.membership_application
+    - field.storage.contact_message.field_zip_postal_code
+id: contact_message.membership_application.field_zip_postal_code
+field_name: field_zip_postal_code
+entity_type: contact_message
+bundle: membership_application
+label: 'ZIP/Postal Code'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

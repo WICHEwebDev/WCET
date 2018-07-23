@@ -1,0 +1,135 @@
+uuid: f4fc5ada-4cea-4a09-9c4b-75e7063cecca
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.welcome_to_the_state_authorizati
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_1contact_name_1
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_2contact2
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_2contact_n_ame2
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_2contact_name2
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_3institution_member
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_3type_institution
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_coord_1_info
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_coord_2_info
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_invoice_info2
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_more_invoice_info
+    - field.field.contact_message.welcome_to_the_state_authorizati.field_name_membership
+id: contact_message.welcome_to_the_state_authorizati.default
+targetEntityType: contact_message
+bundle: welcome_to_the_state_authorizati
+mode: default
+content:
+  copy:
+    weight: 50
+    region: content
+  field_1contact_name_1:
+    weight: 56
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_2contact2:
+    weight: 57
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_2contact_n_ame2:
+    weight: 59
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_2contact_name2:
+    weight: 58
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_3institution_member:
+    weight: 60
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_3type_institution:
+    weight: 61
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_coord_1_info:
+    weight: 52
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_coord_2_info:
+    weight: 53
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_invoice_info2:
+    weight: 54
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_more_invoice_info:
+    weight: 55
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_name_membership:
+    weight: 51
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  mail:
+    weight: -40
+    region: content
+  message:
+    type: string_textarea
+    weight: 0
+    settings:
+      rows: 12
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  name:
+    weight: -50
+    region: content
+  preview:
+    weight: 50
+    region: content
+  subject:
+    type: string_textfield
+    weight: -10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

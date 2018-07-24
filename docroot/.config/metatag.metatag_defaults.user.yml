@@ -1,9 +1,0 @@
-uuid: a90361f5-5b00-4ee1-8d0c-126f39cad5e5
-langcode: en
-status: true
-dependencies: {  }
-id: user
-label: User
-tags:
-  title: '[user:name] | [site:name]'
-  description: '[site:name]'

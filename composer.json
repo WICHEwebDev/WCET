@@ -70,13 +70,11 @@
     ],
     "post-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "DrupalProject\\composer\\ParagonScriptHandler::removeGitSubmodules",
       "DrupalProject\\composer\\ParagonScriptHandler::createPrivateTempDirectories",
       "DrupalProject\\composer\\ParagonScriptHandler::makeRobotsHidden"
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "DrupalProject\\composer\\ParagonScriptHandler::removeGitSubmodules",
       "DrupalProject\\composer\\ParagonScriptHandler::createPrivateTempDirectories",
       "DrupalProject\\composer\\ParagonScriptHandler::makeRobotsHidden"
     ]

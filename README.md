@@ -1,23 +1,36 @@
-# WCET Drupal Website #
+# WCET Drupal 8 Website #
 
-## Git workflow
+## Helpful Commands Cheatsheet
 
-This repo is managed using the [Git Flow methodology](https://nvie.com/posts/a-successful-git-branching-model/). The develop branch is deployed to the development environment and the master branch is deployed to the production environment. Deployment happens when either of these branches receive a push.
+SSH into local environment container (run from repo root):
+`docker-compose exec --user drupal drupal bash`
 
-[Git Flow Cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/) is a great way to take the guesswork out of managing a repo with Git Flow. It can be installed with Homebrew, per the instructions on the site linked earlier in this paragraph.
+Sync prod database using Drush (run from Drupal root inside local environment container):
+`drush sql-sync @master @self`
 
-### Git Flow Setup
-If you've never used Git Flow in this repo on your local machine, run `git flow init -d` to get started.
+Rsync prod files using Drush (run from Drupal root inside local environment container):
+`drush rsync -v @master:%files %files`
 
-### Features
-New features should be built using feature branches. A new feature is started using git flow by running `git flow feature start feature_name`. When work is complete, the feature can be finished by running `git flow feature finish feature_name`. At this point the feature has been merged into the `develop` branch and can be released using a release.
+Export configuration on local environment (run from Drupal root inside local environment container):
+`drush cex`
 
-### Releases
-To release a completed feature to `master`, use a release: `git flow release start 1.0`. Any final changes can be made to the release branch while it is open. When the release is ready to go to production, run `git flow release finish 1.0` and the branch will be merged into `master` and `develop` and tagged according to what is specified in the Git flow command (1.0 in this example).
+Import configuration on local environment (run from Drupal root inside local environment container):
+`drush cim`
 
-### Hotfixes
-Hotfixes are used for changes that need to go to production immediately. A hotfix is branched from `master` and then immediately merged back into `master` and `develop` when the hotfix is completed. Hotfixes are most frequently used for security updates. To start a hotfix run: `git flow hotfix start 1.1.1`. This will create a hotifx branch you can use to make all the necessary updates. When all updates are complete, run `git flow hotfix finish 1.1.1` to merge your hotfix branch into `master` and `develop`.
+Import configuration on remote environment (run from Drupal root inside local environment container):
+`drush @master cim`
 
+Build project using Composer (run this from the repo root the first time it is cloned and any time new dependencies are added by someone other that yourself):
+`composer install`
+
+Add new module using Composer (run from the repo root):
+`composer require drupal/paragraphs`
+
+Update a module using Composer (run from the repo root):
+`composer update drupal/paragraphs --with-dependencies`
+
+Remove a module using Composer (run from the repo root):
+`composer remove drupal/paragraphs`
 
 ## Hosting
 
@@ -39,6 +52,24 @@ Now that you have Pygmy installed, follow these steps to run your site:
 3. Run `pygmy up` to start Pygmy.
 4. Run `docker-compose up -d` to build the Docker container for your site and run the local environment. Once this is complete, the URL of your local environment will be displayed in your Terminal window.
 5. To SSH in to your environment run `docker-compose exec --user drupal drupal bash` from inside your project root directory.
+
+## Git workflow
+
+This repo is managed using the [Git Flow methodology](https://nvie.com/posts/a-successful-git-branching-model/). The develop branch is deployed to the development environment and the master branch is deployed to the production environment. Deployment happens when either of these branches receive a push.
+
+[Git Flow Cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/) is a great way to take the guesswork out of managing a repo with Git Flow. It can be installed with Homebrew, per the instructions on the site linked earlier in this paragraph.
+
+### Git Flow Setup
+If you've never used Git Flow in this repo on your local machine, run `git flow init -d` to get started.
+
+### Features
+New features should be built using feature branches. A new feature is started using git flow by running `git flow feature start feature_name`. When work is complete, the feature can be finished by running `git flow feature finish feature_name`. At this point the feature has been merged into the `develop` branch and can be released using a release.
+
+### Releases
+To release a completed feature to `master`, use a release: `git flow release start 1.0`. Any final changes can be made to the release branch while it is open. When the release is ready to go to production, run `git flow release finish 1.0` and the branch will be merged into `master` and `develop` and tagged according to what is specified in the Git flow command (1.0 in this example).
+
+### Hotfixes
+Hotfixes are used for changes that need to go to production immediately. A hotfix is branched from `master` and then immediately merged back into `master` and `develop` when the hotfix is completed. Hotfixes are most frequently used for security updates. To start a hotfix run: `git flow hotfix start 1.1.1`. This will create a hotifx branch you can use to make all the necessary updates. When all updates are complete, run `git flow hotfix finish 1.1.1` to merge your hotfix branch into `master` and `develop`.
 
 ## Configuration Management
 

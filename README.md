@@ -32,6 +32,12 @@ Update a module using Composer (run from the repo root):
 Remove a module using Composer (run from the repo root):
 `composer remove drupal/paragraphs`
 
+## First Time Repo Setup
+
+1. Clone the repo: `git clone git@github.com:WICHE/WCET.git`
+2. Checkout and track the master branch: `git checkout --track -b master origin/master`
+3. Install all Composer packages: `composer install`
+
 ## Hosting
 
 * Platform: Amazee.io

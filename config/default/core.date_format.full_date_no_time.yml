@@ -1,8 +1,0 @@
-uuid: 63b09543-b001-4147-bc17-2306ed0d0d59
-langcode: en
-status: true
-dependencies: {  }
-id: full_date_no_time
-label: 'Full Date no Time'
-locked: false
-pattern: 'F jS, Y'

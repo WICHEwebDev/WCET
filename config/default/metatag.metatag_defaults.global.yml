@@ -1,8 +1,0 @@
-uuid: 1988a05e-8d27-493e-ba3e-6214cb3fb76a
-langcode: en
-status: true
-dependencies: {  }
-id: global
-label: Global
-tags:
-  title: '[current-page:title] | [site:name]'

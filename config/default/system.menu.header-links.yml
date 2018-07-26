@@ -1,8 +1,0 @@
-uuid: acbfd857-cfe3-4eae-b122-3431e683d00b
-langcode: en
-status: true
-dependencies: {  }
-id: header-links
-label: 'Header Links'
-description: ''
-locked: false

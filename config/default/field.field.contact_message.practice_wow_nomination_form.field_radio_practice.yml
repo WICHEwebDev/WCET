@@ -1,0 +1,21 @@
+uuid: aca6118b-b3bc-4146-8e60-04d7ec453ceb
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.practice_wow_nomination_form
+    - field.storage.contact_message.field_radio_practice
+  module:
+    - options
+id: contact_message.practice_wow_nomination_form.field_radio_practice
+field_name: field_radio_practice
+entity_type: contact_message
+bundle: practice_wow_nomination_form
+label: 'radio practice'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_float

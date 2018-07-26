@@ -1,0 +1,10 @@
+uuid: 868b47d7-a506-4e19-8f00-fcc4abdc13cc
+langcode: en
+status: true
+dependencies: {  }
+id: user_remove_role_action.wcet_admin
+label: 'Remove the WCET Admin role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: wcet_admin

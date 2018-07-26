@@ -1,0 +1,25 @@
+uuid: e5375240-feb5-4ff1-a200-0b34d4d38937
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_exec_weight
+    - node.type.profile
+id: node.profile.field_profile_exec_weight
+field_name: field_profile_exec_weight
+entity_type: node
+bundle: profile
+label: 'Executive Council Weight'
+description: "Executive Council page is sorted alphabetically, with the option to set a \"weight\" to bring someone to the top of the list. A higher weight value will make the profile appear ahead of other profiles with a lower weight.<br />\r\n<i>e.g.</i>A profile with weight set to 10 will appear before a profile with weight set to 9, all of which would appear before any unweighted profiles."
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

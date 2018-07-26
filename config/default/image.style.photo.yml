@@ -1,0 +1,23 @@
+uuid: 7c7e73d6-b23c-448d-9607-7fe00822da61
+langcode: en
+status: true
+dependencies: {  }
+name: photo
+label: 'Photo Small (100x100)'
+effects:
+  0ac4ddcf-cbaa-45e2-b307-7af6be0fa91d:
+    uuid: 0ac4ddcf-cbaa-45e2-b307-7af6be0fa91d
+    id: image_scale
+    weight: -10
+    data:
+      width: 100
+      height: null
+      upscale: true
+  e3e4fbe8-0797-4514-9f00-dba2302274a1:
+    uuid: e3e4fbe8-0797-4514-9f00-dba2302274a1
+    id: image_crop
+    weight: -9
+    data:
+      width: 100
+      height: 100
+      anchor: center-top

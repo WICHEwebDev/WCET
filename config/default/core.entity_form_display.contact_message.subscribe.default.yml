@@ -1,0 +1,74 @@
+uuid: 78d87fc4-3c81-4d56-aea4-6eab1867f0a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.subscribe
+    - field.field.contact_message.subscribe.field_department
+    - field.field.contact_message.subscribe.field_email_lists
+    - field.field.contact_message.subscribe.field_full_name
+    - field.field.contact_message.subscribe.field_inst_email
+    - field.field.contact_message.subscribe.field_inst_org
+    - field.field.contact_message.subscribe.field_your_title
+id: contact_message.subscribe.default
+targetEntityType: contact_message
+bundle: subscribe
+mode: default
+content:
+  field_department:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_email_lists:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_full_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inst_email:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inst_org:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_your_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  preview:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  copy: true
+  mail: true
+  message: true
+  name: true
+  subject: true

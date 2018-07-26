@@ -1,0 +1,195 @@
+uuid: 982053b6-dba9-4f48-9802-2e131276e8dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.membership_application
+    - field.field.contact_message.membership_application.field_additional_member_contacts
+    - field.field.contact_message.membership_application.field_address_1
+    - field.field.contact_message.membership_application.field_address_2
+    - field.field.contact_message.membership_application.field_annual_dues_schedule
+    - field.field.contact_message.membership_application.field_city_town
+    - field.field.contact_message.membership_application.field_country
+    - field.field.contact_message.membership_application.field_email_address
+    - field.field.contact_message.membership_application.field_fte_status
+    - field.field.contact_message.membership_application.field_full_name
+    - field.field.contact_message.membership_application.field_how_did_you_learn_about_us
+    - field.field.contact_message.membership_application.field_job_title
+    - field.field.contact_message.membership_application.field_name_of_official_rep
+    - field.field.contact_message.membership_application.field_new_welcome
+    - field.field.contact_message.membership_application.field_org_fte
+    - field.field.contact_message.membership_application.field_organization
+    - field.field.contact_message.membership_application.field_phone_number
+    - field.field.contact_message.membership_application.field_promotional_code
+    - field.field.contact_message.membership_application.field_state_province
+    - field.field.contact_message.membership_application.field_third_party_authorization
+    - field.field.contact_message.membership_application.field_wcet_referral
+    - field.field.contact_message.membership_application.field_wcet_referral_
+    - field.field.contact_message.membership_application.field_website
+    - field.field.contact_message.membership_application.field_welcome
+    - field.field.contact_message.membership_application.field_welcome2
+    - field.field.contact_message.membership_application.field_welcome_new_member
+    - field.field.contact_message.membership_application.field_welcome_to_your_cooperativ
+    - field.field.contact_message.membership_application.field_zip_postal_code
+id: contact_message.membership_application.default
+targetEntityType: contact_message
+bundle: membership_application
+mode: default
+content:
+  copy:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_additional_member_contacts:
+    weight: 14
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_address_1:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_address_2:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_city_town:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_country:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_email_address:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_how_did_you_learn_about_us:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_job_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_name_of_official_rep:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_org_fte:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_organization:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_phone_number:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_promotional_code:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_state_province:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_third_party_authorization:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_website:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_zip_postal_code:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  preview:
+    weight: 50
+    region: content
+hidden:
+  field_annual_dues_schedule: true
+  field_fte_status: true
+  field_full_name: true
+  field_new_welcome: true
+  field_wcet_referral: true
+  field_wcet_referral_: true
+  field_welcome: true
+  field_welcome2: true
+  field_welcome_new_member: true
+  field_welcome_to_your_cooperativ: true
+  mail: true
+  message: true
+  name: true
+  subject: true

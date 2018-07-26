@@ -1,0 +1,19 @@
+uuid: 8980f252-5940-42de-8c03-3ce6b62b8cd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.practice_wow_nomination_form
+    - field.storage.contact_message.field_1prim_goal
+id: contact_message.practice_wow_nomination_form.field_1prim_goal
+field_name: field_1prim_goal
+entity_type: contact_message
+bundle: practice_wow_nomination_form
+label: '1prim goal'
+description: '<p>The primary goal of the WOW Award is to recognize and disseminate information on members'' outstanding efforts in applying an innovative solution to an important need in higher education. If you receive the WOW award, how will you help in disseminating key information about your work? (Consider outlets in your state, region, discipline, professional associations, journal article, WCET''s annual meeting and/or Frontier''s Blog, etc.) (250 word limit suggested.)</p>'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,14 @@
+uuid: 13c1ec03-de20-48d9-a400-bbb38084c566
+langcode: en
+status: true
+dependencies: {  }
+name: hero_medium
+label: 'Hero Medium (960x361)'
+effects:
+  a7ac6f8d-2f6d-4663-b623-35bb36950402:
+    uuid: a7ac6f8d-2f6d-4663-b623-35bb36950402
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 960
+      height: 361

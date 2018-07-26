@@ -1,0 +1,21 @@
+uuid: faf53522-93e1-4f62-b362-9814129d03ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.membership_application
+    - field.storage.contact_message.field_welcome
+id: contact_message.membership_application.field_welcome
+field_name: field_welcome
+entity_type: contact_message
+bundle: membership_application
+label: Welcome
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

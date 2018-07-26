@@ -1,0 +1,23 @@
+uuid: 59338a59-e3d3-497c-a100-eeaa7c854aa7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_executive_council_position
+    - node.type.profile
+id: node.profile.field_executive_council_position
+field_name: field_executive_council_position
+entity_type: node
+bundle: profile
+label: 'Executive Council Position'
+description: "If this person is on the Executive Council, provide the position info for this person on the Executive Council.<br />\r\n<i>e.g.:<br />\r\nFounding President<br />\r\nOpen College@Kaplan University</i>"
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

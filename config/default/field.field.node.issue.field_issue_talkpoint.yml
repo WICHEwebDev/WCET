@@ -1,0 +1,23 @@
+uuid: d9a3ba13-6048-4efe-931e-30072d27270f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issue_talkpoint
+    - node.type.issue
+  module:
+    - link
+id: node.issue.field_issue_talkpoint
+field_name: field_issue_talkpoint
+entity_type: node
+bundle: issue
+label: 'Talking Points'
+description: 'Optionally provide a list of talking point links'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,32 @@
+uuid: 7dff0e2e-52dd-4760-ab00-e122cc5b123d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.focus_areas
+  module:
+    - system
+    - views
+  theme:
+    - front
+id: home_focus_area_block
+theme: front
+region: content_bottom
+weight: -8
+provider: null
+plugin: 'views_block:focus_areas-block_1'
+settings:
+  id: 'views_block:focus_areas-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  cache:
+    max_age: -1
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

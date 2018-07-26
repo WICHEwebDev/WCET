@@ -1,0 +1,21 @@
+uuid: 51dcf523-1e75-4a65-bd00-ad392a7ae398
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.welcome_to_the_state_authorizati
+    - field.storage.contact_message.field_invoice_info2
+id: contact_message.welcome_to_the_state_authorizati.field_invoice_info2
+field_name: field_invoice_info2
+entity_type: contact_message
+bundle: welcome_to_the_state_authorizati
+label: 'Invoice Info2'
+description: 'Please provide contact information for the membership invoice.'
+required: false
+translatable: false
+default_value:
+  -
+    value: "Name:\r\nJob Title:\r\nInstitution:\r\nFull address:\r\nEmail Address:\r\nPhone number:"
+default_value_callback: ''
+settings: {  }
+field_type: string_long

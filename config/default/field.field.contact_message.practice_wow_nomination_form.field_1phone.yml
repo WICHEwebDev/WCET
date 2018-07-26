@@ -1,0 +1,19 @@
+uuid: 66a213e8-3ac2-4baa-8f2f-47d529756952
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.practice_wow_nomination_form
+    - field.storage.contact_message.field_1phone
+id: contact_message.practice_wow_nomination_form.field_1phone
+field_name: field_1phone
+entity_type: contact_message
+bundle: practice_wow_nomination_form
+label: 1phone
+description: 'Phone number'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

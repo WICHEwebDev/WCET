@@ -1,0 +1,86 @@
+uuid: 71fd1d0a-02f4-4d46-9225-3795025f57a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.job_post.field_body_job_page
+    - field.field.node.job_post.field_date_posted
+    - field.field.node.job_post.field_description_job_post
+    - field.field.node.job_post.field_expiration_date
+    - field.field.node.job_post.field_job_institution
+    - field.field.node.job_post.field_job_minimum_qualifications
+    - field.field.node.job_post.field_link_external_job_post
+    - field.field.node.job_post.field_new_application_deadline
+    - node.type.job_post
+  module:
+    - datetime
+    - link
+    - text
+    - user
+id: node.job_post.default
+targetEntityType: node
+bundle: job_post
+mode: default
+content:
+  field_date_posted:
+    weight: 6
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: full_date_no_time
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_description_job_post:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_expiration_date:
+    weight: 5
+    label: visually_hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_job_institution:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_job_minimum_qualifications:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_link_external_job_post:
+    type: link
+    weight: 4
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: content
+  field_new_application_deadline:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_body_job_page: true
+  links: true

@@ -1,0 +1,23 @@
+uuid: 079e7916-57ab-4d17-be00-cdb33753bb23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_social
+    - node.type.profile
+  module:
+    - link
+id: node.profile.field_profile_social
+field_name: field_profile_social
+entity_type: node
+bundle: profile
+label: 'Social Media Links'
+description: "Optionally provide links to social media profiles. Use the Link text to define what social media service the link is for. The link will be automatically converted to an icon for supported social media sites.<br />\r\n<strong>Supported Sites:</strong> Facebook, Twitter, LinkedIn<br />\r\n<i>e.g.:</i>To share a twitter profile link, enter the URL for the twitter profile, then in Link text enter \"Twitter\"."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

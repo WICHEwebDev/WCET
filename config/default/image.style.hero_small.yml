@@ -1,0 +1,14 @@
+uuid: 912bbe2b-afbc-454b-a300-fa8c0e65281a
+langcode: en
+status: true
+dependencies: {  }
+name: hero_small
+label: 'Hero Small (720x270)'
+effects:
+  beafc55d-e58c-4039-9c2e-46f13ef69dd5:
+    uuid: beafc55d-e58c-4039-9c2e-46f13ef69dd5
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 720
+      height: 270

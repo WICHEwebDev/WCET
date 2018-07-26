@@ -1,0 +1,15 @@
+uuid: c833e3f2-295d-4660-a700-c6e1eac823fc
+langcode: en
+status: true
+dependencies: {  }
+name: featured_image
+label: 'Featured Image'
+effects:
+  0d68b7c4-2f56-45c0-b000-b7cb41d263e9:
+    uuid: 0d68b7c4-2f56-45c0-b000-b7cb41d263e9
+    id: image_scale
+    weight: 1
+    data:
+      width: 300
+      height: null
+      upscale: false

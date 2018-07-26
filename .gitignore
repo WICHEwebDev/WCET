@@ -1,43 +1,82 @@
-# This file contains default .gitignore rules. To use it, copy it to .gitignore,
-# and it will cause files like your settings.php and user-uploaded files to be
-# excluded from Git version control. This is a common strategy to avoid
-# accidentally including private information in public repositories and patch
-# files.
-#
-# Because .gitignore can be specific to your site, this file has a different
-# name; updating Drupal core will not override your custom .gitignore file.
+# Drupal #
+##########
+docroot/files
+docroot/sites/*/files
+docroot/sites/*/settings.local.php
+docroot/sites/*/local.services.yml
+docroot/sites/*/private
+private
 
-# Ignore core when managing all of a project's dependencies with Composer
-# including Drupal core.
-# core
 
-# Core's dependencies are managed with Composer.
-vendor
+# Composer#
+###########
+/drush/contrib/
+/vendor/
+/docroot/core/
+/docroot/modules/contrib/
+/docroot/themes/contrib/
+/docroot/profiles/contrib/
 
-# Ignore paths that contain user-generated content.
-sites/*/files
-sites/*/private
-sites/default/files
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 
-# Ignore SimpleTest multi-site environment.
-sites/simpletest
-
-# If you prefer to store your .gitignore file in the sites/ folder, comment
-# or delete the previous settings and uncomment the following ones, instead.
-
-# Ignore configuration files that may contain sensitive information.
-# */settings*.php
-
-# Ignore paths that contain user-generated content.
-# */files
-# */private
-
-# Ignore SimpleTest multi-site environment.
-# simpletest
-
-# Ignore core phpcs.xml and phpunit.xml.
-core/phpcs.xml
-core/phpunit.xml
-
-#ignore sql dump files
+# Logs and databases #
+######################
+*.log
 *.sql
+*.mysql
+
+# OS generated files #
+######################
+ehthumbs.db
+._*
+.DS_Store
+Thumbs.db
+.buildpath
+.cache
+.project
+.settings
+.tmproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+
+# Folders #
+###########
+.hg
+.svn
+.CVS
+.idea
+
+# Numerous always-ignore extensions #
+#####################################
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+*.map
+
+# Ignore patches not in the patches directory #
+*.patch
+!patches/*.patch
+
+
+# Ignore git directories/files in composer plugins #
+vendor/**/.git
+docroot/**/.git
+vendor/**/.gitattributes
+docroot/**/.gitattributes

@@ -1,0 +1,17 @@
+uuid: 14e62e60-a6ea-42b4-aa00-ac1a4c4d517d
+langcode: en
+status: true
+dependencies: {  }
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access eck entities'
+  - 'access site-wide contact form'
+  - 'search content'
+  - 'use text format plain_text'
+  - 'use text format restricted_html'
+  - 'view any spotlight entity'

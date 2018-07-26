@@ -1,0 +1,22 @@
+uuid: 766f3e6b-490b-4287-8300-d5158a846e5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.news_snippet.field_link
+    - field.field.node.news_snippet.field_news_pub
+    - node.type.news_snippet
+  module:
+    - user
+id: node.news_snippet.teaser
+targetEntityType: node
+bundle: news_snippet
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_link: true
+  field_news_pub: true

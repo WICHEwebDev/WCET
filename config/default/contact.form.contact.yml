@@ -1,0 +1,12 @@
+uuid: b2c1f784-30f5-4df6-a700-e6f5060ff2d1
+langcode: en
+status: true
+dependencies: {  }
+id: contact
+label: Contact
+recipients:
+  - wcetinfo@wiche.edu
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

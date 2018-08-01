@@ -77,6 +77,8 @@ To release a completed feature to `master`, use a release: `git flow release sta
 ### Hotfixes
 Hotfixes are used for changes that need to go to production immediately. A hotfix is branched from `master` and then immediately merged back into `master` and `develop` when the hotfix is completed. Hotfixes are most frequently used for security updates. To start a hotfix run: `git flow hotfix start 1.1.1`. This will create a hotifx branch you can use to make all the necessary updates. When all updates are complete, run `git flow hotfix finish 1.1.1` to merge your hotfix branch into `master` and `develop`.
 
+
+
 ## Configuration Management
 
 This project uses CMI for all configuration changes. All configuration is stored in the `config/default` directory. This is configured in `docroot/sites/default/all.settings.php`, but should not be changed.

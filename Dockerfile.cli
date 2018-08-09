@@ -9,4 +9,4 @@ RUN composer install --prefer-dist --no-dev --no-suggest --optimize-autoloader -
 COPY . /app
 
 # Define where the Drupal Root is located
-ENV WEBROOT=/docroot
+ENV WEBROOT=docroot

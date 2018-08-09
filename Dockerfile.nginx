@@ -5,4 +5,4 @@ FROM amazeeio/nginx-drupal
 
 COPY --from=cli /app /app
 # Define where the Drupal Root is located
-ENV WEBROOT=/docroot
+ENV WEBROOT=docroot

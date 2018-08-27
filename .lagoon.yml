@@ -29,4 +29,9 @@ environments:
   prod:
     routes:
       - varnish:
-        - "wcet.wiche.edu" 
+        - "www.wcet.wiche.edu":
+            tls-acme: 'false'
+            insecure: Redirect
+        - "wcet.wiche.edu":
+            tls-acme: 'false'
+            insecure: Redirect

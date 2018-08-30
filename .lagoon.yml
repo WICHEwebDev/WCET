@@ -26,12 +26,12 @@ cronjobs:
     service: cli
 
 environments:
-  prod:
+  master:
     routes:
       - varnish:
         - "www.wcet.wiche.edu":
-            tls-acme: 'false'
+            tls-acme: 'true'
             insecure: Redirect
         - "wcet.wiche.edu":
-            tls-acme: 'false'
+            tls-acme: 'true'
             insecure: Redirect

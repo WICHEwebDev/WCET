@@ -29,9 +29,6 @@ environments:
   master:
     routes:
       - varnish:
-        - "www.wcet.wiche.edu":
-            tls-acme: 'true'
-            insecure: Redirect
         - "wcet.wiche.edu":
             tls-acme: 'true'
             insecure: Redirect

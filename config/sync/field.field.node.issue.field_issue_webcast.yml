@@ -1,0 +1,23 @@
+uuid: 9ab58758-1f1a-4c27-8501-1dab067a9402
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issue_webcast
+    - node.type.issue
+  module:
+    - link
+id: node.issue.field_issue_webcast
+field_name: field_issue_webcast
+entity_type: node
+bundle: issue
+label: 'Webcast Archives'
+description: 'Optionally provide a list of Webcast Archive links'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

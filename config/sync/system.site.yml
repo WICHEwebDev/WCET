@@ -1,0 +1,13 @@
+uuid: a9b4b0f2-0025-486b-b922-349975264e60
+name: WCET
+mail: wcetinfo@wiche.edu
+slogan: 'WICHE Cooperative for Educational Technologies'
+page:
+  403: ''
+  404: /node/34
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+mail_notification: ''

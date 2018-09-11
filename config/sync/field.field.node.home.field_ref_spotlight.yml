@@ -1,0 +1,25 @@
+uuid: 25616ea6-b21e-45e4-9600-afa98f23e4ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ref_spotlight
+    - node.type.home
+id: node.home.field_ref_spotlight
+field_name: field_ref_spotlight
+entity_type: node
+bundle: home
+label: Spotlight
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      spotlight: spotlight
+    sort:
+      field: _none
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: 7f4ec6e1-a790-43cb-b900-f1f326173c25
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.welcome_to_the_state_authorizati
+    - field.storage.contact_message.field_name_membership
+id: contact_message.welcome_to_the_state_authorizati.field_name_membership
+field_name: field_name_membership
+entity_type: contact_message
+bundle: welcome_to_the_state_authorizati
+label: 'Name Membership'
+description: 'Please provide the name of the membership (i.e., institution name, partnership name, or system name, etc.) and the two membership coordinators'' contact information.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

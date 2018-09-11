@@ -1,0 +1,201 @@
+uuid: c1e235b8-fefe-431c-981d-29e414fbaf07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.issue.body
+    - field.field.node.issue.field_files
+    - field.field.node.issue.field_icon
+    - field.field.node.issue.field_image
+    - field.field.node.issue.field_issue_add_resource
+    - field.field.node.issue.field_issue_events
+    - field.field.node.issue.field_issue_lessons
+    - field.field.node.issue.field_issue_publication
+    - field.field.node.issue.field_issue_qa
+    - field.field.node.issue.field_issue_research
+    - field.field.node.issue.field_issue_resources
+    - field.field.node.issue.field_issue_talkpoint
+    - field.field.node.issue.field_issue_video_links
+    - field.field.node.issue.field_issue_webcast
+    - field.field.node.issue.field_meta_tags
+    - field.field.node.issue.field_ref_feed_blog
+    - field.field.node.issue.field_ref_feed_news
+    - field.field.node.issue.field_video_link
+    - image.style.featured_image
+    - node.type.issue
+  module:
+    - image
+    - link
+    - metatag
+    - text
+    - user
+id: node.issue.default
+targetEntityType: node
+bundle: issue
+mode: default
+content:
+  body:
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    label: hidden
+    region: content
+  field_image:
+    type: image
+    weight: 2
+    settings:
+      image_style: featured_image
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+    region: content
+  field_issue_add_resource:
+    weight: 11
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_issue_events:
+    weight: 6
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_issue_lessons:
+    weight: 14
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_issue_publication:
+    weight: 8
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_issue_qa:
+    weight: 10
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_issue_research:
+    weight: 4
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_issue_resources:
+    type: link
+    weight: 12
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    label: above
+    region: content
+  field_issue_talkpoint:
+    weight: 9
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_issue_video_links:
+    weight: 7
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_issue_webcast:
+    weight: 5
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_meta_tags:
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_video_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_files: true
+  field_icon: true
+  field_ref_feed_blog: true
+  field_ref_feed_news: true

@@ -1,0 +1,21 @@
+uuid: 6a53f1e0-3817-4fe1-8400-c3fc20fd56bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.welcome_to_the_state_authorizati
+    - field.storage.contact_message.field_3institution_member
+  module:
+    - options
+id: contact_message.welcome_to_the_state_authorizati.field_3institution_member
+field_name: field_3institution_member
+entity_type: contact_message
+bundle: welcome_to_the_state_authorizati
+label: '3institution member'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_float

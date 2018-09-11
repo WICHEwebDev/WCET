@@ -1,0 +1,20 @@
+uuid: dc3fa9f5-3975-455a-b400-cb145fc0b040
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_profile_steering_weight
+field_name: field_profile_steering_weight
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

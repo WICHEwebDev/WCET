@@ -1,0 +1,27 @@
+uuid: a6b7a858-5234-49b8-8204-8316e0f543c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.practice_wow_nomination_form
+    - field.storage.contact_message.field_111files
+  module:
+    - file
+id: contact_message.practice_wow_nomination_form.field_111files
+field_name: field_111files
+entity_type: contact_message
+bundle: practice_wow_nomination_form
+label: 111files
+description: 'upload your files here'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt jpg docx doc pdf png'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

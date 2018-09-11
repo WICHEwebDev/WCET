@@ -1,0 +1,23 @@
+uuid: a3981c52-613f-4bd7-b800-df0c8a1c336d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issue_publication
+    - node.type.issue
+  module:
+    - link
+id: node.issue.field_issue_publication
+field_name: field_issue_publication
+entity_type: node
+bundle: issue
+label: Publications
+description: 'Optionally provide a list of Publication links'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

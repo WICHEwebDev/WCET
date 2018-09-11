@@ -1,0 +1,281 @@
+uuid: 74f2dc9d-a379-4477-ae00-fa7e9bcd5fec
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.membership_application
+    - field.field.contact_message.membership_application.field_additional_member_contacts
+    - field.field.contact_message.membership_application.field_address_1
+    - field.field.contact_message.membership_application.field_address_2
+    - field.field.contact_message.membership_application.field_annual_dues_schedule
+    - field.field.contact_message.membership_application.field_city_town
+    - field.field.contact_message.membership_application.field_country
+    - field.field.contact_message.membership_application.field_email_address
+    - field.field.contact_message.membership_application.field_fte_status
+    - field.field.contact_message.membership_application.field_full_name
+    - field.field.contact_message.membership_application.field_how_did_you_learn_about_us
+    - field.field.contact_message.membership_application.field_job_title
+    - field.field.contact_message.membership_application.field_name_of_official_rep
+    - field.field.contact_message.membership_application.field_new_welcome
+    - field.field.contact_message.membership_application.field_org_fte
+    - field.field.contact_message.membership_application.field_organization
+    - field.field.contact_message.membership_application.field_phone_number
+    - field.field.contact_message.membership_application.field_promotional_code
+    - field.field.contact_message.membership_application.field_state_province
+    - field.field.contact_message.membership_application.field_third_party_authorization
+    - field.field.contact_message.membership_application.field_wcet_referral
+    - field.field.contact_message.membership_application.field_wcet_referral_
+    - field.field.contact_message.membership_application.field_website
+    - field.field.contact_message.membership_application.field_welcome
+    - field.field.contact_message.membership_application.field_welcome2
+    - field.field.contact_message.membership_application.field_welcome_new_member
+    - field.field.contact_message.membership_application.field_welcome_to_your_cooperativ
+    - field.field.contact_message.membership_application.field_zip_postal_code
+  module:
+    - comment
+    - options
+id: contact_message.membership_application.default
+targetEntityType: contact_message
+bundle: membership_application
+mode: default
+content:
+  field_additional_member_contacts:
+    weight: 21
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_address_1:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_address_2:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_annual_dues_schedule:
+    weight: 27
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_city_town:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_country:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_email_address:
+    weight: 11
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_fte_status:
+    weight: 16
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_full_name:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_how_did_you_learn_about_us:
+    weight: 22
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_job_title:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_name_of_official_rep:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_new_welcome:
+    weight: 19
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_org_fte:
+    weight: 17
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_organization:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_phone_number:
+    weight: 12
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_promotional_code:
+    weight: 25
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_state_province:
+    weight: 10
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_third_party_authorization:
+    weight: 18
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_wcet_referral:
+    weight: 24
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_wcet_referral_:
+    weight: 23
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_website:
+    weight: 26
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_welcome:
+    weight: 14
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_welcome2:
+    weight: 20
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_welcome_new_member:
+    weight: 15
+    label: above
+    settings:
+      pager_id: 0
+      view_mode: default
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_welcome_to_your_cooperativ:
+    weight: 13
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_zip_postal_code:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  mail:
+    weight: -2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  message:
+    type: basic_string
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  name:
+    weight: -3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  subject:
+    weight: -1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden: {  }

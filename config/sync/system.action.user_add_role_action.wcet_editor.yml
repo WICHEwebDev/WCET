@@ -1,0 +1,10 @@
+uuid: 8b607f55-2f4d-4931-bc40-64d72c5fc0c4
+langcode: en
+status: true
+dependencies: {  }
+id: user_add_role_action.wcet_editor
+label: 'Add the WCET Editor role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: wcet_editor

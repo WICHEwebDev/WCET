@@ -1,0 +1,10 @@
+uuid: 54190d5c-66e5-4f32-a45f-95432d9f03c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.profile_staff
+label: 'Profile - Staff'
+targetEntityType: node
+cache: true

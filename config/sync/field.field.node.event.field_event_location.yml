@@ -1,0 +1,21 @@
+uuid: 07bb8684-e2ec-4779-ae06-6b1fc6333a36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_location
+    - node.type.event
+id: node.event.field_event_location
+field_name: field_event_location
+entity_type: node
+bundle: event
+label: Location
+description: 'Enter the location of the Event to be displayed if applicable.'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: 51f8fc6f-c5a8-461b-b000-e4cd1c1a90be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issue_qa
+    - node.type.issue
+  module:
+    - link
+id: node.issue.field_issue_qa
+field_name: field_issue_qa
+entity_type: node
+bundle: issue
+label: 'Q & A'
+description: 'Optionally provide a list of Q&A links'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

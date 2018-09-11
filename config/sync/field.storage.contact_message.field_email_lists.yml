@@ -1,0 +1,30 @@
+uuid: 01ce2916-befe-4a60-865f-c4f0c27da1dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_email_lists
+field_name: field_email_lists
+entity_type: contact_message
+type: list_float
+settings:
+  allowed_values:
+    -
+      value: !!float 0
+      label: 'WCETdiscuss Only'
+    -
+      value: !!float 1
+      label: 'WCETnews Only'
+    -
+      value: !!float 2
+      label: 'Both Lists'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

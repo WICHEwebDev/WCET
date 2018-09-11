@@ -1,0 +1,21 @@
+uuid: 28c77d0d-9a69-40c2-8000-e64f90f04a8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_job_post
+    - node.type.job_post
+  module:
+    - text
+id: node.job_post.field_description_job_post
+field_name: field_description_job_post
+entity_type: node
+bundle: job_post
+label: 'Job Description'
+description: 'Description of the position'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

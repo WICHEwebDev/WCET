@@ -1,0 +1,23 @@
+uuid: 85fffaf3-2d5f-4405-a100-e740e37bec04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_link
+    - node.type.issue
+  module:
+    - link
+id: node.issue.field_video_link
+field_name: field_video_link
+entity_type: node
+bundle: issue
+label: 'Featured Video'
+description: 'Optionally provide a YouTube video to be displayed in the full page view of this Issue.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

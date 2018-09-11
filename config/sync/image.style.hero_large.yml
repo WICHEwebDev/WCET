@@ -1,0 +1,15 @@
+uuid: 2a27aa2c-b9a8-41b7-9c02-2b8baa59b7cc
+langcode: en
+status: true
+dependencies: {  }
+name: hero_large
+label: 'Hero Large (1200x450)'
+effects:
+  39e94a89-f133-4b95-9007-7edc80ce4cdc:
+    uuid: 39e94a89-f133-4b95-9007-7edc80ce4cdc
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 450
+      anchor: center-center

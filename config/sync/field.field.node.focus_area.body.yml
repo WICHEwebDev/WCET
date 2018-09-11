@@ -1,0 +1,22 @@
+uuid: 08bfebc2-e281-4972-ab06-6bca05ffbdb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.focus_area
+  module:
+    - text
+id: node.focus_area.body
+field_name: body
+entity_type: node
+bundle: focus_area
+label: 'Focus Area Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

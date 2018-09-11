@@ -1,0 +1,22 @@
+uuid: 3bbb298d-a1dd-49b3-b300-f19e557eaced
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - front
+id: front_search
+theme: front
+region: branding
+weight: -8
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+  cache:
+    max_age: -1
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 3f0cd10b-f2dc-48b3-b516-225e5cffa5e4
+langcode: en
+status: true
+dependencies: {  }
+name: photo_large
+label: 'Photo Large (250x250)'
+effects:
+  e03e89bc-c112-4b80-a209-9c6f505ad1b2:
+    uuid: e03e89bc-c112-4b80-a209-9c6f505ad1b2
+    id: image_scale
+    weight: 1
+    data:
+      width: 250
+      height: null
+      upscale: true
+  9a9ff256-6280-47c1-b019-258364515bea:
+    uuid: 9a9ff256-6280-47c1-b019-258364515bea
+    id: image_crop
+    weight: 2
+    data:
+      width: 250
+      height: 250
+      anchor: center-top

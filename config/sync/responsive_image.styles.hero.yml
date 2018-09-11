@@ -1,0 +1,30 @@
+uuid: ef252b9d-2dd3-46f9-8900-d7e3c5edf196
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.hero_large
+    - image.style.hero_medium
+    - image.style.hero_small
+  theme:
+    - front
+id: hero
+label: Hero
+image_style_mappings:
+  -
+    breakpoint_id: front.large
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: hero_large
+  -
+    breakpoint_id: front.medium
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: hero_medium
+  -
+    breakpoint_id: front.small
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: hero_small
+breakpoint_group: front
+fallback_image_style: hero_large

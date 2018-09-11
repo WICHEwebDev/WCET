@@ -1,0 +1,23 @@
+uuid: 45961948-f6e6-42bf-ad41-65caf51008d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issue_resources
+    - node.type.issue
+  module:
+    - link
+id: node.issue.field_issue_resources
+field_name: field_issue_resources
+entity_type: node
+bundle: issue
+label: 'Additional Resources'
+description: "<strong>For External Resources section</strong><br />\r\nProvide links to external resources for this Issue."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

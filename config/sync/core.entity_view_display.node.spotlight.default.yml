@@ -1,0 +1,40 @@
+uuid: ec4642e4-2bb8-45c5-a605-5a33c5b62dc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.spotlight.body
+    - field.field.node.spotlight.field_image
+    - image.style.thumbnail
+    - node.type.spotlight
+  module:
+    - image
+    - text
+    - user
+id: node.spotlight.default
+targetEntityType: node
+bundle: spotlight
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

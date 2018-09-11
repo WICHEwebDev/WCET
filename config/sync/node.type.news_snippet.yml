@@ -1,0 +1,17 @@
+uuid: b4815a4c-2c8b-453c-b328-4068703475e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'News Snippet'
+type: news_snippet
+description: 'Add a News Snippet to the site to be shown in the "In the News" section.'
+help: 'Add a News post to be displayed on the "In The News" page.'
+new_revision: false
+preview_mode: 1
+display_submitted: false

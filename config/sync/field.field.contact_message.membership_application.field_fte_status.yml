@@ -1,0 +1,21 @@
+uuid: 5bc121a1-d8af-49ad-983d-61c58c586578
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.membership_application
+    - field.storage.contact_message.field_fte_status
+  module:
+    - options
+id: contact_message.membership_application.field_fte_status
+field_name: field_fte_status
+entity_type: contact_message
+bundle: membership_application
+label: 'FTE Status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_float

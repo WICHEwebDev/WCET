@@ -1,0 +1,22 @@
+uuid: cdeaa411-459f-4692-944e-785eb2feb2eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - front
+id: front_content
+theme: front
+region: content
+weight: -6
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: -1
+visibility: {  }

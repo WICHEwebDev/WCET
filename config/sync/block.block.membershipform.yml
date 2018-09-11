@@ -1,0 +1,31 @@
+uuid: c1035ceb-b590-4542-ae07-07b94a9cc2d8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:3885a1dc-6c81-48a8-be39-571e923d8127'
+  module:
+    - block_content
+    - system
+  theme:
+    - front
+id: membershipform
+theme: front
+region: content
+weight: -7
+provider: null
+plugin: 'block_content:3885a1dc-6c81-48a8-be39-571e923d8127'
+settings:
+  id: 'block_content:3885a1dc-6c81-48a8-be39-571e923d8127'
+  label: 'Membership Form'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /contact/membership_application
+    negate: false
+    context_mapping: {  }

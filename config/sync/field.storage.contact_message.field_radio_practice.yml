@@ -1,0 +1,36 @@
+uuid: e15c7db5-198c-4ac1-b03f-279661953603
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_radio_practice
+field_name: field_radio_practice
+entity_type: contact_message
+type: list_float
+settings:
+  allowed_values:
+    -
+      value: !!float 0
+      label: One
+    -
+      value: !!float 1
+      label: Two
+    -
+      value: !!float 2
+      label: Three
+    -
+      value: !!float 3
+      label: Four
+    -
+      value: !!float 4
+      label: Five
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

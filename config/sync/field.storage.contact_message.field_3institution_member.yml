@@ -1,0 +1,27 @@
+uuid: 0b427590-3a62-44cb-bd04-4e3efce81d10
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_3institution_member
+field_name: field_3institution_member
+entity_type: contact_message
+type: list_float
+settings:
+  allowed_values:
+    -
+      value: !!float 0
+      label: 'Member of WCET'
+    -
+      value: !!float 1
+      label: 'Not a member of WCET'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

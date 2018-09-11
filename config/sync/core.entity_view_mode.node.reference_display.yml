@@ -1,0 +1,10 @@
+uuid: 5c13f2a4-9f1f-4096-9f12-18a2990f8000
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.reference_display
+label: 'Reference Display'
+targetEntityType: node
+cache: true

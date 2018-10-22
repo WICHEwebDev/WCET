@@ -32,3 +32,6 @@ environments:
         - "wcet.wiche.edu":
             tls-acme: 'true'
             insecure: Redirect
+        - "everylearnereverywhere.org":
+            tls-acme: 'true'
+            insecure: Redirect

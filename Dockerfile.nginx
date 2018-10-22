@@ -4,5 +4,7 @@ FROM ${CLI_IMAGE} as cli
 FROM amazeeio/nginx-drupal
 
 COPY --from=cli /app /app
+COPY redirects-map.conf /etc/nginx/redirects-map.conf
+
 # Define where the Drupal Root is located
 ENV WEBROOT=docroot

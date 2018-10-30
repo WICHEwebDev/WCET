@@ -35,3 +35,6 @@ environments:
         - "everylearnereverywhere.org":
             tls-acme: 'true'
             insecure: Redirect
+        - "www.everylearnereverywhere.org":
+            tls-acme: 'true'
+            insecure: Redirect

@@ -38,3 +38,21 @@ environments:
         - "www.everylearnereverywhere.org":
             tls-acme: 'true'
             insecure: Redirect
+        - "edutools.com":
+            tls-acme: 'true'
+            insecure: Redirect
+        - "edutools.org":
+            tls-acme: 'true'
+            insecure: Redirect
+        - "edutools.net":
+            tls-acme: 'true'
+            insecure: Redirect
+        - "www.edutools.com":
+            tls-acme: 'true'
+            insecure: Redirect
+        - "www.edutools.org":
+            tls-acme: 'true'
+            insecure: Redirect
+        - "www.edutools.net":
+            tls-acme: 'true'
+            insecure: Redirect

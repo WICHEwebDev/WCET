@@ -1,0 +1,21 @@
+uuid: e0577956-1f83-42a6-97a6-cb17be8d8958
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+id: contact_message.field_office_phone_number
+field_name: field_office_phone_number
+entity_type: contact_message
+type: string
+settings:
+  max_length: 30
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

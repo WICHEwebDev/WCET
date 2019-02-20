@@ -849,7 +849,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<p><strong>View the WCET <a href=\"/sites/default/files/2018-Calendar-UPDATED.pdf\">2018 Annual Calendar</a>.</strong></p>\n\n\n"
+            value: "\r\n\r\n\r\n"
             format: basic_html
           plugin_id: text
       fields:
@@ -1664,7 +1664,7 @@ display:
         weight: -47
         context: '0'
         menu_name: main
-        enabled: true
+        enabled: false
         expanded: false
       title: 'SAN Events'
       header:
@@ -1692,7 +1692,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<hr />\n<p>&nbsp;</p>\n<h2>Upcoming Webcasts</h2>\n<p>There are no upcoming SAN webcasts at this time.</p>\n\n\n<h2>Past Events</h2>\n\n<h3>Past Live Events</h3>\n\n<ul>\n<li><a href=\"/events/SAN-Advanced-Topics-2017\">SAN Advanced Topics Workshop - Boulder, CO, 2017</a></li>\n<li><a href=\"/events/SAN-conference-regulators-2016\">SAN Conference with Regulators - Lexington, KY, 2017</a></li>\n<li><a href=\"/events/SAN-workshop/November-2016\">SAN Compliance Workshop - Cleveland, OH, 2016</a></li>\n<li><a href=\"/events/SAN-Advanced-Topics-2016\">SAN Advanced Topics Workshop - Boulder, CO, 2016</a></li>\n<li><a href=\"/events/SAN-workshop/march-2016\">SAN Compliance Workshop - Louisville, KY, 2016</a></li>\n\t<li><a href=\"/events/SAN-workshop/july-2015\">SAN Compliance Workshop - Denver, CO, 2015</a></li>\n\t<li><a href=\"/events/SAN-workshop/march-2015\">SAN Compliance Workshop - Atlanta, GA, 2015</a></li>\n<li><a href=\"/events/SAN-Collaborative-Conference-Regulators-2016\">SAN Collaborative Conference with Regulators - Austin, TX, 2016</a></lil>\n<li><a href=\"/events/SAN-rendezvous-with-regulators/2015\">SAN Rendezvous with Regulators - Savannah, GA, 2015</a></li>\n\t<li><a href=\"/events/SAN-workshop/2014\">SAN Rendezvous with Regulators - Little Rock, AK, 2014</a></li>\n\t<li><a href=\"/events/SAN-workshop/2013\">SAN Rendezvous with Regulators - Sacramento, CA, 2013</a></li>\n</ul>\n\n<h3>Archived Webcasts:</h3>\n\n<ul>\n<li><a href=\"/events/webcasts/SAN/Coordinating-Prof-Licensure-Board-Info\">Researching and Coordinating Professional Licensure Board Information</a> - February 14, 2017</li>\n<li><a href=\"/events/webcasts/SAN/Institutional-Interactions\">Institutional Interactions - Strategic Planning and Communication</a> - November 15, 2016</li>\n<li><a href=\"/events/webcasts/SAN/SAN-Exclusive-International-Compliance\">SAN EXCLUSIVE! International Compliance: Best Practices and Implementation</a> - October 18, 2016</li>\n<li><a href=\"/events/webcasts/SAN/Data-Collection\">Data Collection: Who, What, Where, Why</a> - September 20, 2016</li>\n<li><a href=\"/events/webcasts/SAN/SAN-Exclusive-Webcast-2016\">SAN EXCLUSIVE! Complaints, Notifications, Disclosures, and Disclaimers! Things we need to say!</a> - August 16, 2016</li>\n<li><a href=\"/events/webcasts/SAN/New-with-SARA-2016\">What is New with SARA (State Authorization Reciprocity Agreements)?</a> - July 19, 2016</li>\n<li><a href=\"/events/webcasts/SAN/New-with-State-Authorization\">What is New with State Authorization?</a> - June 21, 2016</li>\n</ul>\n\n\n\n<p>&nbsp;</p>\n"
+            value: ''
             format: basic_html
           plugin_id: text
       fields:
@@ -2206,7 +2206,7 @@ display:
         title: 'Past Events'
         description: ''
         parent: 'menu_link_content:f673a06f-bd7a-40a4-ad3a-583f432db8a4'
-        weight: -46
+        weight: -45
         context: '0'
         menu_name: main
         enabled: true

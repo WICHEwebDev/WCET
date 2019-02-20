@@ -1,0 +1,21 @@
+uuid: 4ef71c3f-d658-408f-a68c-bb74e1692334
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.sponsorship_form
+    - field.storage.contact_message.field_select_a_la_carte_options
+  module:
+    - options
+id: contact_message.sponsorship_form.field_select_a_la_carte_options
+field_name: field_select_a_la_carte_options
+entity_type: contact_message
+bundle: sponsorship_form
+label: 'Select any applicable À La Carte Options in addition to sponsorship level:'
+description: '***Use the "Shift" or "Control" keys on your keyboard to select multiple items.***'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_float

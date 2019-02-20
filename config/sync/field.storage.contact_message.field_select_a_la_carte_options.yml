@@ -1,0 +1,45 @@
+uuid: 130c0918-146f-43a8-a623-238a75ff0988
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_select_a_la_carte_options
+field_name: field_select_a_la_carte_options
+entity_type: contact_message
+type: list_float
+settings:
+  allowed_values:
+    -
+      value: !!float 0
+      label: 'WCET membership - up to $5,400'
+    -
+      value: !!float 1
+      label: 'Sponsorship of WCET annual meeting program app - $3,500'
+    -
+      value: !!float 2
+      label: 'Underwrite live streaming of specific annual meeting sessions - $1,000'
+    -
+      value: !!float 3
+      label: 'Reception sponsorship at the annual meeting or leadership summit - $3,500'
+    -
+      value: !!float 4
+      label: 'Listing on all marketing communications, event brochures, and web pages - $3,500'
+    -
+      value: !!float 5
+      label: 'Ad in annual meeting print program - $500 for full page ad'
+    -
+      value: !!float 6
+      label: 'Opportunity to co-develop content, i.e. blogs, webcasts, white papers - $1,500-5,000'
+    -
+      value: !!float 7
+      label: 'Conduct a focus group with WCET members - $5,000'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

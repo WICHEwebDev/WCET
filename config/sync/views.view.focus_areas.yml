@@ -275,14 +275,14 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 0
+            max_length: 161
             word_boundary: true
             ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
             strip_tags: false
-            trim: false
+            trim: true
             preserve_tags: ''
             html: false
           element_type: p
@@ -298,9 +298,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: text_summary_or_trimmed
+          type: text_trimmed
           settings:
-            trim_length: 145
+            trim_length: 161
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -559,7 +559,7 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 600
+            max_length: 1500
             word_boundary: true
             ellipsis: true
             more_link: false
@@ -582,8 +582,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: text_default
-          settings: {  }
+          type: text_summary_or_trimmed
+          settings:
+            trim_length: 1500
           group_column: value
           group_columns: {  }
           group_rows: true

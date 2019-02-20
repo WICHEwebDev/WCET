@@ -1,0 +1,21 @@
+uuid: bc8efff2-b546-4260-b5fe-b53fb57096d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    submit_text: 'Submit Form'
+    show_preview: true
+    disabled_form_message: 'This contact form has been disabled.'
+    maximum_submissions_user: 0
+    page_autoreply_format: plain_text
+id: sponsorship_form
+label: 'Sponsorship Form'
+recipients:
+  - mraymond@wiche.edu
+reply: ''
+weight: 0
+message: 'Thank you for your interest in becoming a WCET sponsor! We will be in touch soon.'
+redirect: /get-involved/sponsorship

@@ -1,0 +1,36 @@
+uuid: 9d557061-bc6c-4f22-8f6a-a6bf6c01f855
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_sponsor_invoice_level
+field_name: field_sponsor_invoice_level
+entity_type: contact_message
+type: list_float
+settings:
+  allowed_values:
+    -
+      value: !!float 0
+      label: Premier
+    -
+      value: !!float 1
+      label: Champion
+    -
+      value: !!float 2
+      label: Leader
+    -
+      value: !!float 3
+      label: Friend
+    -
+      value: !!float 4
+      label: Supporter
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

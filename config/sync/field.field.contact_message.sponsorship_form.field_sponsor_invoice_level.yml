@@ -1,0 +1,21 @@
+uuid: 6351af9f-e20f-4ad2-ae21-bd48b7243496
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.sponsorship_form
+    - field.storage.contact_message.field_sponsor_invoice_level
+  module:
+    - options
+id: contact_message.sponsorship_form.field_sponsor_invoice_level
+field_name: field_sponsor_invoice_level
+entity_type: contact_message
+bundle: sponsorship_form
+label: 'If you are ready to be invoiced for sponsorship, please select which level:'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_float

@@ -1,0 +1,19 @@
+uuid: 381bc01a-e8f2-4d8c-9f6c-54ff56c3be36
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.sponsorship_form
+    - field.storage.contact_message.field_job_title
+id: contact_message.sponsorship_form.field_job_title
+field_name: field_job_title
+entity_type: contact_message
+bundle: sponsorship_form
+label: 'Your Job Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

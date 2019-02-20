@@ -1,0 +1,19 @@
+uuid: 372d34fc-6a12-4ec6-b90c-2c6289aa7c7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.sponsorship_form
+    - field.storage.contact_message.field_office_phone_number
+id: contact_message.sponsorship_form.field_office_phone_number
+field_name: field_office_phone_number
+entity_type: contact_message
+bundle: sponsorship_form
+label: 'Your Institutional/Organizational Phone Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

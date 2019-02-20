@@ -1,0 +1,121 @@
+uuid: c8fe682f-815e-4d77-a577-72e4cfbf050d
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.sponsorship_form
+    - field.field.contact_message.sponsorship_form.field_email_address
+    - field.field.contact_message.sponsorship_form.field_full_mailing_address
+    - field.field.contact_message.sponsorship_form.field_full_name
+    - field.field.contact_message.sponsorship_form.field_inst_org
+    - field.field.contact_message.sponsorship_form.field_job_title
+    - field.field.contact_message.sponsorship_form.field_looking_for_more_info
+    - field.field.contact_message.sponsorship_form.field_office_phone_number
+    - field.field.contact_message.sponsorship_form.field_select_a_la_carte_options
+    - field.field.contact_message.sponsorship_form.field_sponsor_invoice_level
+  module:
+    - options
+id: contact_message.sponsorship_form.default
+targetEntityType: contact_message
+bundle: sponsorship_form
+mode: default
+content:
+  field_email_address:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_full_mailing_address:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_full_name:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_inst_org:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_job_title:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_looking_for_more_info:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_office_phone_number:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_select_a_la_carte_options:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_sponsor_invoice_level:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  mail:
+    weight: -2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  message:
+    type: basic_string
+    weight: 0
+    label: above
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    weight: -3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  subject:
+    weight: -1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden: {  }

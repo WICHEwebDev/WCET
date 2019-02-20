@@ -1,0 +1,19 @@
+uuid: 68d4177b-2429-4946-91d2-fe7774c38e91
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.sponsorship_form
+    - field.storage.contact_message.field_inst_org
+id: contact_message.sponsorship_form.field_inst_org
+field_name: field_inst_org
+entity_type: contact_message
+bundle: sponsorship_form
+label: 'Your Institution/Organization Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

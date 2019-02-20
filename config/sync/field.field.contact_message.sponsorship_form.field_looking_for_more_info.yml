@@ -1,0 +1,21 @@
+uuid: 13fee30f-e420-431d-80a7-36caf20067b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.sponsorship_form
+    - field.storage.contact_message.field_looking_for_more_info
+  module:
+    - options
+id: contact_message.sponsorship_form.field_looking_for_more_info
+field_name: field_looking_for_more_info
+entity_type: contact_message
+bundle: sponsorship_form
+label: 'Are you looking for more information and would like to schedule a call with the Director of Programs and Sponsorship?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_float

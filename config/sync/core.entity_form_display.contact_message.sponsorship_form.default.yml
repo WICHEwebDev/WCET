@@ -1,0 +1,90 @@
+uuid: 8b65be8e-903f-4ef4-8bc3-3c68ba1f4ae0
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.sponsorship_form
+    - field.field.contact_message.sponsorship_form.field_email_address
+    - field.field.contact_message.sponsorship_form.field_full_mailing_address
+    - field.field.contact_message.sponsorship_form.field_full_name
+    - field.field.contact_message.sponsorship_form.field_inst_org
+    - field.field.contact_message.sponsorship_form.field_job_title
+    - field.field.contact_message.sponsorship_form.field_looking_for_more_info
+    - field.field.contact_message.sponsorship_form.field_office_phone_number
+    - field.field.contact_message.sponsorship_form.field_select_a_la_carte_options
+    - field.field.contact_message.sponsorship_form.field_sponsor_invoice_level
+id: contact_message.sponsorship_form.default
+targetEntityType: contact_message
+bundle: sponsorship_form
+mode: default
+content:
+  field_email_address:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_full_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inst_org:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_job_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_looking_for_more_info:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_office_phone_number:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_select_a_la_carte_options:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_sponsor_invoice_level:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  preview:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  copy: true
+  field_full_mailing_address: true
+  mail: true
+  message: true
+  name: true
+  subject: true

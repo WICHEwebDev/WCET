@@ -12,7 +12,7 @@ field_name: field_email_lists
 entity_type: contact_message
 bundle: subscribe
 label: 'Email Lists'
-description: 'Which email list(s) would you like to subscribe to?'
+description: '<p>Which email list(s) would you like to subscribe to? These email lists are sent from our new wcetMIX platform. <a href="https://wcet.wiche.edu/wcet-mix">Learn more about accessing our wcetMIX communities.</a></p>'
 required: true
 translatable: false
 default_value: {  }

@@ -21,6 +21,7 @@ settings:
   label_display: '0'
   level: 1
   depth: 1
+  expand_all_items: false
   cache:
     max_age: -1
 visibility: {  }

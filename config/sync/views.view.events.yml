@@ -1345,7 +1345,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<h2>Save the Dates for Future Events:</h2>\r\n<p><strong>Annual Meeting</strong></p>\r\n<ul>\r\n<li>2020: Indianapolis, October 13-15</li>\r\n<li>2021: Denver, November 2-4</li>\r\n</ul>\r\n\r\n\r\n\r\n"
+            value: "<h2>Save the Dates for Future Events:</h2>\r\n<p><strong>Annual Meeting</strong></p>\r\n<ul>\r\n<li>2020: Indianapolis, October 13-15</li>\r\n<li>2021: Denver, November 2-4</li>\r\n</ul>\r\n\r\n<hr />\r\n\r\n<h2>Past Events</h2>\r\n\r\n<p>View our archived events on our <a href=\"https://wcet.wiche.edu/events/archive\">Past Events landing page</a>, or look specifically at our <a href=\"https://wcet.wiche.edu/events/summits\">Summit landing page</a>, our <a href=\"https://wcet.wiche.edu/events/annual-meeting\">Annual Meeting landing page</a>, or our <a href=\"https://wcet.wiche.edu/events/webcasts\">Webcast landing page</a>. Visit the <a href=\"https://wcetsan.wiche.edu/events\">SAN website</a> for past SAN events.</p>\r\n\r\n\r\n\r\n"
             format: basic_html
           plugin_id: text
     cache_metadata:
@@ -1504,7 +1504,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<p>The WCET Leadership Summits are designed to bring together educational leaders and practitioners from forward-thinking institutions and enterprises that are actively pursuing answers to the big questions in higher education.</p>\n\n<p>The 2019 Summit will be held June 4-5 in Newport Beach, CA. <a href=\"mailto:wcetinfo@wiche.edu\">Join the interest list</a> to learn more as information becomes available.</p>\n\n\n\n"
+            value: "<p>The WCET Leadership Summits are designed to bring together educational leaders and practitioners from forward-thinking institutions and enterprises that are actively pursuing answers to the big questions in higher education.</p>\r\n\r\n\r\n\r\n\r\n\r\n"
             format: basic_html
           plugin_id: text
       footer:
@@ -1518,7 +1518,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<h2>Past Summits</h2>\n\n<p><img alt=\"Summit logo\" data-align=\"right\" data-entity-type=\"file\" data-entity-uuid=\"7116ec6e-5f23-44e7-a259-147ed1962a8f\" src=\"/sites/default/files/inline-images/WCET-summit-logo.jpg\" /></p>\n\n<p><a href=\"/events/summits/ensuring-ethical-equitable-access-digital-learning\">Ensuring Ethical and Equitable Access in Digital Learning</a><br />\nNewport Beach, CA | June 5-6, 2018</p>\n\n<p><a href=\"/events/summits/building-capacity-leading-innovation-2017\">Essential Institutional Capacities to Lead Innovation</a><br />\nSalt Lake City, UT | June 14-15, 2017</p>\n\n<p><a href=\"/events/summits/21st-century-credentials-2016\">21st Century Credentials: Learners + Institutions + Workforce</a><br />\nSalt Lake City, UT | June 8-9, 2016</p>\n\n<p><a href=\"/events/summits/adaptive-learning-2015\">Adaptive Learning in Higher Ed: Improving Outcomes Dynamically </a><br />\nSanta Fe, NM | June 10-11, 2015</p>\n\n<p><a href=\"/events/summits/alternative-credentials-2014\">Designing Alternative Pathways to Credentials</a><br />\nSalt Lake City, UT | May 7-8, 2014</p>\n\n<p><a href=\"/events/summits/data-summit-2013\">Under the Sword of Data</a><br />\nSalt Lake City, UT | June 12-13, 2013</p>\n\n<p><a href=\"/events/summits/digital-content-summit\">Digital Learning Content</a><br />\nSalt Lake City, UT | May 9-10, 2012</p>\n\n"
+            value: "<h2>Past Summits</h2>\r\n\r\n<p><img alt=\"Summit logo\" data-align=\"right\" data-entity-type=\"file\" data-entity-uuid=\"7116ec6e-5f23-44e7-a259-147ed1962a8f\" src=\"/sites/default/files/inline-images/WCET-summit-logo.jpg\" /></p>\r\n\r\n<p><a href=\"https://wcet.wiche.edu/events/summits/workforce-partnerships-that-work-2019\">Workforce Partnerships that Work: Creating Public-Private Partnerships that Serve Students, Institutions, Employers, and Communities</a><br />\r\nNewport Beach, CA | June 4-5, 2019</p>\r\n\r\n<p><a href=\"/events/summits/ensuring-ethical-equitable-access-digital-learning\">Ensuring Ethical and Equitable Access in Digital Learning</a><br />\r\nNewport Beach, CA | June 5-6, 2018</p>\r\n\r\n<p><a href=\"/events/summits/building-capacity-leading-innovation-2017\">Essential Institutional Capacities to Lead Innovation</a><br />\r\nSalt Lake City, UT | June 14-15, 2017</p>\r\n\r\n<p><a href=\"/events/summits/21st-century-credentials-2016\">21st Century Credentials: Learners + Institutions + Workforce</a><br />\r\nSalt Lake City, UT | June 8-9, 2016</p>\r\n\r\n<p><a href=\"/events/summits/adaptive-learning-2015\">Adaptive Learning in Higher Ed: Improving Outcomes Dynamically </a><br />\r\nSanta Fe, NM | June 10-11, 2015</p>\r\n\r\n<p><a href=\"/events/summits/alternative-credentials-2014\">Designing Alternative Pathways to Credentials</a><br />\r\nSalt Lake City, UT | May 7-8, 2014</p>\r\n\r\n<p><a href=\"/events/summits/data-summit-2013\">Under the Sword of Data</a><br />\r\nSalt Lake City, UT | June 12-13, 2013</p>\r\n\r\n<p><a href=\"/events/summits/digital-content-summit\">Digital Learning Content</a><br />\r\nSalt Lake City, UT | May 9-10, 2012</p>\r\n\r\n"
             format: basic_html
           plugin_id: text
     cache_metadata:

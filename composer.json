@@ -20,7 +20,7 @@
     "drupal/contact_storage": "1.0-beta10",
     "drupal/csv_serialization": "^1.2",
     "drupal/devel": "^2.0",
-    "drupal/inline_entity_form": "1.0-rc1",
+    "drupal/inline_entity_form": "1.0-rc2",
     "drupal/metatag": "^1.7",
     "drupal/migrate_plus": "1.0-beta1+4-dev",
     "drupal/migrate_source_csv": "1.x-dev",

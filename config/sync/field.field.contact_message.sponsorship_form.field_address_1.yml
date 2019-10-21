@@ -1,0 +1,19 @@
+uuid: 686dd75e-8b23-4734-9965-d1821b34b05d
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.sponsorship_form
+    - field.storage.contact_message.field_address_1
+id: contact_message.sponsorship_form.field_address_1
+field_name: field_address_1
+entity_type: contact_message
+bundle: sponsorship_form
+label: 'Address 1'
+description: 'Please provide the address for your institution/organization.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

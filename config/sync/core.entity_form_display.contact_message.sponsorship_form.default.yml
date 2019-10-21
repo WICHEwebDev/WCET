@@ -4,6 +4,10 @@ status: true
 dependencies:
   config:
     - contact.form.sponsorship_form
+    - field.field.contact_message.sponsorship_form.field_address_1
+    - field.field.contact_message.sponsorship_form.field_address_2
+    - field.field.contact_message.sponsorship_form.field_city_town
+    - field.field.contact_message.sponsorship_form.field_country
     - field.field.contact_message.sponsorship_form.field_email_address
     - field.field.contact_message.sponsorship_form.field_full_mailing_address
     - field.field.contact_message.sponsorship_form.field_full_name
@@ -13,11 +17,46 @@ dependencies:
     - field.field.contact_message.sponsorship_form.field_office_phone_number
     - field.field.contact_message.sponsorship_form.field_select_a_la_carte_options
     - field.field.contact_message.sponsorship_form.field_sponsor_invoice_level
+    - field.field.contact_message.sponsorship_form.field_state_province
+    - field.field.contact_message.sponsorship_form.field_website
+    - field.field.contact_message.sponsorship_form.field_zip_postal_code
 id: contact_message.sponsorship_form.default
 targetEntityType: contact_message
 bundle: sponsorship_form
 mode: default
 content:
+  field_address_1:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_address_2:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_city_town:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_country:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_email_address:
     weight: 3
     settings:
@@ -51,7 +90,7 @@ content:
     type: string_textfield
     region: content
   field_looking_for_more_info:
-    weight: 5
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -65,19 +104,43 @@ content:
     type: string_textfield
     region: content
   field_select_a_la_carte_options:
-    weight: 7
+    weight: 14
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_sponsor_invoice_level:
-    weight: 6
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
-  preview:
+  field_state_province:
     weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_website:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_zip_postal_code:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  preview:
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }

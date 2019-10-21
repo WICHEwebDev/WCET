@@ -1,0 +1,31 @@
+uuid: e7d51e49-9397-49be-ab1f-562f7147f99b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:90659f64-a0d9-4ce8-9a5a-fa4fccd2de5d'
+  module:
+    - block_content
+    - system
+  theme:
+    - front
+id: subscribetoemaillists
+theme: front
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:90659f64-a0d9-4ce8-9a5a-fa4fccd2de5d'
+settings:
+  id: 'block_content:90659f64-a0d9-4ce8-9a5a-fa4fccd2de5d'
+  label: 'Subscribe to Member Email Lists'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /contact/subscribe
+    negate: false
+    context_mapping: {  }

@@ -6,8 +6,8 @@ deploy_tasks:
       - cd docroot; rm -rf vendor
       - composer install
     after_deploy:
-      - cd docroot; drush cim -y
       - cd docroot; drush -y updb --cache-clear=0
+      - cd docroot; drush cim -y
       - cd docroot; drush -y cr all
   production:
     before_deploy:

@@ -17,6 +17,7 @@ settings:
   label: Search
   provider: search
   label_display: '0'
+  page_id: ''
   cache:
     max_age: -1
 visibility: {  }

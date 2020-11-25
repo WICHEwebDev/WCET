@@ -26,6 +26,9 @@ settings:
     -
       value: !!float 4
       label: Supporter
+    -
+      value: !!float 5
+      label: 'N/A - Need more time to decide'
   allowed_values_function: ''
 module: options
 locked: false
